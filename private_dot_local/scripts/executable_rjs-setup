@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+PRES_DIR=$1
+
+[[ -d "$PRES_DIR" ]] || mkdir "$PRES_DIR"
+[[ -d "$PRES_DIR"/reveal.js ]] || git clone -b 3.9.2 --depth 1 https://github.com/hakimel/reveal.js.git "$PRES_DIR"/reveal.js

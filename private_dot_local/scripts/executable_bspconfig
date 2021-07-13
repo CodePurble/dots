@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+unlink $HOME/.config/bspwm/bspwmrc
+
+case $1 in
+    "multi")
+        ln -s $HOME/.config/bspwm/bspwmrc.multi $HOME/.config/bspwm/bspwmrc
+        ;;
+    "single")
+        ln -s $HOME/.config/bspwm/bspwmrc.single $HOME/.config/bspwm/bspwmrc
+        ;;
+esac
+

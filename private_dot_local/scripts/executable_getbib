@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Ref:
+# https://github.com/RishabhRD/archrice/blob/master/.local/bin/scripts/getbib
+# https://search.crossref.org/
+
+print_help()
+{
+cat << EOF
+Give DOI as an argument
+
+Example usage: getbib <doi> >> foo.bib
+EOF
+}
+
+[ -z "$1" ] && print_help && exit
+
+DOI="$1"
+
+echo
+curl -s "http://api.crossref.org/works/$DOI/transform/application/x-bibtex" \
+    -w  "\\n"

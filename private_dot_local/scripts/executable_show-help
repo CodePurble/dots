@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -dmenu -i -no-show-icons -theme $HOME/.config/bspwm/material-ocean.rasi"
+
+cat ~/.config/sxhkd/sxhkdrc | \
+    awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | \
+    column -t -s $'\t' | \
+    $rofi_command

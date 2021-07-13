@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+hc() {
+    herbstclient $@
+}
+
+notify() {
+    tagName="$(hc tag_status | awk 'match($0, /(#[A-Z])\w+/) {print substr($0, RSTART, RLENGTH)}')"
+    notify-send -u low -t 1000 "Tag: ${tagName:1}"
+}
+
+next_tag() {
+    hc use_index +1 --skip-visible
+    notify
+}
+
+prev_tag() {
+    hc use_index -1 --skip-visible
+    notify
+}
+
+tag_index() {
+    hc use_index $1
+    notify
+}
+
+use_prev() {
+    hc use_previous
+    notify
+}
+
+use_urgent() {
+    hc jumpto urgent
+    notify
+}
+
+$@; exit

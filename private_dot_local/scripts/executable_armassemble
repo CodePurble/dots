@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+function printHelp()
+{
+    echo "Usage: armassemble [ASSEMBLY FILE]"
+    exit 1
+}
+
+[[ $# != 1 ]] && printHelp
+
+file=$(readlink -f "$1")
+dir=$(dirname "$file")
+base="${file%.*}"
+obj="$base.o"
+elf="$base.elf"
+bin="$base.bin"
+
+cd "$dir" || exit
+
+[[ $file =~ .*\.[sS] ]] && arm-none-eabi-as -mcpu=cortex-m3 -mthumb-interwork -gwarf2 -o "$obj" "$file" || echo "Input must be *.s or *.S file"
+[ -f "$obj" ] && arm-none-eabi-ld -Ttext=0x0 -Tdata=0x20000000 -o "$elf" "$obj"

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Ref- Luke Smith's voidrice scripts
+# Requires xdotool and xclip
+
+savepath=$HOME/Pictures/screenshots/screenshot-"$(date +%s).png"
+normalmsg="Saved at $savepath"
+copymsg="Copied to clipboard"
+
+if [ ! -d $HOME/Pictures/screenshots ]; then
+    mkdir -p $HOME/Pictures/screenshots
+fi
+
+rofi_command="rofi -theme $HOME/.dotfiles/rofi-themes/powermenu.rasi"
+notify_command="notify-send -t 600 "Screenshot""
+
+full="Grab whole screen"
+select="Select an area to grab"
+active="Grab active window"
+fullcopy="Grab whole screen (copy)"
+selectcopy="Select an area to grab (copy)"
+activecopy="Grab active window (copy)"
+
+options="$selectcopy\n$fullcopy\n$activecopy\n$select\n$full\n$active"
+
+chosen="$(echo -e "$options" | $rofi_command -p "Take a screenshot" -dmenu)"
+
+case $chosen in
+    $full)
+        maim -d 0.15 "$savepath" && $notify_command "$normalmsg"
+        ;;
+    $select)
+        maim -d 0.15 -s -l -c '0.24,0.36,0.36,0.9' "$savepath" && $notify_command "$normalmsg"
+        ;;
+    $active)
+        maim -d 0.15 -i $(xdotool getactivewindow) "$savepath" && $notify_command "$normalmsg"
+        ;;
+    $fullcopy)
+        maim -d 0.15 | xclip -selection clipboard -t image/png && $notify_command "$copymsg"
+        ;;
+    $selectcopy)
+        maim -d 0.15 -s -l -c '0.24,0.36,0.36,0.9' | xclip -selection clipboard -t image/png && $notify_command "$copymsg"
+        ;;
+    $activecopy)
+        maim -d 0.15 -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && $notify_command "$copymsg"
+        ;;
+esac

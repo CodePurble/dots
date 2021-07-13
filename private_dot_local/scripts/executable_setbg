@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+function printHelp()
+{
+cat << EOF
+Usage: ${0##*/} [-h] [IMAGE1] [IMAGE2]
+
+-h             Show this help and exit
+
+If no args are given, randomly sets a different wallpaper on each screen
+If only IMAGE1 is given, sets it as wallpaper (on all screens)
+IMAGE2 is set on the second screen if provided (ignored if only one screen is detected)
+EOF
+}
+
+while getopts ":h" option; do
+    case $option in
+        h) printHelp; exit 0;;
+        \?)
+            echo "Invalid option"
+            printHelp
+            exit 1
+            ;;
+    esac
+done
+
+feh_command="feh --no-fehbg --bg-scale"
+
+case "$#" in
+    0) $feh_command -rz $DOTS/wallpapers 2> /dev/null;;
+    1) $feh_command $1 2> /dev/null;;
+    2) $feh_command $1 $2 2> /dev/null;;
+    *) printHelp; exit 1;;
+esac

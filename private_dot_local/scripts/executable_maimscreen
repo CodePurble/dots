@@ -1,0 +1,9 @@
+#!/bin/bash
+
+savepath=$HOME/Pictures/screenshots/screenshot-"$(date +%s).png"
+
+if [ ! -d $HOME/Pictures/screenshots ]; then
+    mkdir -p $HOME/Pictures/screenshots
+fi
+
+maim "$savepath" && notify-send -t 600 "Screenshot" "Saved at $savepath"

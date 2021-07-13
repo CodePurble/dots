@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+PID_FILE=/tmp/optimus-tray-pid.txt
+
+# kill -9 $(ps -aux | grep "[o]ptimus-indicator.*\.py" | awk '{print $2}') || true
+kill -9 $(cat $PID_FILE) || true
+
+mode=$(optimus-manager --print-mode | awk '{print $5}')
+
+if [[ $mode == "integrated" ]]; then
+    optimus-indicator-intel.py &
+elif [[ $mode == "nvidia" ]]; then
+    optimus-indicator-nvidia.py &
+else
+    echo "Unknown mode:$mode"
+    exit 1
+fi
+
+# Put pid of most recent child into a file to be used later
+echo $! > $PID_FILE

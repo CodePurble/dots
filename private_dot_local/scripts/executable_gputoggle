@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -theme $HOME/.dotfiles/rofi-themes/powermenu.rasi"
+options="no\nyes"
+
+current="$(optimus-manager --print-mode | awk '{print $5}')"
+
+if [[ "$current" == "integrated" ]]; then
+    chosen="$(echo -e "$options" | $rofi_command -i -p "Switch to nvidia graphics?" -dmenu)"
+    if [[ "$chosen" == "yes" ]]; then
+        if optimus-manager --no-confirm --switch nvidia; then
+            # No auto log-out for herbstluftwm
+            [[ "$MYWM" == "herbstluftwm" ]] && herbstclient quit
+        else
+            notify-send -u critical "GPU switch failed"
+        fi
+    fi
+else
+    chosen="$(echo -e "$options" | $rofi_command -i -p "Switch to integrated graphics?" -dmenu)"
+    if [[ "$chosen" == "yes" ]]; then
+        if optimus-manager --no-confirm --switch integrated; then
+            # No auto log-out for herbstluftwm
+            [[ "$MYWM" == "herbstluftwm" ]] && herbstclient quit
+        else
+            notify-send -u critical "GPU switch failed"
+        fi
+    fi
+fi

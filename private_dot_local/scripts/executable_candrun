@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# Originally by: Luke Smith @LukeSmithxyz
+# ref: https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/compiler
+#
+# This script will compile or run another finishing operation on a document. I
+# have this script run via vim.
+#
+# Compiles .md into PDF
+# Runs scripts based on extension or shebang
+
+file=$(readlink -f "$1") # /foo/bar/baz.bum
+dir=$(dirname "$file") # /foo/bar
+base="${file%.*}" # /foo/bar/baz
+name="${base##*/}" # baz
+
+cd "$dir" || exit
+
+textype()
+{
+    command="xelatex -synctex=1"
+    builddir="build"
+    [ -d "$builddir" ] || mkdir "$builddir"
+    if grep -qiE "\\usepackage.*\{minted\}|\\end\{minted\}|\\mintinline" "$file"; then
+        command+=" -shell-escape"
+    fi
+    if grep -qi addbibresource "$file"; then
+        $command --output-directory="$builddir" "$base" \
+        && biber --output-directory="$builddir" "$name" \
+        && $command --output-directory="$builddir" "$base" \
+        && $command --output-directory="$builddir" "$base"
+    else
+        $command --output-directory="$builddir" "$base" \
+        && $command --output-directory="$builddir" "$base"
+    fi
+}
+
+case "$file" in
+    *.s) armassemble "$file";;
+    *.marp.md) marp --pdf "$file";;
+    *.pres.md) pandoc --from markdown -t beamer "$file" -o "$base".pdf --pdf-engine xelatex --citeproc ;;
+    *.md) pandoc --from markdown "$file" -o "$base".pdf --pdf-engine xelatex --filter=pandoc-crossref --citeproc ;;
+    *.tex) textype ;;
+    *.c) gcc -g -lm -Wall "$file" -o "$base" && "$base" ;;
+    *.cc) g++ -g -lm -Wall "$file" -o "$base" && "$base" ;;
+    *.rs) rustc "$file" -o "$base" && "$base" ;;
+    *.v) iverilog -g2012 -Wall -o "$base" "$file" && vvp "$base" ;;
+    # *.v) iverilog -Wall -y"../hdl" -o "$base.out" "$file" && vvp "$base.out" ;;
+    # *.v) iverilog -Wall -y"../hdl" -o "$base.out" "$file" && vvp "$base.out" && gtkwave "$base.vcd" ;;
+    *.py) python "$file" ;;
+    *.m) octave "$file" ;;
+    Doxyfile) doxygen "$file" ;;
+    *.ino)
+        arduino-cli compile --fqbn arduino:avr:uno . && \
+        arduino-cli upload -v -p /dev/ttyACM0 --fqbn arduino:avr:uno .
+        ;;
+    *) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
+esac

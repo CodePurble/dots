@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo $(xinput --list | grep "AT Translated Set 2 keyboard" | cut -d= -f2 | cut -f1)

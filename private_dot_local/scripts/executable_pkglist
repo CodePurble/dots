@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/usr/bin/pacman -Qqen > /home/ramprakash/.dotfiles/pkgLists/packages.txt
+/usr/bin/pacman -Qqem > /home/ramprakash/.dotfiles/pkgLists/foreign-packages.txt

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ -f CMakeLists.txt ]; then
+    make -C build
+else
+    make
+fi
+
