@@ -10,7 +10,8 @@ sudo pacman -S --needed --noconfirm \
     herbstluftwm \
     calcurse rofi \
     xorg xorg-xinit lxsession \
-    intel-ucode nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
+    xf86-video-intel intel-ucode \
+    nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
     arduino-cli github-cli \
 
 [ -d $HOME/Pictures ] || mkdir $HOME/Pictures
