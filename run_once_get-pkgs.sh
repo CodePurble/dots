@@ -3,13 +3,13 @@
 sudo pacman -S --needed --noconfirm \
     base-devel git git-delta ninja cmake meson exa bat \
     alacritty neovim python-pynvim \
+    feh sxiv zathura maim xclip \
     networkmanager network-manager-applet \
     xfce4-power-manager \
     ranger pcmanfm gvfs gvfs-mtp \
     herbstluftwm \
     calcurse rofi \
     xorg xorg-xinit lxsession \
-    feh sxiv zathura \
     intel-ucode nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
     arduino-cli github-cli \
 
