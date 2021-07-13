@@ -1,0 +1,54 @@
+[user]
+	name = Ramprakash Chandrashekar
+	email = 49452779+CodePurble@users.noreply.github.com
+	signingkey = 871811F95C325E8C162771C4773ABC0C7A087761
+
+[core]
+	pager = delta
+	excludesfile = ~/.gitignore_global
+
+[alias]
+	chore = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"chore: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"chore(${2}): ${@:3}\"; else git commit -m \"chore: ${@}\"; fi }; f"
+	docs = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"docs: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"docs(${2}): ${@:3}\"; else git commit -m \"docs: ${@}\"; fi }; f"
+	feat = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"feat: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"feat(${2}): ${@:3}\"; else git commit -m \"feat: ${@}\"; fi }; f"
+	fix = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"fix: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"fix(${2}): ${@:3}\"; else git commit -m \"fix: ${@}\"; fi }; f"
+	new = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"new: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"new(${2}): ${@:3}\"; else git commit -m \"new: ${@}\"; fi }; f"
+	refactor = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"refactor: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"refactor(${2}): ${@:3}\"; else git commit -m \"refactor: ${@}\"; fi }; f"
+	style = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"style: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"style(${2}): ${@:3}\"; else git commit -m \"style: ${@}\"; fi }; f"
+	test = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"test: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"test(${2}): ${@:3}\"; else git commit -m \"test: ${@}\"; fi }; f"
+	update = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"update: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"update(${2}): ${@:3}\"; else git commit -m \"update: ${@}\"; fi }; f"
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[pull]
+	rebase = false
+
+[diff]
+	colorMoved = default
+
+[delta]
+	features = decorations
+	line-numbers = true
+	plus-style = "#04B201" italic reverse
+	minus-style = "#CC0000" italic reverse
+	plus-emph-style = "#04B201" italic reverse
+	minus-emph-style = "#CC0000" italic reverse
+	plus-non-emph-style = "#ffffff" italic dim
+	minus-non-emph-style = "#ffffff" italic dim
+	line-numbers-plus-style = "#04B201"
+	line-numbers-minus-style = "#CC0000"
+	zero-style = 'dim'
+	syntax-theme = Solarized (dark)
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+
+[interactive]
+	diffFilter = delta --color-only
+[maintenance]
+	repo = /home/ramprakash/repos/sap
+[status]
+	submoduleSummary = true
+[init]
+	defaultBranch = master
