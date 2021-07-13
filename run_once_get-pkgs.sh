@@ -22,11 +22,11 @@ fi
 GIT_DIR="$HOME/Downloads/git"
 [ -d "$GIT_DIR" ] || mkdir -p "$GIT_DIR"
 
-if ! [ -d "$GIT_DIR/i3-volume" ]; then
+if ! which volume; then
     git clone git@github.com:CodePurble/i3-volume.git "$GIT_DIR"/i3-volume
 fi
 
-if ! [ -d "$GIT_DIR/picom" ]; then
+if ! which picom; then
     git clone https://github.com/yshui/picom.git "$GIT_DIR"/picom
     cd "$GIT_DIR"/picom \
         && meson --buildtype=release . build \
