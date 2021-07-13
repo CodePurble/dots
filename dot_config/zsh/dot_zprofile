@@ -23,7 +23,7 @@ export MYWM="herbstluftwm"
 # export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # My directories
-export DOTS="$HOME/.dotfiles"
+export DOTS="$HOME/.local/share/chezmoi"
 export SCRIPTS="$HOME/.local/scripts"
 export DOW="$HOME/Downloads"
 export REP="$HOME/repos"
