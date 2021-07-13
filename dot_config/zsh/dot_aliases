@@ -1,0 +1,125 @@
+#!/usr/bin/env zsh
+
+alias r='ranger'
+alias p='pacman'
+alias sp='sudo pacman'
+alias pdf='zathura'
+alias dave='dosbox $HOME/dosGames/gameedge/DDAVE/DAVE.EXE'
+alias dnd='dragon-drag-and-drop'
+alias sx='startx'
+alias nsx='sudo /usr/bin/prime-switch && startx'
+
+alias al='$EDITOR $ZDOTDIR/.aliases'
+alias nv='$EDITOR $HOME/.config/nvim'
+alias nn='cd $HOME/.config/nvim'
+alias z='$EDITOR $ZDOTDIR/.zshrc'
+alias b='$EDITOR -p $DOTS/bspwm/bspwmrc.*'
+alias hl='$EDITOR $DOTS/herbstluftwm/autostart'
+
+alias dl='cd $DOW; ls'
+alias re='cd $REP; ls'
+alias ci='cd $NISB; ls'
+alias dt='cd $DOTS; ls'
+alias cs='cd $SEM; ls'
+alias rp='cd $HOME/rpdata; ls'
+alias c='cd $HOME/.config; ls'
+alias sc='cd $SCRIPTS; ls'
+alias zz='cd $ZDOTDIR; ls'
+alias bb='cd $DOTS/bspwm; ls'
+alias hh='cd $DOTS/herbstluftwm; ls'
+alias wl='cd $DOTS/wallpapers; ls'
+
+alias lz="cd $SEM/miniproject/libezw"
+alias mp="cd $SEM/iot/project/mpu6050-datalogger"
+
+# alias ls='ls --group-directories-first --color'
+# alias l='ls -lh --group-directories-first --color'
+# alias la='ls -lAh --group-directories-first --color'
+
+alias cp='cp -iv'
+alias rm='rm -Iv'
+alias mv='mv -iv'
+alias tree='tree -CA'
+alias ls='exa --group-directories-first --colour always'
+alias l='exa -l --group-directories-first --colour always'
+alias la='exa -la --group-directories-first --colour always'
+alias ip='ip -c'
+
+alias macchina="macchina -X \
+    Host \
+    Distribution \
+    Kernel \
+    WindowManager \
+    Packages \
+    Shell \
+    -t Boron --box-title '' \
+    --custom-ascii $DOTS/arch_minimal.ascii --custom-ascii-color blue"
+
+# alias starwars='telnet towel.blinkenlights.nl'
+alias coolboost='nbfc set -f 0 -s 100 && nbfc set -f 1 -s 100'
+alias normalfan='nbfc set -f 0 -a && nbfc set -f 1 -a'
+# alias aconf='cd $HOME/.config/awesome/'
+# alias vim='nvim'
+# alias nvim="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"
+
+alias upo='udisksctl power-off -b'
+
+alias grep='grep --color'
+
+alias ard='arduino-cli'
+
+alias gss='git status'
+alias gaa='git add .'
+alias gau='git add -u'
+alias gco='git checkout'
+alias gd='git diff'
+alias ga='git add'
+alias ggpg='git config commit.gpgsign true'
+
+alias cz='chezmoi'
+alias cedit='chezmoi edit'
+
+alias om='optimus-manager'
+alias des='docker run --rm -it -v $(pwd):/opt/Ramprakash_4NI18EC019 codepurble/docker-emsys-nie'
+alias sauth='eval $(ssh-agent) && ssh-add'
+
+function adoc()
+{
+    docker run --rm -v $(pwd):/documents/ asciidoctor/docker-asciidoctor asciidoctor $@
+}
+
+function adoc-pdf()
+{
+    docker run --rm -v $(pwd):/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf $@
+}
+
+function adoc-rjs()
+{
+    docker run --rm -v $(pwd):/documents/ asciidoctor/docker-asciidoctor asciidoctor-revealjs $@
+}
+
+function dtape()
+{
+    docker run --rm -v $(pwd):/slides/ astefanutti/decktape "$1" "$1".pdf
+}
+
+function mic-test()
+{
+    arecord -vvv -f dat /dev/null
+}
+
+function pgen()
+{
+    $REP/pico-project-generator/pico_project.py -t $REP/pico-project-generator/pico_configs.tsv $@
+}
+
+# Ref: https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
+function gh-latest-release() {
+    curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+        grep '"tag_name":' |                                            # Get tag line
+        sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
+function pdfmerge() {
+    gs -q -sPAPERSIZE=a4 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="$1" "$@"
+}

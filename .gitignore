@@ -1,0 +1,7 @@
+dot_config/zsh/.zcompdump
+**/__pycache__/
+*.py[cod]
+*$py.class
+dot_config/nvim/autoload
+dot_config/nvim/bundle
+dot_config/nvim/.netrwhist

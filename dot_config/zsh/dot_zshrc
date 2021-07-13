@@ -1,0 +1,102 @@
+#            _
+#    _______| |__  _ __ ___
+#   |_  / __| '_ \| '__/ __|
+#  _ / /\__ \ | | | | | (__
+# (_)___|___/_| |_|_|  \___|
+#
+
+# $HOME/.local/scripts/colourscript -r
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# ************************************************** #
+# NOTE                                               #
+# fpath edits MUST be made BEFORE compinit is called #
+# ************************************************** #
+fpath=( $ZDOTDIR/zfuncs "${fpath[@]}" )
+
+autoload -Uz compinit && compinit -i
+
+# set variables
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.cache/zsh_history
+LESSHISTSIZE=0
+
+# Auto/tab complete
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+_comp_options+=(globdots)       # Include hidden files.
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# vim mode config
+# ---------------
+# Activate vim mode.
+
+# Remove mode switching delay.
+bindkey -v
+export KEYTIMEOUT=1
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+    if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+        echo -ne '\e[1 q'
+    elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
+        echo -ne '\e[5 q'
+    fi
+}
+zle -N zle-keymap-select
+_fix_cursor() {
+    echo -ne '\e[5 q'
+}
+precmd_functions+=(_fix_cursor)
+
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^E' edit-command-line
+
+# Source files
+
+# VTE workarounds
+# Tilix
+# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#     source /etc/profile.d/vte.sh
+# fi
+
+# Termite
+# if [[ $TERM == xterm-termite ]]; then
+#     . /etc/profile.d/vte.sh
+#     __vte_osc7
+# fi
+
+# zsh completion for pip
+eval "$(pip completion --zsh)"
+
+# Enable reverse search
+bindkey '^R' history-incremental-search-backward
+
+# To customize prompt, run `p10k configure` or edit $ZDOTDIR/.p10k.zsh.
+[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+
+# Get my aliases
+[ -f $ZDOTDIR/.aliases ] && source $ZDOTDIR/.aliases
+
+# Scripts
+source $ZDOTDIR/scripts/python-venv-autoactivate.zsh
+source $ZDOTDIR/scripts/prmtcmd.zsh
+
+# Plugins
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# source $ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
