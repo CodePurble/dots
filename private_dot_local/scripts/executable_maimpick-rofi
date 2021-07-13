@@ -11,7 +11,7 @@ if [ ! -d $HOME/Pictures/screenshots ]; then
     mkdir -p $HOME/Pictures/screenshots
 fi
 
-rofi_command="rofi -theme $HOME/.dotfiles/rofi-themes/powermenu.rasi"
+rofi_command="rofi -theme $HOME/.config/rofi-themes/powermenu.rasi"
 notify_command="notify-send -t 600 "Screenshot""
 
 full="Grab whole screen"

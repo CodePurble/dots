@@ -27,7 +27,7 @@ done
 feh_command="feh --no-fehbg --bg-scale"
 
 case "$#" in
-    0) $feh_command -rz $DOTS/wallpapers 2> /dev/null;;
+    0) $feh_command -rz $HOME/Pictures/wallpapers 2> /dev/null;;
     1) $feh_command $1 2> /dev/null;;
     2) $feh_command $1 $2 2> /dev/null;;
     *) printHelp; exit 1;;

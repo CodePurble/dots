@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-rofi_command="rofi -theme $HOME/.dotfiles/rofi-themes/powermenu.rasi"
+rofi_command="rofi -theme $HOME/.config/rofi-themes/powermenu.rasi"
 options="no\nyes"
 
 current="$(optimus-manager --print-mode | awk '{print $5}')"

@@ -29,7 +29,7 @@ $HOME/.local/scripts/setbg 2> /dev/null
 $HOME/.config/herbstluftwm/launch-polybar.sh &
 
 # Cache image for betterlockscreen
-betterlockscreen -u $HOME/.dotfiles/wallpapers &
+betterlockscreen -u $HOME/Pictures/wallpapers &
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -60,8 +60,8 @@ hc keybind $Mod-b spawn $myBrowser
 hc keybind $Mod-n spawn $myTerminal -e ranger ~
 
 # Rofi
-hc keybind $Mod-space spawn rofi -modi drun -show drun -theme ~/.dotfiles/rofi-themes/dt-dmenu.rasi -terminal $myTerminal
-hc keybind $Mod-Shift-space spawn rofi -theme ~/.dotfiles/rofi-themes/dt-dmenu.rasi -terminal $myTerminal -modi window -show
+hc keybind $Mod-space spawn rofi -modi drun -show drun -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $myTerminal
+hc keybind $Mod-Shift-space spawn rofi -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $myTerminal -modi window -show
 
 hc keybind Control-Print spawn screenkey
 hc keybind Menu spawn $myScripts/powermenu

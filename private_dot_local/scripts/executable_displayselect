@@ -16,7 +16,7 @@
 # If the workspaces do not get assigned properly after running this script,
 # just manually reload bspwm
 
-rofi_command="rofi -theme $HOME/.dotfiles/rofi-themes/powermenu.rasi"
+rofi_command="rofi -theme $HOME/.config/rofi-themes/powermenu.rasi"
 
 setSingleMon() {
     echo $1
