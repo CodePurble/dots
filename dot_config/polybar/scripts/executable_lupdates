@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pamac-manager --updates
