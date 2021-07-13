@@ -1,0 +1,20 @@
+= My `asciidoctor` setup
+
+== Utilities
+
+:smile:
+
+* Install ruby
+* Install asciidoctor
+* Ruby-gems to install
+	** asciidoctor-latex
+	** asciidoctor-pdf
+	** asciidoctor-bibtex
+	** asciidoctor-mathematical
+	** rouge
+
+== Browser
+* https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia[Live preview Chrome extension]
+* https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei[Live reload Chrome extension]
+
+Remember to allow access to file URLs

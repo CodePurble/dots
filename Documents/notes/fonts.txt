@@ -1,0 +1,3 @@
+nerd-fonts-cascadia-code
+nerd-fonts-fantasque-sans-mono
+nerd-fonts-ubuntu-mono
