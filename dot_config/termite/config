@@ -1,0 +1,100 @@
+[options]
+allow_bold = true
+audible_bell = false
+bold_is_bright = true
+#cell_height_scale = 1.0
+#cell_width_scale = 1.0
+clickable_url = true
+dynamic_title = true
+font = Mononoki Nerd Font Mono Regular 15
+#fullscreen = true
+#icon_name = terminal
+mouse_autohide = true
+#scroll_on_output = false
+#scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = 10000
+#search_wrap = true
+#urgent_on_bell = true
+#hyperlinks = false
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+#browser = xdg-open
+
+# "system", "on" or "off"
+cursor_blink = off
+
+# "block", "underline" or "ibeam"
+#cursor_shape = block
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+#size_hints = false
+
+# "off", "left" or "right"
+scrollbar = off
+
+[colors]
+# RP-ZSH
+# Author: C. Ramprakash
+
+foreground          = #888A85
+foreground_bold     = #888A85
+background          = rgba(0, 22, 39, 0.75)
+
+# Black, Gray, Silver, White
+color0  = #1B2433
+color8  = #B0B6BA
+color7  = #B0B6BA
+color15 = #FFFFFF
+
+# Red
+color1  = #A82320
+color9  = #D4312E
+
+# Green
+color2  = #01C700
+color10 = #2D9440
+color14 = #00CC66
+
+# Orange
+color3  = #E58D11
+color11 = #E5BE0C
+
+# Blue
+color4  = #3C7DD2
+color12 = #3C7DD2
+
+# Purple
+color5  = #781AA0
+color13 = #8230A7
+
+# Teal
+color6  = #3167AC
+
+# Extra colors
+color16 = #F78C6C
+color17 = #FF5370
+color18 = #2E3C43
+color19 = #314549
+color20 = #B2CCD6
+color21 = #EEFFFF
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s
