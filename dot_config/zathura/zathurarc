@@ -1,0 +1,61 @@
+#               __  __
+#  ____  ____ _/ /_/ /_  __  ___________ ___________
+# /_  / / __ `/ __/ __ \/ / / / ___/ __ `/ ___/ ___/
+#  / /_/ /_/ / /_/ / / / /_/ / /  / /_/ / /  / /__
+# /___/\__,_/\__/_/ /_/\__,_/_/   \__,_/_/   \___/
+#
+
+set adjust-open "best-fit"
+set selection-clipboard clipboard
+set font "FantasqueSansMono Nerd Font Mono Regular 14"
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set scroll-page-aware "true"
+set window-title-home-tilde "true"
+set statusbar-home-tilde "true"
+set sandbox none
+set selection-notification "true"
+
+# Colours
+set recolor-lightcolor "#2e3440"
+set recolor-darkcolor "#d8dee9"
+
+set highlight-color "#88c0d0"
+set highlight-active-color "#5e81ac"
+
+set completion-highlight-bg "#4c566a"
+set completion-highlight-fg "#eceff4"
+
+set statusbar-bg "#3b4252"
+set statusbar-fg "#eceff4"
+
+set inputbar-fg "#eceff4"
+set inputbar-bg "#3b4252"
+
+set completion-bg "#3b4252"
+set completion-fg "#eceff4"
+
+set completion-group-bg "#3b4252"
+set completion-group-fg "#88c0d0"
+
+set recolor-lightcolor "#2e3440"
+set recolor-darkcolor "#d8dee9"
+
+set index-fg "#eceff4"
+set index-bg "#2e3440"
+set index-active-fg "#eceff4"
+set index-active-bg "#4c566a"
+
+set render-loading-bg "#2e3440"
+set render-loading-fg "#eceff4"
+
+set notification-bg "#2e3440"
+set notification-fg "#eceff4"
+set notification-error-bg "#2e3440"
+set notification-error-fg "#bf616a"
+set notification-warning-bg "#2e3440"
+set notification-warning-fg "#ebcb8b"
+
+# Key Mappings
+map i recolor
+map p print
