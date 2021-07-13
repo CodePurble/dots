@@ -1,0 +1,12 @@
+= Document Title
+:author: Ramprakash Chandrashekar
+:mathematical-format: svg
+:stem: latexmath
+:reproducible:
+:listing-caption: Listing
+:source-highlighter: rouge
+:toc:
+// Uncomment next line to add a title page (or set doctype to book)
+// :title-page:
+// Uncomment next line to set page size (default is A4)
+:pdf-page-size: A4
