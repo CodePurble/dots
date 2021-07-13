@@ -1,8 +1,37 @@
 #!/usr/bin/env bash
 
+sudo pacman -S --needed --noconfirm \
+    base-devel git git-delta ninja cmake meson exa bat \
+    alacritty neovim python-pynvim \
+    networkmanager network-manager-applet \
+    xfce4-power-manager \
+    ranger pcmanfm gvfs gvfs-mtp \
+    herbstluftwm \
+    calcurse rofi \
+    xorg xorg-xinit lxsession \
+    feh sxiv zathura \
+    intel-ucode nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
+    arduino-cli github-cli \
+
+[ -d $HOME/Pictures ] || mkdir $HOME/Pictures
+if ! [ -d "$HOME/Pictures/wallpapers" ]; then
+    git clone git@github.com:CodePurble/wallpapers.git $HOME/Pictures/wallpapers # private sorry :P
+fi
+
 GIT_DIR="$HOME/Downloads/git"
 [ -d "$GIT_DIR" ] || mkdir -p "$GIT_DIR"
-git clone git@github.com:CodePurble/i3-volume.git "$GIT_DIR"/i3-volume
+
+if ! [ -d "$GIT_DIR/i3-volume" ]; then
+    git clone git@github.com:CodePurble/i3-volume.git "$GIT_DIR"/i3-volume
+fi
+
+if ! [ -d "$GIT_DIR/picom" ]; then
+    git clone https://github.com/yshui/picom.git "$GIT_DIR"/picom
+    cd "$GIT_DIR"/picom \
+        && meson --buildtype=release . build \
+        && ninja -C build \
+        && sudo ninja -C build install
+fi
 
 paru_cmd() {
     paru -S --noconfirm --needed \
@@ -17,23 +46,13 @@ paru_cmd() {
         tdrop-git betterlockscreen-git\
 }
 
-sudo pacman -S --needed --noconfirm \
-    base-devel git git-delta cmake exa bat \
-    alacritty neovim python-pynvim \
-    ranger pcmanfm gvfs gvfs-mtp \
-    herbstluftwm \
-    calcurse rofi \
-    xorg xorg-xinit \
-    feh sxiv zathura \
-    intel-ucode nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
-    arduino-cli github-cli \
-
 if ! which paru > /dev/null; then
-    git clone https://aur.archlinux.org/paru.git "$GIT_DIR"/paru
-    cd "$GIT_DIR"/paru
-    makepkg -si
+    if ! [-d "$GIT_DIR/paru"]; then
+        git clone https://aur.archlinux.org/paru.git "$GIT_DIR"/paru
+        cd "$GIT_DIR"/paru
+        makepkg -si
+    fi
 fi
 
 paru_cmd
-
 
