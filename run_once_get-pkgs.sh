@@ -12,7 +12,7 @@ sudo pacman -S --needed --noconfirm \
     xorg xorg-xinit lxsession \
     xf86-video-intel intel-ucode \
     nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
-    arduino-cli github-cli \
+    arduino-cli github-cli
 
 [ -d $HOME/Pictures ] || mkdir $HOME/Pictures
 if ! [ -d "$HOME/Pictures/wallpapers" ]; then
@@ -44,7 +44,7 @@ paru_cmd() {
         nerd-fonts-ubuntu-mono \
         zsh-theme-powerlevel10k-git \
         zsh-fast-syntax-highlighting-git \
-        tdrop-git betterlockscreen-git\
+        tdrop-git betterlockscreen-git
 }
 
 if ! which paru > /dev/null; then
