@@ -1,0 +1,44 @@
+#!/usr/bin/env/zsh
+
+#                            _____ __
+#    ____  ____  _________  / __(_) /__
+#   /_  / / __ \/ ___/ __ \/ /_/ / / _ \
+#  _ / /_/ /_/ / /  / /_/ / __/ / /  __/
+# (_)___/ .___/_/   \____/_/ /_/_/\___/
+#      /_/
+
+# Applications
+export EDITOR="nvim"
+export VISUAL="nvim"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BROWSER="brave"
+export TERMINAL="alacritty"
+export READER="zathura"
+export VIEWER="sxiv"
+export CHROME_PATH="$(which $BROWSER)" # needed for marp
+
+# Needed for a few scripts
+export MYWM="herbstluftwm"
+
+# export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# My directories
+export DOTS="$HOME/.dotfiles"
+export SCRIPTS="$HOME/.local/scripts"
+export DOW="$HOME/Downloads"
+export REP="$HOME/repos"
+export NIE="$HOME/rpdata/nie"
+export NISB="$HOME/rpdata/ieee/nisb-2020-21"
+export SEM="$NIE/study-material/sem6"
+
+# Set path
+export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
+export PATH=$PATH:$SCRIPTS
+export PATH=$PATH:$HOME/.local/bin
+# export PATH=$PATH:$HOME/.local/asciidoctor-fopub
+export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin # for ruby-gems
+export RANGER_LOAD_DEFAULT_RC=FALSE
+
+# Start graphical server on user's current tty if not already running.
+# [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx
+source "$HOME/.cargo/env"
