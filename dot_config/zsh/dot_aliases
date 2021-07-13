@@ -11,10 +11,10 @@ alias nsx='sudo /usr/bin/prime-switch && startx'
 
 alias al='$EDITOR $ZDOTDIR/.aliases'
 alias nv='$EDITOR $HOME/.config/nvim'
-alias nn='cd $HOME/.config/nvim'
+alias nn='cd $HOME/.config/nvim; ls'
 alias z='$EDITOR $ZDOTDIR/.zshrc'
-alias b='$EDITOR -p $DOTS/bspwm/bspwmrc.*'
-alias hl='$EDITOR $DOTS/herbstluftwm/autostart'
+alias b='$EDITOR $HOME/.config/bspwm/bspwmrc.*'
+alias hl='$EDITOR $HOME/.config/herbstluftwm/autostart'
 
 alias dl='cd $DOW; ls'
 alias re='cd $REP; ls'
@@ -25,9 +25,9 @@ alias rp='cd $HOME/rpdata; ls'
 alias c='cd $HOME/.config; ls'
 alias sc='cd $SCRIPTS; ls'
 alias zz='cd $ZDOTDIR; ls'
-alias bb='cd $DOTS/bspwm; ls'
-alias hh='cd $DOTS/herbstluftwm; ls'
-alias wl='cd $DOTS/wallpapers; ls'
+alias bb='cd $HOME/.config/bspwm; ls'
+alias hh='cd $HOME/.config/herbstluftwm; ls'
+alias wl='cd $HOME/Pictures/wallpapers; ls'
 
 alias lz="cd $SEM/miniproject/libezw"
 alias mp="cd $SEM/iot/project/mpu6050-datalogger"
@@ -53,7 +53,7 @@ alias macchina="macchina -X \
     Packages \
     Shell \
     -t Boron --box-title '' \
-    --custom-ascii $DOTS/arch_minimal.ascii --custom-ascii-color blue"
+    --custom-ascii $HOME/Documents/notes/arch_minimal.ascii --custom-ascii-color blue"
 
 # alias starwars='telnet towel.blinkenlights.nl'
 alias coolboost='nbfc set -f 0 -s 100 && nbfc set -f 1 -s 100'
