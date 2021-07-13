@@ -1,7 +1,7 @@
-dot_config/zsh/.zcompdump
+dot_config/zsh/dot_zcompdump
 **/__pycache__/
 *.py[cod]
 *$py.class
 dot_config/nvim/autoload
 dot_config/nvim/bundle
-dot_config/nvim/.netrwhist
+dot_config/nvim/dot_netrwhist
