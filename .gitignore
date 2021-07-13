@@ -5,3 +5,4 @@ dot_config/zsh/dot_zcompdump
 dot_config/nvim/autoload
 dot_config/nvim/bundle
 dot_config/nvim/dot_netrwhist
+dot_config/nvim/plugin
