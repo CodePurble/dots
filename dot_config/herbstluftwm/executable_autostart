@@ -16,11 +16,11 @@ pidof xfce4-power-manager || xfce4-power-manager &
 
 # Launch custom optimus-manager tray icon
 if [[ -f $(which optimus-manager) ]]; then
-    $HOME/.local/scripts/launch-optimus-indicator > /tmp/launch-optimus-indicator.log
+    $HOME/.local/scripts/launch-optimus-indicator
 fi
 
 # Set wallpaper
-$HOME/.local/scripts/setbg 2> /dev/null
+$HOME/.local/scripts/setbg
 
 # Start conky
 # $HOME/.config/conky/launch-conky.sh 2> /dev/null
