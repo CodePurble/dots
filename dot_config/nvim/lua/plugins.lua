@@ -25,6 +25,8 @@ return require('packer').startup({function(use)
     use 'psliwka/vim-smoothie'
     use 'andweeb/presence.nvim'
     use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
+    use "folke/zen-mode.nvim"
+    use "folke/twilight.nvim"
 
     -- Tim Pope
     use 'tpope/vim-surround'
