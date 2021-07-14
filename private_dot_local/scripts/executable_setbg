@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
+WALL_DIR="$HOME/Pictures/wallpapers"
 
 function printHelp()
 {
 cat << EOF
-Usage: ${0##*/} [-h] [IMAGE1] [IMAGE2]
+Usage:
+    ${0##*/} [-h] [IMAGE]
+    -h    Show this help and exit
 
--h             Show this help and exit
-
-If no args are given, randomly sets a different wallpaper on each screen
-If only IMAGE1 is given, sets it as wallpaper (on all screens)
-IMAGE2 is set on the second screen if provided (ignored if only one screen is detected)
+    If no args are given, sets a random wallpaper from provided directory on
+    each screen.
+    If IMAGE is given, sets it as wallpaper (on all screens).
 EOF
 }
 
@@ -23,12 +24,17 @@ while getopts ":h" option; do
             ;;
     esac
 done
+# Get all possible displays
+screens_count=$(xrandr -q | grep "connected" | wc -l)
+screens_count=$((screens_count-1))
 
-feh_command="feh --no-fehbg --bg-scale"
+nitrogen_command="nitrogen --set-auto"
+for head in $(seq 0 $screens_count); do
+    case "$#" in
+        0) $nitrogen_command --random --head=$head "$WALL_DIR";;
+        1) $nitrogen_command --head=$head $1;;
+        *) printHelp; exit 1;;
+    esac
+done
 
-case "$#" in
-    0) $feh_command -rz $HOME/Pictures/wallpapers 2> /dev/null;;
-    1) $feh_command $1 2> /dev/null;;
-    2) $feh_command $1 $2 2> /dev/null;;
-    *) printHelp; exit 1;;
-esac
+echo "Set wallpaper(s)"
