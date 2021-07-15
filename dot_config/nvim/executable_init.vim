@@ -35,19 +35,19 @@ let g:tex_flavor = "latex"
 " au! BufWritePost $MYVIMRC source $MYVIMRC
 au! BufWritePost plugins.lua source $MYVIMRC
 
-" vim-anyfold
-" autocmd Filetype * AnyFoldActivate
-" set foldlevel=99 " Open all folds
+" indent guides
+" let g:indent_blankline_char = '»'
+let g:indent_blankline_char = '⏐'
+let g:indent_blankline_filetype_exclude = ['help', 'nerdtree', 'packer']
+let g:indent_blankline_buftype_exclude = ['terminal']
+highlight IndentBlanklineChar guibg=#323944 guifg=#272b30 gui=nocombine
 
 " selectively use tabs instead of spaces
 au Filetype make,gitcommit,gitconfig set noexpandtab
-au Filetype make,gitcommit,gitconfig set listchars=space:·,tab:»·
-
-" indent guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_tab_guides = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'make', 'packer', 'gitcommit', 'gitconfig']
+" au Filetype make,gitcommit,gitconfig set listchars=space:·,tab:·
+" au Filetype make,gitcommit,gitconfig let g:indent_blankline_char = ''
+au Filetype make,gitcommit,gitconfig set listchars=space:·,tab:⭾·
+au Filetype make,gitcommit,gitconfig let g:indent_blankline_char = '⭾'
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"

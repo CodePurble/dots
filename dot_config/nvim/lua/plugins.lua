@@ -18,15 +18,15 @@ return require('packer').startup({function(use)
 
     -- Theme/Visual
     use 'joshdick/onedark.vim'
+    use 'folke/lsp-colors.nvim'
     use 'hoob3rt/lualine.nvim'
     use {'rrethy/vim-hexokinase', run = 'make hexokinase'}
     use {'junegunn/goyo.vim', ft = {'markdown', 'latex', 'asciidoctor'}}
-    use 'nathanaelkane/vim-indent-guides'
     use 'psliwka/vim-smoothie'
     use 'andweeb/presence.nvim'
     use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
     use "folke/zen-mode.nvim"
-    use "folke/twilight.nvim"
+    use "lukas-reineke/indent-blankline.nvim"
 
     -- Tim Pope
     use 'tpope/vim-surround'
@@ -38,11 +38,21 @@ return require('packer').startup({function(use)
     use 'cohama/lexima.vim'
     use 'justinmk/vim-sneak'
     use 'chiel92/vim-autoformat'
-    use 'preservim/nerdcommenter'
+    use 'b3nj5m1n/kommentary'
     use 'conradirwin/vim-bracketed-paste'
     use {'skywind3000/asyncrun.vim', cmd = 'AsyncRun'}
     use 'ervandew/supertab'
     use 'akinsho/nvim-toggleterm.lua'
+    use {
+        "folke/trouble.nvim",
+        config = function()
+            require('trouble').setup {
+                signs = {error = "✖", warning = "", hint = "ℍ", information = ""},
+                use_lsp_diagnostic_signs = false
+            }
+        end
+    }
+-- use_lsp_diagnostic_signs = false
 
     -- FileType dependant
     -- use 'jackguo380/vim-lsp-cxx-highlight'
