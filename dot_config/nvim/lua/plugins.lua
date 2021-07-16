@@ -15,6 +15,15 @@ return require('packer').startup({function(use)
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
 
     -- Theme/Visual
     use 'joshdick/onedark.vim'
@@ -52,7 +61,7 @@ return require('packer').startup({function(use)
             }
         end
     }
--- use_lsp_diagnostic_signs = false
+    -- use_lsp_diagnostic_signs = false
 
     -- FileType dependant
     -- use 'jackguo380/vim-lsp-cxx-highlight'

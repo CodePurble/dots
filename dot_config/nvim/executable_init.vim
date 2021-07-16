@@ -23,11 +23,17 @@ source $HOME/.config/nvim/config-plugins/sneak-conf.vim
 source $HOME/.config/nvim/config-plugins/keys-conf.vim
 
 " lua
-luafile $HOME/.config/nvim/lua/lsp-conf.lua
-luafile $HOME/.config/nvim/lua/treesitter-conf.lua
-luafile $HOME/.config/nvim/lua/lualine-conf.lua
-luafile $HOME/.config/nvim/lua/bufferline-conf.lua
-luafile $HOME/.config/nvim/lua/toggleterm-conf.lua
+lua require('lsp-conf')
+lua require('treesitter-conf')
+lua require('lualine-conf')
+lua require('bufferline-conf')
+lua require('toggleterm-conf')
+lua require('kommentary-config')
+" luafile $HOME/.config/nvim/lua/lsp-conf.lua
+" luafile $HOME/.config/nvim/lua/treesitter-conf.lua
+" luafile $HOME/.config/nvim/lua/lualine-conf.lua
+" luafile $HOME/.config/nvim/lua/bufferline-conf.lua
+" luafile $HOME/.config/nvim/lua/toggleterm-conf.lua
 
 let g:tex_flavor = "latex"
 

@@ -6,7 +6,6 @@ nnoremap <leader>T :tabnew<Space>
 nnoremap <leader>W :tabclose<CR>
 nnoremap <leader>y y$
 nnoremap <leader>d D
-nnoremap <leader>c C
 nnoremap S :%s//gc<Left><Left><Left>
 nnoremap <leader><leader> <C-^>
 nnoremap <leader>R :e $MYVIMRC<CR>
