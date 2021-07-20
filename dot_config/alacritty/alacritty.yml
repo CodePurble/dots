@@ -82,65 +82,20 @@ window:
     multiplier: 1
 
 font:
-    # normal:
-    #     family: UbuntuMono Nerd Font Mono
-    #     style: Regular
-    #
-    # bold:
-    #     family: UbuntuMono Nerd Font Mono
-    #     style: Bold
-    #
-    # italic:
-    #     family: UbuntuMono Nerd Font Mono
-    #     style: Italic
-    #
-    # bold_italic:
-    #     family: UbuntuMono Nerd Font Mono
-    #     style: Bold Italic
-    #
-    # # Point size
-    # size: 11.0
-
-    # normal:
-    #     family: FantasqueSansMono Nerd Font Mono
-    #     style: Regular
-    #
-    # bold:
-    #     family: FantasqueSansMono Nerd Font Mono
-    #     style: Bold
-    #
-    # italic:
-    #     family: FantasqueSansMono Nerd Font Mono
-    #     style: Italic
-    #
-    # bold_italic:
-    #     family: FantasqueSansMono Nerd Font Mono
-    #     style: Bold Italic
-    #
-    # # Point size
-    # size: 11.0
-
-    # normal:
-    #     family: CaskaydiaCove Nerd Font Mono
-    #     style: Book
-    #
-    # # Point size
-    # size: 9.0
-
     normal:
-        family: JetBrainsMono Nerd Font Mono
+        family: FiraCode Nerd Font Mono
         style: Regular
 
     bold:
-        family: JetBrainsMono Nerd Font Mono
+        family: FiraCode Nerd Font Mono
         style: Bold
 
     italic:
-        family: JetBrainsMono Nerd Font Mono
+        family: FiraCode Nerd Font Mono
         style: Italic
 
     bold_italic:
-        family: JetBrainsMono Nerd Font Mono
+        family: FiraCode Nerd Font Mono
         style: Bold Italic
 
     # Point size
