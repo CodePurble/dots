@@ -1,3 +1,4 @@
+vim.cmd([[
 function! s:isAtStartOfLine(mapping)
     let text_before_cursor = getline('.')[0 : col('.')-1]
     let mapping_pattern = '\V' . escape(a:mapping, '\')
@@ -8,4 +9,5 @@ endfunction
 inoreabbrev <expr> <bar><bar>
             \ <SID>isAtStartOfLine('\|\|') ?
             \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+]])
 

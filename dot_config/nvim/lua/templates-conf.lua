@@ -1,3 +1,4 @@
+vim.cmd([[
 if has("autocmd")
     augroup templates
         autocmd BufNewFile *.sh 0r ~/.config/templates/template.sh
@@ -14,4 +15,5 @@ endif
 
 autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
 autocmd BufEnter *.pio set filetype=asm " RP2040 pioasm files
+]])
 
