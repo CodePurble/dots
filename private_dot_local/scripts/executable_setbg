@@ -28,7 +28,7 @@ done
 screens_count=$(xrandr -q | grep "connected" | wc -l)
 screens_count=$((screens_count-1))
 
-nitrogen_command="nitrogen --set-auto"
+nitrogen_command="nitrogen --set-scaled"
 for head in $(seq 0 $screens_count); do
     case "$#" in
         0) $nitrogen_command --random --head=$head "$WALL_DIR";;
