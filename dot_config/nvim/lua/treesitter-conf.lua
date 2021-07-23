@@ -3,7 +3,6 @@ require'nvim-treesitter.configs'.setup {
         "c",
         "cpp",
         "devicetree",
-        "comment",
         "python",
         "rust",
         "bibtex",

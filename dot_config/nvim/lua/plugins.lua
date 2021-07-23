@@ -14,12 +14,11 @@ return require('packer').startup({function(use)
     -- nvim goodness
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
+
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {
         'lewis6991/gitsigns.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        },
+        requires = {'nvim-lua/plenary.nvim'},
         config = function()
             require('gitsigns').setup()
         end
@@ -30,12 +29,18 @@ return require('packer').startup({function(use)
     use 'folke/lsp-colors.nvim'
     use 'hoob3rt/lualine.nvim'
     use {'rrethy/vim-hexokinase', run = 'make hexokinase'}
-    use {'junegunn/goyo.vim', ft = {'markdown', 'latex', 'asciidoctor'}}
     use 'psliwka/vim-smoothie'
     use 'andweeb/presence.nvim'
     use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
-    use "folke/zen-mode.nvim"
+    use {"folke/zen-mode.nvim", ft = {'markdown', 'latex', 'asciidoctor'}}
     use "lukas-reineke/indent-blankline.nvim"
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup()
+        end
+    }
 
     -- Tim Pope
     use 'tpope/vim-surround'
@@ -50,22 +55,9 @@ return require('packer').startup({function(use)
     use 'b3nj5m1n/kommentary'
     use 'conradirwin/vim-bracketed-paste'
     use {'skywind3000/asyncrun.vim', cmd = 'AsyncRun'}
-    use 'ervandew/supertab'
     use 'akinsho/nvim-toggleterm.lua'
-    use {
-        "folke/trouble.nvim",
-        config = function()
-            require('trouble').setup {
-                signs = {error = "✖", warning = "", hint = "ℍ", information = ""},
-                use_lsp_diagnostic_signs = false
-            }
-        end
-    }
-    -- use_lsp_diagnostic_signs = false
 
     -- FileType dependant
-    -- use 'jackguo380/vim-lsp-cxx-highlight'
-    -- use 'bfrg/vim-cpp-modern'
     use {'lervag/vimtex', ft = {'latex', 'tex'}}
     use {'dhruvasagar/vim-table-mode', ft = 'markdown'}
     use {'habamax/vim-asciidoctor', ft = 'asciidoctor'}

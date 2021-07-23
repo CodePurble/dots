@@ -24,22 +24,19 @@ source $HOME/.config/nvim/config-plugins/keys-conf.vim
 
 " lua
 lua require('lsp-conf')
+lua require('compe-conf')
 lua require('treesitter-conf')
 lua require('lualine-conf')
 lua require('bufferline-conf')
 lua require('toggleterm-conf')
-lua require('kommentary-config')
-" luafile $HOME/.config/nvim/lua/lsp-conf.lua
-" luafile $HOME/.config/nvim/lua/treesitter-conf.lua
-" luafile $HOME/.config/nvim/lua/lualine-conf.lua
-" luafile $HOME/.config/nvim/lua/bufferline-conf.lua
-" luafile $HOME/.config/nvim/lua/toggleterm-conf.lua
+lua require('kommentary-conf')
+lua require("todo-comments").setup()
 
 let g:tex_flavor = "latex"
 
 " Source init.vim whenever it is written to
 " au! BufWritePost $MYVIMRC source $MYVIMRC
-au! BufWritePost plugins.lua source $MYVIMRC
+" au! BufWritePost plugins.lua source $MYVIMRC
 
 " indent guides
 " let g:indent_blankline_char = '»'
