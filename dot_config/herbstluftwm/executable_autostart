@@ -20,7 +20,7 @@ if [[ -f $(which optimus-manager) ]]; then
 fi
 
 # Set wallpaper
-$HOME/.local/scripts/setbg
+$HOME/.local/scripts/setbg $HOME/Pictures/wallpapers/900.png
 
 # Start conky
 # $HOME/.config/conky/launch-conky.sh 2> /dev/null
