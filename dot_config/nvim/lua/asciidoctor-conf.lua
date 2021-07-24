@@ -6,6 +6,7 @@ vim.g.asciidoctor_fenced_languages = {'python', 'c', 'cpp', 'verilog', 'octave'}
 vim.g.asciidoctor_pdf_extensions = {'asciidoctor-mathematical'}
 vim.g.asciidoctor_img_paste_command = 'xclip -selection clipboard -t image/png -o > %s%s'
 
+-- Call AsciidoctorMappings for all `*.adoc` and `*.asciidoc` files
 vim.cmd([[
 fun! AsciidoctorMappings()
     nnoremap <buffer> <leader>oo :w! \| :AsciidoctorOpenRAW<CR>
@@ -18,7 +19,6 @@ fun! AsciidoctorMappings()
     " nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
 endfun
 
--- Call AsciidoctorMappings for all `*.adoc` and `*.asciidoc` files
 augroup asciidoctor
     au!
     au BufEnter *.adoc,*.asciidoc call AsciidoctorMappings()

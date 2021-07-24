@@ -1,10 +1,10 @@
+vim.g.mapleader = " "
 vim.opt.encoding = "utf-8"
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.opt.hidden = true
 vim.opt.concealcursor = "nvi"
 vim.opt.conceallevel = 2
-vim.opt.mapleader = " "
 vim.opt.wrap = false
 vim.opt.cursorline = true
 vim.opt.number = true

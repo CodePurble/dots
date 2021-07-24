@@ -38,8 +38,8 @@ autocmd FileType help nnoremap <buffer> s /\|\zs\S\+\ze\|<CR>
 autocmd FileType help nnoremap <buffer> S ?\|\zs\S\+\ze\|<CR>
 ]])
 
-" Global
-" My compile and run script
-keymap('', '<leader>r', [[:w! \| AsyncRun candrun <c-r>%<CR>]])
-keymap('', '<leader>m', [[:TermExec cmd="detectmake"<CR>]])
+-- Global
+-- My compile and run script
+keymap('', '<leader>r', [[:w! \| AsyncRun candrun <c-r>%<CR>]], {})
+keymap('', '<leader>m', [[:TermExec cmd="detectmake"<CR>]], {})
 
