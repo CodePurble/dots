@@ -4,7 +4,7 @@ something helpful in here. :smile:
 
 Some of the programs I use:
 * Herbstluftwm
-* Neovim
+* Neovim (Configured purely in `lua`)
 * Alacritty
 * Polybar
 
