@@ -100,5 +100,5 @@ source $ZDOTDIR/scripts/prmtcmd.zsh
 
 # Plugins
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-# source $ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# eval "$(starship init zsh)"
