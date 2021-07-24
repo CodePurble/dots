@@ -28,7 +28,7 @@ return require('packer').startup({function(use)
     use 'joshdick/onedark.vim'
     use 'folke/lsp-colors.nvim'
     use 'hoob3rt/lualine.nvim'
-    use {'rrethy/vim-hexokinase', run = 'make hexokinase'}
+    use 'norcalli/nvim-colorizer.lua'
     use 'psliwka/vim-smoothie'
     use 'andweeb/presence.nvim'
     use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
