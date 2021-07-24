@@ -1,27 +1,18 @@
-Async_status_old = ''
-local function get_asyncrun_running()
-    if(vim.api.nvim_eval('exists("g:asyncrun_status")') == 1) then
-        local async_status = vim.api.nvim_get_var('asyncrun_status')
-        if(async_status ~= Async_status_old) then
-            Async_status_old = async_status
-        end
-        return async_status
-    end
-end
+local utils = require("utils")
 
 require'lualine'.setup {
     options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'onedark',
         component_separators = {'', ''},
         section_separators = {'', ''},
         disabled_filetypes = {}
     },
     sections = {
-        lualine_a = {'branch'},
+        lualine_a = {{'branch', icon = ''}},
         lualine_b = {},
         lualine_c = {{'filename', path = 1}},
-        lualine_x = {'encoding', 'fileformat', 'filetype', {get_asyncrun_running}},
+        lualine_x = {'encoding', 'fileformat', 'filetype', {utils.get_buf_indentation_style}, {utils.get_asyncrun_running}},
         lualine_y = {
             {
                 'diagnostics',

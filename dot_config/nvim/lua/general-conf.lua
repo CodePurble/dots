@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 vim.g.mapleader = " "
 vim.opt.encoding = "utf-8"
 vim.opt.background = "dark"

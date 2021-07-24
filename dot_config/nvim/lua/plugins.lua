@@ -46,6 +46,7 @@ return require('packer').startup({function(use)
     use 'tpope/vim-surround'
     use 'tpope/vim-eunuch'
     use 'tpope/vim-fugitive'
+    use 'tpope/vim-sleuth'
 
     -- Ahh the bliss of being in Vim
     use {'majutsushi/tagbar', cmd = 'TagbarToggle'}

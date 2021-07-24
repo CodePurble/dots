@@ -11,7 +11,6 @@ require('plugins')
 --  coc-rust-analyzer
 
 -- vimscript config files
-require('onedark-theme')
 require('general-conf')
 require('keys-conf')
 require('lsp-conf')
@@ -27,7 +26,8 @@ require('sneak-conf')
 require('toggleterm-conf')
 require('kommentary-conf')
 require("todo-comments").setup()
-
+require('colorizer').setup()
+require('theme')
 vim.g.tex_flavor = 'latex'
 
 -- Source init.vim whenever it is written to
@@ -36,17 +36,14 @@ vim.g.tex_flavor = 'latex'
 
 -- indent guides
 -- let g:indent_blankline_char = '»'
+
 vim.g.indent_blankline_char = '|'
 vim.g.indent_blankline_filetype_exclude = {'help', 'nerdtree', 'packer'}
 vim.g.indent_blankline_buftype_exclude = {'terminal'}
-vim.cmd('highlight IndentBlanklineChar guibg=#323944 guifg=#272b30 gui=nocombine')
 
 -- selectively use tabs instead of spaces
-vim.cmd('au Filetype make,gitcommit,gitconfig set noexpandtab')
--- vim.cmd([[au Filetype make,gitcommit,gitconfig set listchars=space:·,tab:]])
--- vim.cmd([[au Filetype make,gitcommit,gitconfig let g:indent_blankline_char = '']])
-vim.cmd([[au Filetype make,gitcommit,gitconfig set listchars=space:·,tab:⭾]])
-vim.cmd([[au Filetype make,gitcommit,gitconfig let g:indent_blankline_char = '⭾']])
+-- au Filetype make,gitcommit,gitconfig set noexpandtab
+-- au Filetype make,gitcommit,gitconfig set listchars=space:·,tab:⭾·
 
 -- Remove trailing whitespaces on save
 vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
