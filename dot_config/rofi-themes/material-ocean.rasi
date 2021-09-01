@@ -55,3 +55,8 @@ entry {
   text-color: @selected-fg;
   font: "FuraCode Nerd Font Mono Medium 12";
 }
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}

@@ -49,3 +49,8 @@ element {
 element selected {
   background-color: #2e343f;
 }
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}

@@ -4,48 +4,53 @@
  * Copyright: Dave Davenport
  */
 configuration {
-	show-icons: false;
-	display-drun: "";
+    show-icons: false;
+    display-drun: "";
 }
 
 * {
-	background-color: #424242;
-	border-color: White;
-	text-color: White;
-	font: "FantasqueSansMono Nerd Font Mono 12";
-	prompt-font: "FantasqueSansMono Nerd Font Mono bold 12";
+    background-color: #424242;
+    border-color: White;
+    text-color: White;
+    font: "FantasqueSansMono Nerd Font Mono 12";
+    prompt-font: "FantasqueSansMono Nerd Font Mono bold 12";
 }
 
 #window {
-	anchor:     north;
-	location:   north;
-	width:      100%;
-	height:     28px;
-	padding:    4px;
-	children:   [ horibox ];
+    anchor:     north;
+    location:   north;
+    width:      100%;
+    height:     28px;
+    padding:    4px;
+    children:   [ horibox ];
 }
 
 #horibox {
-	orientation: horizontal;
-	children:   [ prompt, entry, listview ];
+    orientation: horizontal;
+    children:   [ prompt, entry, listview ];
 }
 
 #listview {
-	layout:     horizontal;
-	spacing:    20px;
-	lines:      100;
+    layout:     horizontal;
+    spacing:    20px;
+    lines:      100;
 }
 
 #entry {
-	expand:     false;
-	width:      10em;
+    expand:     false;
+    width:      10em;
 }
 
 #element {
-	/* padding: 0px 2px; */
-	padding: 0px 16px;
+    /* padding: 0px 2px; */
+    padding: 0px 16px;
 }
 
 #element selected {
-	background-color: SteelBlue;
+    background-color: SteelBlue;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
 }
