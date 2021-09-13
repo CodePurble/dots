@@ -1,31 +1,12 @@
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
 local utils = require("utils")
+local onedark_colours = utils.all_colours.onedark_colours
+local nord_colours = utils.all_colours.nord_colours
 
-local my_colours = {
-    greshade1 = "#212121",
-    greshade2 = "#424242",
-    greshade3 = "#616161",
-    greshade4 = "#757575",
-    greshade5 = "#9E9E9E",
-    greshade6 = "#BDBDBD",
-    greshade7 = "#D4D4D4",
-    greshade8 = "#EEEEEE",
-}
-
-local onedark_colours = {
-    black = "#282C34",
-    skyblue = "#61AFEF",
-    cyan = "#56B6C2",
-    green = "#98C379",
-    oceanblue = "#3A4f91",
-    magenta = "#C678DD",
-    orange = "#E08841",
-    red = "#E06C75",
-    violet = "#9E93E8",
-    white = "#ABB2BF",
-    yellow = "#E5C07B",
-}
+--
+-- COLOURS
+--
 
 local vi_mode_colors = {
     NORMAL = onedark_colours.green,
@@ -44,42 +25,29 @@ local vi_mode_colors = {
     NONE = onedark_colours.yellow
 }
 
-local properties = {
-    force_inactive = {
-        filetypes = {},
-        buftypes = {},
-        bufnames = {}
-    }
-}
-
 local components = {
-    left = {
-        active = {},
-        inactive = {}
-    },
-    mid = {
-        active = {},
-        inactive = {}
-    },
-    right = {
-        active = {},
-        inactive = {}
-    }
+    active = {},
+    inactive = {}
 }
 
-properties.force_inactive.filetypes = {
-    "NvimTree",
-    "packer",
-    "startify",
-    "fugitive",
-    "fugitiveblame"
-}
+-- left -> active[1]
+-- mid -> active[2]
+-- right -> active[3]
+table.insert(components.active, {})
+table.insert(components.active, {})
+table.insert(components.active, {})
 
-properties.force_inactive.buftypes = {
-    "terminal"
-}
+-- left -> active[1]
+-- mid -> active[2]
+-- right -> active[3]
+table.insert(components.inactive, {})
+table.insert(components.inactive, {})
+table.insert(components.inactive, {})
 
-table.insert(components.left.active, {
+--
+-- LEFT COMPONENTS
+--
+table.insert(components.active[1], {
     provider = "git_branch",
     icon = "  ",
     hl = function()
@@ -94,7 +62,7 @@ table.insert(components.left.active, {
             str = "right_filled",
             hl = function()
                 local val = {}
-                val.bg = my_colours.greshade2
+                val.bg = nord_colours.nord3
                 val.fg = vi_mode_utils.get_mode_color()
                 val.style = "bold"
                 return val
@@ -103,49 +71,68 @@ table.insert(components.left.active, {
     },
 })
 
-table.insert(components.left.active, {
+table.insert(components.active[1], {
     provider = "git_diff_added",
     hl = {
         fg = "green",
-        bg = my_colours.greshade2
+        bg = nord_colours.nord3
     }
 })
 
-table.insert(components.left.active, {
+table.insert(components.active[1], {
     provider = "git_diff_changed",
     hl = {
         fg = "orange",
-        bg = my_colours.greshade2
+        bg = nord_colours.nord3
     }
 })
 
-table.insert(components.left.active, {
+table.insert(components.active[1], {
     provider = "git_diff_removed",
     hl = {
         fg = "red",
-        bg = my_colours.greshade2
+        bg = nord_colours.nord3
     },
-    right_sep = {str = "right_filled", hl = {fg = my_colours.greshade2}}
+    right_sep = {str = "right_filled", hl = {fg = nord_colours.nord3}}
 })
 
-table.insert(components.mid.active, {
-    provider = "",
+table.insert(components.inactive[1], {
+    provider = " ",
+    icon = "",
 })
 
--- table.insert(components.left.active, {
---     provider = "file_info",
---     icon = "",
---     type = "relative",
---     right_sep = {"right", " "}
--- })
+--
+-- MIDDLE COMPONENTS
+--
+table.insert(components.active[2], {
+    provider = "file_info",
+    icon = "",
+    type = "relative",
+    left_sep = "left"
+})
 
-table.insert(components.mid.active, {
+table.insert(components.active[2], {
+    provider = "@"
+})
+
+table.insert(components.active[2], {
     provider = "position",
     left_sep = " ",
-    right_sep = " ",
+    right_sep = "right",
 })
 
-table.insert(components.right.active, {
+table.insert(components.inactive[2], {
+    provider = "file_info",
+    icon = "",
+    type = "relative",
+    left_sep = "left",
+    right_sep = "right"
+})
+
+--
+-- RIGHT COMPONENTS
+--
+table.insert(components.active[3], {
     provider = "diagnostic_errors",
     enabled = function() return lsp.diagnostics_exist("Error") end,
     icon = "✖ ",
@@ -153,7 +140,7 @@ table.insert(components.right.active, {
     right_sep = " "
 })
 
-table.insert(components.right.active, {
+table.insert(components.active[3], {
     provider = "diagnostic_warnings",
     enabled = function() return lsp.diagnostics_exist("Warning") end,
     icon = " ",
@@ -161,7 +148,7 @@ table.insert(components.right.active, {
     right_sep = " "
 })
 
-table.insert(components.right.active, {
+table.insert(components.active[3], {
     provider = "diagnostic_info",
     enabled = function() return lsp.diagnostics_exist("Information") end,
     icon = " ",
@@ -169,7 +156,7 @@ table.insert(components.right.active, {
     right_sep = " "
 })
 
-table.insert(components.right.active, {
+table.insert(components.active[3], {
     provider = "diagnostic_hints",
     enabled = function() return lsp.diagnostics_exist("Hint") end,
     icon = "ℍ ",
@@ -177,63 +164,62 @@ table.insert(components.right.active, {
     right_sep = " "
 })
 
-table.insert(components.right.active, {
+table.insert(components.active[3], {
     provider = "file_encoding",
     left_sep = {"left", " "},
     right_sep = " ",
 })
 
-table.insert(components.right.active, {
+table.insert(components.active[3], {
     provider = vim.bo.fileformat:upper(),
     left_sep = {"left", " "},
     right_sep = " ",
 })
 
-table.insert(components.right.active, {
+table.insert(components.active[3], {
     provider = utils.get_buf_indentation_style,
     left_sep = {"left", " "},
     right_sep = " "
 })
 
-table.insert(components.right.active, {
+table.insert(components.active[3], {
     provider = utils.get_asyncrun_running,
-    hl = {fg = my_colours.greshade6, bg = my_colours.greshade2, style = "bold"},
-    left_sep = {str = "left_filled", hl = {fg = my_colours.greshade2}}
+    hl = {fg = nord_colours.nord4, bg = nord_colours.nord3, style = "bold"},
+    left_sep = {str = "left_filled", hl = {fg = nord_colours.nord3}}
 })
 
-table.insert(components.right.active, {
+table.insert(components.active[3], {
     provider = utils.get_python_venv,
     hl = {
-        fg = "white",
-        bg = "oceanblue"
+        fg = nord_colours.nord3,
+        bg = nord_colours.nord9,
+        style = "bold"
     },
     left_sep = {
-        {str = "left_filled", hl = {fg = "oceanblue", bg = my_colours.greshade2}},
+        {str = "left_filled", hl = {fg = nord_colours.nord9, bg = nord_colours.nord3}},
     },
 })
 
--- table.insert(components.left.active, {
--- components.left.active[5] = {
---     provider = "position",
---     left_sep = " ",
---     right_sep = {
---         " ",
---         {
---             str = "slant_right_2_thin",
---             hl = {
---                 fg = "fg",
---                 bg = "bg"
---             }
---         }
---     }
--- }
-
+local colours = onedark_colours
+colours.bg = nord_colours.nord1
+colours.fg = "#D0D0D0"
 require("feline").setup({
-    default_bg = "#2D333C",
-    default_fg = "#D0D0D0",
+    force_inactive = {
+        filetypes = {
+            "NvimTree",
+            "packer",
+            "startify",
+            "fugitive",
+            "fugitiveblame",
+            "dashboard"
+        },
+        buftypes = {
+            "terminal"
+        },
+        bufnames = {}
+    },
     components = components,
-    properties = properties,
-    colors = onedark_colours,
+    colors = colours,
     vi_mode_colors = vi_mode_colors,
 })
 
