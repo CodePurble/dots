@@ -67,8 +67,8 @@ hc keybind Control-Print spawn screenkey
 hc keybind Menu spawn $myScripts/powermenu
 
 # Lock screen
-hc keybind $Mod-BackSpace spawn betterlockscreen -l dim -t
-hc keybind $Mod-Shift-BackSpace spawn betterlockscreen -s dim -t
+hc keybind $Mod-BackSpace spawn betterlockscreen -l dim
+hc keybind $Mod-Shift-BackSpace spawn betterlockscreen -s dim
 
 # Screenshot
 hc keybind Print spawn $myScripts/maimscreen
