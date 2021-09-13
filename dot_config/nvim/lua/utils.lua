@@ -53,4 +53,52 @@ function M.get_python_venv()
     return ""
 end
 
+M.all_colours = {
+    my_colours = {
+        greshade1 = "#212121",
+        greshade2 = "#424242",
+        greshade3 = "#616161",
+        greshade4 = "#757575",
+        greshade5 = "#9E9E9E",
+        greshade6 = "#BDBDBD",
+        greshade7 = "#D4D4D4",
+        greshade8 = "#EEEEEE",
+    },
+    onedark_colours = {
+        black = "#282C34",
+        skyblue = "#61AFEF",
+        cyan = "#56B6C2",
+        green = "#98C379",
+        oceanblue = "#3A4f91",
+        magenta = "#C678DD",
+        orange = "#E08841",
+        red = "#E06C75",
+        violet = "#9E93E8",
+        white = "#ABB2BF",
+        yellow = "#E5C07B",
+    },
+    nord_colours = {
+        -- Polar Night
+        nord0 = "#2E3440",
+        nord1 = "#3B4252",
+        nord2 = "#434C5E",
+        nord3 = "#4C566A",
+        -- Snowstorm
+        nord4 = "#D8DEE9",
+        nord5 = "#E5E9F0",
+        nord6 = "#ECEFF4",
+        -- Frost
+        nord7 = "#8FBCBB",
+        nord8 = "#88C0D0",
+        nord9 = "#81A1C1",
+        nord10 = "#5E81AC",
+        -- Aurora
+        nord11 = "#BF616A",
+        nord12 = "#D08770",
+        nord13 = "#EBCB8B",
+        nord14 = "#A3BE8C",
+        nord15 = "#B48EAD",
+    }
+}
+
 return M

@@ -12,27 +12,26 @@ require("plugins")
 --  coc-clangd
 --  coc-rust-analyzer
 
--- vimscript config files
+require("dashboard-conf")
 require("general-conf")
 require("keys-conf")
+require("templates-conf")
 require("lsp-conf")
 require("compe-conf")
 require("treesitter-conf")
--- require("lualine-conf")
-require("bufferline-conf")
 require("gitsigns-conf")
-require("templates-conf")
 require("asciidoctor-conf")
 require("autoformat-conf")
 -- require("tablemode-conf")
 require("sneak-conf")
 require("toggleterm-conf")
 require("kommentary-conf")
-require("todo-comments").setup()
-require("colorizer").setup()
-require("pears").setup()
+require("telescope-conf")
 require("theme")
+require("bufferline-conf")
 require("statusline")
+require("tabout-conf")
+require("autopairs-conf")
 
 -- Source init.vim whenever it is written to
 -- au! BufWritePost $MYVIMRC source $MYVIMRC
@@ -42,8 +41,10 @@ require("statusline")
 -- let g:indent_blankline_char = "»"
 
 vim.g.indent_blankline_char = "|"
-vim.g.indent_blankline_filetype_exclude = {"help", "nerdtree", "packer"}
+vim.g.indent_blankline_filetype_exclude = {"help", "nerdtree", "packer", "dashboard"}
 vim.g.indent_blankline_buftype_exclude = {"terminal"}
+
+vim.g.nvim_tree_auto_open = 1
 
 -- selectively use tabs instead of spaces
 -- au Filetype make,gitcommit,gitconfig set noexpandtab
@@ -51,3 +52,4 @@ vim.g.indent_blankline_buftype_exclude = {"terminal"}
 
 -- Remove trailing whitespaces on save
 vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
+vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, higroup="Visual"}]]) -- show yanked region with a flash

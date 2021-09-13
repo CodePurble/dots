@@ -11,8 +11,8 @@ keymap('n', '<leader>d', 'D', opts)
 keymap('n', 'S', [[:%s//gc<Left><Left><Left>]], opts)
 keymap('n', '<leader><leader>', '<C-^>', opts)
 keymap('n', '<leader>R', ':e $MYVIMRC<CR>', opts)
-keymap('n', '<leader>s', ':split<Space>', opts)
-keymap('n', '<leader>v', ':vsplit<Space>', opts)
+-- keymap('n', '<leader>s', ':split<Space>', opts)
+-- keymap('n', '<leader>v', ':vsplit<Space>', opts)
 keymap('n', '<C-Left>', ':vertical resize +3<CR>', {noremap = true, silent = true})
 keymap('n', '<C-Right>', ':vertical resize -3<CR>', {noremap = true, silent = true})
 keymap('n', '<S-C-Up>', ':resize +3<CR>', {noremap = true, silent = true})
@@ -41,5 +41,7 @@ autocmd FileType help nnoremap <buffer> S ?\|\zs\S\+\ze\|<CR>
 -- Global
 -- My compile and run script
 keymap('', '<leader>r', [[:w! | AsyncRun candrun <c-r>%<CR>]], {})
-keymap('', '<leader>m', [[:TermExec cmd="detectmake"<CR>]], {})
+keymap('', '<leader>m', [[:wa | TermExec cmd="detectmake"<CR>]], {})
+
+keymap('n', [[<leader>\]], ':NvimTreeToggle<CR>', {})
 
