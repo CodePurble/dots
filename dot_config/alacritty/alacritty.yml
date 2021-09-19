@@ -4,148 +4,219 @@
 # environment variables. Some entries may override variables
 # set by alacritty itself.
 env:
-    # TERM variable
-    #
-    # This value is used to set the `$TERM` environment variable for
-    # each instance of Alacritty. If it is not present, alacritty will
-    # check the local terminfo database and use `alacritty` if it is
-    # available, otherwise `xterm-256color` is used.
-    TERM: alacritty
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: alacritty
 
 window:
-    # Window dimensions (changes require restart)
-    #
-    # Specified in number of columns/lines, not pixels.
-    # If both are `0`, this setting is ignored.
-    #dimensions:
-    # columns: 0
-    # lines: 0
+  # Window dimensions (changes require restart)
+  #
+  # Specified in number of columns/lines, not pixels.
+  # If both are `0`, this setting is ignored.
+  #dimensions:
+  # columns: 0
+  # lines: 0
 
-    # Window position (changes require restart)
-    #
-    # Specified in number of pixels.
-    # If the position is not set, the window manager will handle the placement.
-    #position:
-    #  x: 0
-    #  y: 0
+  # Window position (changes require restart)
+  #
+  # Specified in number of pixels.
+  # If the position is not set, the window manager will handle the placement.
+  #position:
+  #  x: 0
+  #  y: 0
 
-    # Window padding (changes require restart)
-    #
-    # Blank space added around the window in pixels. This padding is scaled
-    # by DPI and the specified value is always added at both opposing sides.
-    padding:
-        x: 4
-        y: 4
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is scaled
+  # by DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 4
+    y: 4
 
-    # Spread additional padding evenly around the terminal content.
-    #dynamic_padding: false
+  # Spread additional padding evenly around the terminal content.
+  #dynamic_padding: false
 
-    # Window decorations
-    #
-    # Values for `decorations`:
-    #     - full: Borders and title bar
-    #     - none: Neither borders nor title bar
-    #
-    # Values for `decorations` (macOS only):
-    #     - transparent: Title bar, transparent background and title bar buttons
-    #     - buttonless: Title bar, transparent background, but no title bar buttons
-    decorations: none
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #   - full: Borders and title bar
+  #   - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #   - transparent: Title bar, transparent background and title bar buttons
+  #   - buttonless: Title bar, transparent background, but no title bar buttons
+  decorations: none
 
-    # Startup Mode (changes require restart)
-    #
-    # Values for `startup_mode`:
-    #   - Windowed
-    #   - Maximized
-    #   - Fullscreen
-    #
-    # Values for `startup_mode` (macOS only):
-    #   - SimpleFullscreen
-    #startup_mode: Windowed
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  # - Windowed
+  # - Maximized
+  # - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  # - SimpleFullscreen
+  #startup_mode: Windowed
 
-    # Window title
-    title: Alacritty
+  # Window title
+  title: Alacritty
 
-    # Window class (Linux/BSD only):
-    class:
-    # Application instance name
-        instance: Alacritty
-        # General application class
-        general: Alacritty
+  # Window class (Linux/BSD only):
+  class:
+  # Application instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
 
-    #scrolling:
-    # Maximum number of lines in the scrollback buffer.
-    # Specifying '0' will disable scrolling.
-    history: 5000
+  #scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 5000
 
-    # Number of lines the viewport will move for every line scrolled when
-    # scrollback is enabled (history > 0).
-    multiplier: 1
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 1
 
 font:
-    normal:
-        family: FiraCode Nerd Font Mono
-        style: Regular
+  normal:
+    family: FiraCode Nerd Font Mono
+    style: Regular
 
-    bold:
-        family: FiraCode Nerd Font Mono
-        style: Bold
+  bold:
+    family: FiraCode Nerd Font Mono
+    style: Bold
 
-    italic:
-        family: FiraCode Nerd Font Mono
-        style: Italic
+  italic:
+    family: FiraCode Nerd Font Mono
+    style: Italic
 
-    bold_italic:
-        family: FiraCode Nerd Font Mono
-        style: Bold Italic
+  bold_italic:
+    family: FiraCode Nerd Font Mono
+    style: Bold Italic
 
-    # Point size
-    size: 9.0
+  # Point size
+  size: 9.0
 
-    # Offset is the extra space around each character. `offset.y` can be thought of
-    # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
-    # offset:
-    #     x: 0
-    #     y: 0
+  # Offset is the extra space around each character. `offset.y` can be thought of
+  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  # offset:
+  #   x: 0
+  #   y: 0
 
-    # Glyph offset determines the locations of the glyphs within their cells with
-    # the default being at the bottom. Increasing `x` moves the glyph to the right,
-    # increasing `y` moves the glyph upwards.
-    #glyph_offset:
-    #  x: 0
-    #  y: 0
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increasing `x` moves the glyph to the right,
+  # increasing `y` moves the glyph upwards.
+  #glyph_offset:
+  #  x: 0
+  #  y: 0
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
-colors:
-# RP-ZSH
-# Author: C. Ramprakash
-# solarized-dark with a lot of changes
+
+schemes:
+  # RP-ZSH
+  # Author: C. Ramprakash
+  # solarized-dark with a lot of changes
+  rp-zsh: &rp-zsh
     # Default colors
     primary:
-        background: '0x001627'
-        foreground: '0x888a85'
-
+      background: '#001627'
+      foreground: '#888a85'
     # Normal colors
     normal:
-        black:   '0x002b36'
-        red:     '0xcc2e2c'
-        green:   '0x0DAB15'
-        yellow:  '0xb48800'
-        blue:    '0x2179b7'
-        magenta: '0x6064ae'
-        cyan:    '0x496b84'
-        white:   '0x93a1a1'
-
+      black:   '#002b36'
+      red:   '#cc2e2c'
+      green:   '#0DAB15'
+      yellow:  '#b48800'
+      blue:  '#2179b7'
+      magenta: '#6064ae'
+      cyan:  '#496b84'
+      white:   '#93a1a1'
     # Bright colors
     bright:
-        black:   '0x657b83'
-        red:     '0xdc322f'
-        green:   '0x0da135'
-        yellow:  '0xD09E00'
-        blue:    '0x268bd2'
-        magenta: '0x6c71c4'
-        cyan:    '0x5c8cae'
-        white:   '0xfdf6e3'
+      black:   '#657b83'
+      red:   '#dc322f'
+      green:   '#0da135'
+      yellow:  '#D09E00'
+      blue:  '#268bd2'
+      magenta: '#6c71c4'
+      cyan:  '#5c8cae'
+      white:   '#fdf6e3'
+
+  # (One Dark - https://github.com/atom/atom/tree/master/packages/one-dark-syntax)
+  one-dark: &one-dark
+    primary:
+      background: '#282c34'
+      foreground: '#abb2bf'
+    normal:
+      black:    '#5c6370' # mono-3
+      red:    '#e06c75' # red 1
+      green:    '#98c379'
+      yellow:   '#e5c07b' # orange 2
+      blue:   '#61afef'
+      magenta:  '#c678dd'
+      cyan:   '#56b6c2'
+      white:    '#828997' # mono-2
+
+  pop-os: &pop-os
+    # Default colors
+    primary:
+      background: '#333333'
+      foreground: '#F2F2F2'
+    # Normal colors
+    normal:
+      black:   '#333333'
+      red:   '#CC0000'
+      green:   '#4E9A06'
+      yellow:  '#C4A000'
+      blue:  '#3465A4'
+      magenta: '#75507B'
+      cyan:  '#06989A'
+      white:   '#D3D7CF'
+    # Bright colors
+    bright:
+      black:   '#88807C'
+      red:   '#F15D22'
+      green:   '#73C48F'
+      yellow:  '#FFCE51'
+      blue:  '#48B9C7'
+      magenta: '#AD7FA8'
+      cyan:  '#34E2E2'
+      white:   '#EEEEEC'
+
+  material: &material
+  # Colors (Material Theme)
+    # Default colors
+    primary:
+      background: '#263238'
+      foreground: '#eeffff'
+    # Normal colors
+    normal:
+      black:   '#000000'  # Arbitrary
+      red:     '#e53935'
+      green:   '#91b859'
+      yellow:  '#ffb62c'
+      blue:    '#6182b8'
+      magenta: '#ff5370'  # Dark pink of the original material theme
+      cyan:    '#39adb5'
+      white:   '#a0a0a0'  # Arbitrary
+    # Bright colors
+    bright:
+      black:   '#4e4e4e'  # Arbitrary
+      red:     '#ff5370'
+      green:   '#c3e88d'
+      yellow:  '#ffcb6b'
+      blue:    '#82aaff'
+      magenta: '#f07178'  # Pink of the original material theme
+      cyan:    '#89ddff'
+      white:   '#ffffff'  # Arbitrary
+
+colors: *one-dark
+
 
 # Background opacity
 #
@@ -154,22 +225,22 @@ colors:
 background_opacity: 0.80
 
 selection:
-    semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
-    # When set to `true`, selected text will be copied to the primary clipboard.
-    save_to_clipboard: false
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: false
 
 # Allow terminal applications to change Alacritty's window title.
 window.dynamic_title: true
 
 cursor:
-    unfocused_hollow: true
-    vi_mode_style: Block
+  unfocused_hollow: true
+  vi_mode_style: Block
 
 live_config_reload: true
 
 mouse:
-    hide_when_typing: true
+  hide_when_typing: true
 
 # Mouse bindings
 #
@@ -183,10 +254,10 @@ mouse:
 #
 # - `mouse`:
 #
-#   - Middle
-#   - Left
-#   - Right
-#   - Numeric identifier such as `5`
+# - Middle
+# - Left
+# - Right
+# - Numeric identifier such as `5`
 #
 # - `action` (see key bindings)
 #
@@ -207,90 +278,90 @@ mouse:
 #
 # - `key`: Identifier of the key pressed
 #
-#    - A-Z
-#    - F1-F24
-#    - Key0-Key9
+#  - A-Z
+#  - F1-F24
+#  - Key0-Key9
 #
-#    A full list with available key codes can be found here:
-#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+#  A full list with available key codes can be found here:
+#  https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
 #
-#    Instead of using the name of the keys, the `key` field also supports using
-#    the scancode of the desired key. Scancodes have to be specified as a
-#    decimal number. This command will allow you to display the hex scancodes
-#    for certain keys:
+#  Instead of using the name of the keys, the `key` field also supports using
+#  the scancode of the desired key. Scancodes have to be specified as a
+#  decimal number. This command will allow you to display the hex scancodes
+#  for certain keys:
 #
-#       `showkey --scancodes`.
+#   `showkey --scancodes`.
 #
 # Then exactly one of:
 #
 # - `chars`: Send a byte sequence to the running application
 #
-#    The `chars` field writes the specified string to the terminal. This makes
-#    it possible to pass escape sequences. To find escape codes for bindings
-#    like `PageUp` (`"\x1b[5~"`), you can run the command `showkey -a` outside
-#    of tmux. Note that applications use terminfo to map escape sequences back
-#    to keys. It is therefore required to update the terminfo when changing an
-#    escape sequence.
+#  The `chars` field writes the specified string to the terminal. This makes
+#  it possible to pass escape sequences. To find escape codes for bindings
+#  like `PageUp` (`"\x1b[5~"`), you can run the command `showkey -a` outside
+#  of tmux. Note that applications use terminfo to map escape sequences back
+#  to keys. It is therefore required to update the terminfo when changing an
+#  escape sequence.
 #
 # - `action`: Execute a predefined action
 #
-#   - Copy
-#   - Paste
-#   - PasteSelection
-#   - IncreaseFontSize
-#   - DecreaseFontSize
-#   - ResetFontSize
-#   - ScrollPageUp
-#   - ScrollPageDown
-#   - ScrollLineUp
-#   - ScrollLineDown
-#   - ScrollToTop
-#   - ScrollToBottom
-#   - ClearHistory
-#   - Hide
-#   - Minimize
-#   - Quit
-#   - ToggleFullscreen
-#   - SpawnNewInstance
-#   - ClearLogNotice
-#   - ReceiveChar
-#   - None
+# - Copy
+# - Paste
+# - PasteSelection
+# - IncreaseFontSize
+# - DecreaseFontSize
+# - ResetFontSize
+# - ScrollPageUp
+# - ScrollPageDown
+# - ScrollLineUp
+# - ScrollLineDown
+# - ScrollToTop
+# - ScrollToBottom
+# - ClearHistory
+# - Hide
+# - Minimize
+# - Quit
+# - ToggleFullscreen
+# - SpawnNewInstance
+# - ClearLogNotice
+# - ReceiveChar
+# - None
 #
-#   (macOS only):
-#   - ToggleSimpleFullscreen: Enters fullscreen without occupying another space
+# (macOS only):
+# - ToggleSimpleFullscreen: Enters fullscreen without occupying another space
 #
 # - `command`: Fork and execute a specified command plus arguments
 #
-#    The `command` field must be a map containing a `program` string and an
-#    `args` array of command line parameter strings. For example:
-#       `{ program: "alacritty", args: ["-e", "vttest"] }`
+#  The `command` field must be a map containing a `program` string and an
+#  `args` array of command line parameter strings. For example:
+#   `{ program: "alacritty", args: ["-e", "vttest"] }`
 #
 # And optionally:
 #
 # - `mods`: Key modifiers to filter binding actions
 #
-#    - Command
-#    - Control
-#    - Option
-#    - Super
-#    - Shift
-#    - Alt
+#  - Command
+#  - Control
+#  - Option
+#  - Super
+#  - Shift
+#  - Alt
 #
-#    Multiple `mods` can be combined using `|` like this:
-#       `mods: Control|Shift`.
-#    Whitespace and capitalization are relevant and must match the example.
+#  Multiple `mods` can be combined using `|` like this:
+#   `mods: Control|Shift`.
+#  Whitespace and capitalization are relevant and must match the example.
 #
 # - `mode`: Indicate a binding for only specific terminal reported modes
 #
-#    This is mainly used to send applications the correct escape sequences
-#    when in different modes.
+#  This is mainly used to send applications the correct escape sequences
+#  when in different modes.
 #
-#    - AppCursor
-#    - AppKeypad
-#    - Alt
+#  - AppCursor
+#  - AppKeypad
+#  - Alt
 #
-#    A `~` operator can be used before a mode to apply the binding whenever
-#    the mode is *not* active, e.g. `~Alt`.
+#  A `~` operator can be used before a mode to apply the binding whenever
+#  the mode is *not* active, e.g. `~Alt`.
 #
 # Bindings are always filled by default, but will be replaced when a new
 # binding with the same triggers is defined. To unset a default binding, it can
@@ -300,64 +371,65 @@ mouse:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # at once.
 key_bindings:
-    # Vi Mode
-    - { key: Space,  mods: Shift|Control, mode: Vi, action: ScrollToBottom          }
-    - { key: Space,  mods: Shift|Control,           action: ToggleViMode            }
-    - { key: Escape,                      mode: Vi, action: ClearSelection          }
-    - { key: I,                           mode: Vi, action: ScrollToBottom          }
-    - { key: I,                           mode: Vi, action: ToggleViMode            }
-    - { key: C,      mods: Control,       mode: Vi, action: ToggleViMode            }
-    - { key: Y,      mods: Control,       mode: Vi, action: ScrollLineUp            }
-    - { key: E,      mods: Control,       mode: Vi, action: ScrollLineDown          }
-    - { key: G,                           mode: Vi, action: ScrollToTop             }
-    - { key: G,      mods: Shift,         mode: Vi, action: ScrollToBottom          }
-    - { key: B,      mods: Control,       mode: Vi, action: ScrollPageUp            }
-    - { key: F,      mods: Control,       mode: Vi, action: ScrollPageDown          }
-    - { key: U,      mods: Control,       mode: Vi, action: ScrollHalfPageUp        }
-    - { key: D,      mods: Control,       mode: Vi, action: ScrollHalfPageDown      }
-    - { key: Y,                           mode: Vi, action: Copy                    }
-    - { key: Y,                           mode: Vi, action: ClearSelection          }
-    - { key: Copy,                        mode: Vi, action: ClearSelection          }
-    - { key: V,                           mode: Vi, action: ToggleNormalSelection   }
-    - { key: V,      mods: Shift,         mode: Vi, action: ToggleLineSelection     }
-    - { key: V,      mods: Control,       mode: Vi, action: ToggleBlockSelection    }
-    - { key: V,      mods: Alt,           mode: Vi, action: ToggleSemanticSelection }
-    - { key: Return,                      mode: Vi, action: Open                    }
-    - { key: K,                           mode: Vi, action: Up                      }
-    - { key: J,                           mode: Vi, action: Down                    }
-    - { key: H,                           mode: Vi, action: Left                    }
-    - { key: L,                           mode: Vi, action: Right                   }
-    - { key: Up,                          mode: Vi, action: Up                      }
-    - { key: Down,                        mode: Vi, action: Down                    }
-    - { key: Left,                        mode: Vi, action: Left                    }
-    - { key: Right,                       mode: Vi, action: Right                   }
-    - { key: Key0,                        mode: Vi, action: First                   }
-    - { key: Key4,   mods: Shift,         mode: Vi, action: Last                    }
-    - { key: Key6,   mods: Shift,         mode: Vi, action: FirstOccupied           }
-    - { key: H,      mods: Shift,         mode: Vi, action: High                    }
-    - { key: M,      mods: Shift,         mode: Vi, action: Middle                  }
-    - { key: L,      mods: Shift,         mode: Vi, action: Low                     }
-    - { key: B,                           mode: Vi, action: SemanticLeft            }
-    - { key: W,                           mode: Vi, action: SemanticRight           }
-    - { key: E,                           mode: Vi, action: SemanticRightEnd        }
-    - { key: B,      mods: Shift,         mode: Vi, action: WordLeft                }
-    - { key: W,      mods: Shift,         mode: Vi, action: WordRight               }
-    - { key: E,      mods: Shift,         mode: Vi, action: WordRightEnd            }
-    - { key: Key5,   mods: Shift,         mode: Vi, action: Bracket                 }
-    - { key: Slash,                       mode: Vi, action: SearchForward           }
-    - { key: Slash,  mods: Shift,         mode: Vi, action: SearchBackward          }
-    - { key: N,                           mode: Vi, action: SearchNext              }
-    - { key: N,      mods: Shift,         mode: Vi, action: SearchPrevious          }
+  # Vi Mode
+  - { key: Space,  mods: Shift|Control, mode: Vi, action: ScrollToBottom      }
+  - { key: Space,  mods: Shift|Control,     action: ToggleViMode      }
+  - { key: Escape,            mode: Vi, action: ClearSelection      }
+  - { key: I,               mode: Vi, action: ScrollToBottom      }
+  - { key: I,               mode: Vi, action: ToggleViMode      }
+  - { key: C,    mods: Control,     mode: Vi, action: ToggleViMode      }
+  - { key: Y,    mods: Control,     mode: Vi, action: ScrollLineUp      }
+  - { key: E,    mods: Control,     mode: Vi, action: ScrollLineDown      }
+  - { key: G,               mode: Vi, action: ScrollToTop       }
+  - { key: G,    mods: Shift,     mode: Vi, action: ScrollToBottom      }
+  - { key: B,    mods: Control,     mode: Vi, action: ScrollPageUp      }
+  - { key: F,    mods: Control,     mode: Vi, action: ScrollPageDown      }
+  - { key: U,    mods: Control,     mode: Vi, action: ScrollHalfPageUp    }
+  - { key: D,    mods: Control,     mode: Vi, action: ScrollHalfPageDown    }
+  - { key: Y,               mode: Vi, action: Copy          }
+  - { key: Y,               mode: Vi, action: ClearSelection      }
+  - { key: Copy,              mode: Vi, action: ClearSelection      }
+  - { key: V,               mode: Vi, action: ToggleNormalSelection }
+  - { key: V,    mods: Shift,     mode: Vi, action: ToggleLineSelection   }
+  - { key: V,    mods: Control,     mode: Vi, action: ToggleBlockSelection  }
+  - { key: V,    mods: Alt,       mode: Vi, action: ToggleSemanticSelection }
+  - { key: Return,            mode: Vi, action: Open          }
+  - { key: K,               mode: Vi, action: Up            }
+  - { key: J,               mode: Vi, action: Down          }
+  - { key: H,               mode: Vi, action: Left          }
+  - { key: L,               mode: Vi, action: Right         }
+  - { key: Up,              mode: Vi, action: Up            }
+  - { key: Down,              mode: Vi, action: Down          }
+  - { key: Left,              mode: Vi, action: Left          }
+  - { key: Right,             mode: Vi, action: Right         }
+  - { key: Key0,              mode: Vi, action: First         }
+  - { key: Key4,   mods: Shift,     mode: Vi, action: Last          }
+  - { key: Key6,   mods: Shift,     mode: Vi, action: FirstOccupied     }
+  - { key: H,    mods: Shift,     mode: Vi, action: High          }
+  - { key: M,    mods: Shift,     mode: Vi, action: Middle          }
+  - { key: L,    mods: Shift,     mode: Vi, action: Low           }
+  - { key: B,               mode: Vi, action: SemanticLeft      }
+  - { key: W,               mode: Vi, action: SemanticRight     }
+  - { key: E,               mode: Vi, action: SemanticRightEnd    }
+  - { key: B,    mods: Shift,     mode: Vi, action: WordLeft        }
+  - { key: W,    mods: Shift,     mode: Vi, action: WordRight       }
+  - { key: E,    mods: Shift,     mode: Vi, action: WordRightEnd      }
+  - { key: Key5,   mods: Shift,     mode: Vi, action: Bracket         }
+  - { key: Slash,             mode: Vi, action: SearchForward     }
+  - { key: Slash,  mods: Shift,     mode: Vi, action: SearchBackward      }
+  - { key: N,               mode: Vi, action: SearchNext        }
+  - { key: N,    mods: Shift,     mode: Vi, action: SearchPrevious      }
 
-    # General
-    - { key: V,              mods: Control|Shift, action: Paste            }
-    - { key: C,              mods: Control|Shift, action: Copy             }
-    - { key: Key0,           mods: Control      , action: ResetFontSize    }
-    - { key: Numpad0,        mods: Control      , action: ResetFontSize    }
-    - { key: Equals,         mods: Control      , action: IncreaseFontSize }
-    - { key: NumpadAdd,      mods: Control      , action: IncreaseFontSize }
-    - { key: Minus,          mods: Control      , action: DecreaseFontSize }
-    - { key: NumpadSubtract, mods: Control      , action: DecreaseFontSize }
-    - { key: Return,         mods: Control|Shift, action: SpawnNewInstance }
-    - { key: Up,             mods: Control      , action: ScrollPageUp     }
-    - { key: Down,           mods: Control      , action: ScrollPageDown   }
+  # General
+  - { key: V,        mods: Control|Shift, action: Paste        }
+  - { key: C,        mods: Control|Shift, action: Copy         }
+  - { key: Key0,       mods: Control    , action: ResetFontSize    }
+  - { key: Numpad0,    mods: Control    , action: ResetFontSize    }
+  - { key: Equals,     mods: Control    , action: IncreaseFontSize }
+  - { key: NumpadAdd,    mods: Control    , action: IncreaseFontSize }
+  - { key: Minus,      mods: Control    , action: DecreaseFontSize }
+  - { key: NumpadSubtract, mods: Control    , action: DecreaseFontSize }
+  - { key: Return,     mods: Control|Shift, action: SpawnNewInstance }
+  - { key: Up,       mods: Control    , action: ScrollPageUp     }
+  - { key: Down,       mods: Control    , action: ScrollPageDown   }
+
