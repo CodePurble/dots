@@ -46,6 +46,8 @@ vim.g.indent_blankline_buftype_exclude = {"terminal"}
 
 vim.g.nvim_tree_auto_open = 1
 
+require("colorizer").setup()
+
 -- selectively use tabs instead of spaces
 -- au Filetype make,gitcommit,gitconfig set noexpandtab
 -- au Filetype make,gitcommit,gitconfig set listchars=space:·,tab:⭾·

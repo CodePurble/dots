@@ -68,5 +68,5 @@ lspconfig.texlab.setup{
 
 -- this is systemverilog only
 -- lspconfig.svls.setup{
-    --     on_attach = on_attach
-    -- }
+--     on_attach = on_attach
+-- }

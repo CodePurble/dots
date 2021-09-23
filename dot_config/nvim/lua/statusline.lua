@@ -4,25 +4,30 @@ local utils = require("utils")
 local onedark_colours = utils.all_colours.onedark_colours
 local nord_colours = utils.all_colours.nord_colours
 
+-- Used only for setting the global colours
+local colours = onedark_colours
+colours.bg = nord_colours.nord1
+colours.fg = "#D0D0D0"
+
 --
 -- COLOURS
 --
-
 local vi_mode_colors = {
-    NORMAL = onedark_colours.green,
-    OP = onedark_colours.green,
-    INSERT = onedark_colours.red,
-    VISUAL = onedark_colours.skyblue,
-    BLOCK = onedark_colours.skyblue,
-    REPLACE = onedark_colours.violet,
+    ['NORMAL'] = onedark_colours.green,
+    ['OP'] = onedark_colours.green,
+    ['INSERT'] = onedark_colours.red,
+    ['VISUAL'] = onedark_colours.skyblue,
+    ['LINES'] = onedark_colours.skyblue,
+    ['BLOCK'] = onedark_colours.skyblue,
+    ['REPLACE'] = onedark_colours.violet,
     ['V-REPLACE'] = onedark_colours.violet,
-    ENTER = onedark_colours.cyan,
-    MORE = onedark_colours.cyan,
-    SELECT = onedark_colours.orange,
-    COMMAND = onedark_colours.green,
-    SHELL = onedark_colours.green,
-    TERM = onedark_colours.green,
-    NONE = onedark_colours.yellow
+    ['ENTER'] = onedark_colours.cyan,
+    ['MORE'] = onedark_colours.cyan,
+    ['SELECT'] = onedark_colours.orange,
+    ['COMMAND'] = onedark_colours.green,
+    ['SHELL'] = onedark_colours.green,
+    ['TERM'] = onedark_colours.green,
+    ['NONE'] = onedark_colours.yellow
 }
 
 local components = {
@@ -47,163 +52,250 @@ table.insert(components.inactive, {})
 --
 -- LEFT COMPONENTS
 --
-table.insert(components.active[1], {
-    provider = "git_branch",
-    icon = "  ",
-    hl = function()
-        local val = {}
-        val.fg = "black"
-        val.bg = vi_mode_utils.get_mode_color()
-        val.style = "bold"
-        return val
-    end,
-    right_sep = {
-        {
-            str = "right_filled",
-            hl = function()
-                local val = {}
-                val.bg = nord_colours.nord3
-                val.fg = vi_mode_utils.get_mode_color()
-                val.style = "bold"
-                return val
-            end,
+components.active[1] = {
+    {
+        provider = "git_branch",
+        icon = "  ",
+        hl = function()
+            return {
+                fg = "black",
+                bg = vi_mode_utils.get_mode_color(),
+                style = "bold"
+            }
+        end,
+        right_sep = {
+            {
+                str = " ",
+                hl = function()
+                    return {
+                        bg = vi_mode_utils.get_mode_color(),
+                        -- bg = colours.bg,
+                        -- bg = nord_colours.nord3,
+                        style = "bold"
+                    }
+                end
+            },
+            {
+                str = "right_filled",
+                hl = function()
+                    return {
+                        fg = vi_mode_utils.get_mode_color(),
+                        -- bg = colours.bg,
+                        -- bg = nord_colours.nord3,
+                        style = "bold"
+                    }
+                end
+            }
         }
     },
-})
-
-table.insert(components.active[1], {
-    provider = "git_diff_added",
-    hl = {
-        fg = "green",
-        bg = nord_colours.nord3
-    }
-})
-
-table.insert(components.active[1], {
-    provider = "git_diff_changed",
-    hl = {
-        fg = "orange",
-        bg = nord_colours.nord3
-    }
-})
-
-table.insert(components.active[1], {
-    provider = "git_diff_removed",
-    hl = {
-        fg = "red",
-        bg = nord_colours.nord3
+    {
+        provider = "git_diff_added",
+        hl = {
+            fg = "green",
+        },
     },
-    right_sep = {str = "right_filled", hl = {fg = nord_colours.nord3}}
-})
-
-table.insert(components.inactive[1], {
-    provider = " ",
-    icon = "",
-})
+    {
+        provider = "git_diff_changed",
+        hl = {
+            fg = "orange",
+        },
+    },
+    {
+        provider = "git_diff_removed",
+        hl = {
+            fg = "red",
+        },
+    }
+}
+components.inactive[1] = {
+    {
+        provider = " ",
+        icon = "",
+    }
+}
 
 --
 -- MIDDLE COMPONENTS
 --
-table.insert(components.active[2], {
-    provider = "file_info",
-    icon = "",
-    type = "relative",
-    left_sep = "left"
-})
-
-table.insert(components.active[2], {
-    provider = "@"
-})
-
-table.insert(components.active[2], {
-    provider = "position",
-    left_sep = " ",
-    right_sep = "right",
-})
-
-table.insert(components.inactive[2], {
-    provider = "file_info",
-    icon = "",
-    type = "relative",
-    left_sep = "left",
-    right_sep = "right"
-})
+components.active[2] = {
+    {
+        provider = "file_info",
+        icon = "",
+        type = "relative",
+        left_sep = {
+            str = "right",
+            hl = {
+                fg = colours.fg
+            }
+        }
+    },
+    {
+        provider = "@"
+    },
+    {
+        provider = "position",
+        left_sep = " ",
+        right_sep = {
+            {
+                str = " ",
+                hl = {
+                    bg = colours.bg
+                }
+            },
+            {
+                str = "left",
+                hl = {
+                    fg = colours.fg
+                }
+            },
+        }
+    },
+}
+components.inactive[2] = {
+    {
+        provider = "file_info",
+        icon = "",
+        type = "relative",
+        left_sep = {
+            str = "left",
+            hl = {
+                fg = colours.fg
+            }
+        },
+        right_sep = {
+            str = "right",
+            hl = {
+                fg = colours.fg
+            }
+        }
+    }
+}
 
 --
 -- RIGHT COMPONENTS
 --
-table.insert(components.active[3], {
-    provider = "diagnostic_errors",
-    enabled = function() return lsp.diagnostics_exist("Error") end,
-    icon = "✖ ",
-    hl = { fg = "#FF0000" },
-    right_sep = " "
-})
-
-table.insert(components.active[3], {
-    provider = "diagnostic_warnings",
-    enabled = function() return lsp.diagnostics_exist("Warning") end,
-    icon = " ",
-    hl = { fg = "#F0F722" },
-    right_sep = " "
-})
-
-table.insert(components.active[3], {
-    provider = "diagnostic_info",
-    enabled = function() return lsp.diagnostics_exist("Information") end,
-    icon = " ",
-    hl = { fg = "#1176DB" },
-    right_sep = " "
-})
-
-table.insert(components.active[3], {
-    provider = "diagnostic_hints",
-    enabled = function() return lsp.diagnostics_exist("Hint") end,
-    icon = "ℍ ",
-    hl = { fg = "#C678DD" },
-    right_sep = " "
-})
-
-table.insert(components.active[3], {
-    provider = "file_encoding",
-    left_sep = {"left", " "},
-    right_sep = " ",
-})
-
-table.insert(components.active[3], {
-    provider = vim.bo.fileformat:upper(),
-    left_sep = {"left", " "},
-    right_sep = " ",
-})
-
-table.insert(components.active[3], {
-    provider = utils.get_buf_indentation_style,
-    left_sep = {"left", " "},
-    right_sep = " "
-})
-
-table.insert(components.active[3], {
-    provider = utils.get_asyncrun_running,
-    hl = {fg = nord_colours.nord4, bg = nord_colours.nord3, style = "bold"},
-    left_sep = {str = "left_filled", hl = {fg = nord_colours.nord3}}
-})
-
-table.insert(components.active[3], {
-    provider = utils.get_python_venv,
-    hl = {
-        fg = nord_colours.nord3,
-        bg = nord_colours.nord9,
-        style = "bold"
+components.active[3] = {
+    {
+        provider = "diagnostic_errors",
+        enabled = function() return lsp.diagnostics_exist("Error") end,
+        icon = "✖ ",
+        hl = {
+            fg = "#FF0000"
+        },
     },
-    left_sep = {
-        {str = "left_filled", hl = {fg = nord_colours.nord9, bg = nord_colours.nord3}},
+    {
+        provider = "diagnostic_warnings",
+        enabled = function() return lsp.diagnostics_exist("Warning") end,
+        icon = " ",
+        hl = {
+            fg = "#F0F722"
+        },
+        right_sep = " "
     },
-})
+    {
+        provider = "diagnostic_info",
+        enabled = function() return lsp.diagnostics_exist("Information") end,
+        icon = " ",
+        hl = {
+            fg = "#1176DB"
+        },
+        right_sep = " "
+    },
+    {
+        provider = "diagnostic_hints",
+        enabled = function() return lsp.diagnostics_exist("Hint") end,
+        icon = "ℍ ",
+        hl = {
+            fg = "#C678DD"
+        },
+        right_sep = " "
+    },
+    {
+        provider = "file_encoding",
+        left_sep = {
+            {
+                str = "left",
+                hl = {
+                    fg = colours.fg,
+                    bg = colours.bg
+                }
+            },
+            " "
+        },
+        right_sep = " ",
+    },
+    {
+        provider = vim.bo.fileformat:upper(),
+        left_sep = {
+            {
+                str = "left",
+                hl = {
+                    fg = colours.fg,
+                    bg = colours.bg
+                }
+            },
+            " "
+        },
+        right_sep = " ",
+    },
+    {
+        provider = utils.get_buf_indentation_style,
+        left_sep = {
+            {
+                str = "left",
+                hl = {
+                    fg = colours.fg,
+                    bg = colours.bg
+                }
+            },
+            " "
+        },
+        right_sep = " "
+    },
+    {
+        provider = utils.get_asyncrun_running,
+        hl = {
+            fg = nord_colours.nord5,
+            bg = nord_colours.nord10,
+            style = "bold"
+        },
+        left_sep = {
+            {
+                str = "left_filled",
+                hl = {
+                    fg = nord_colours.nord10
+                }
+            },
+        },
+        -- right_sep = {
+        --     str = " ",
+        --     hl = {
+        --         bg = nord_colours.nord3
+        --     }
+        -- }
+    },
+    {
+        provider = utils.get_python_venv,
+        hl = {
+            fg = nord_colours.nord3,
+            bg = nord_colours.nord9,
+            style = "bold"
+        },
+        left_sep = {
+            {
+                str = "vertical_bar",
+                hl = {
+                    fg = nord_colours.nord1,
+                    bg = nord_colours.nord9,
+                }
+            },
+        },
+    },
+}
 
-local colours = onedark_colours
-colours.bg = nord_colours.nord1
-colours.fg = "#D0D0D0"
 require("feline").setup({
+    components = components,
+    colors = colours,
     force_inactive = {
         filetypes = {
             "NvimTree",
@@ -218,8 +310,6 @@ require("feline").setup({
         },
         bufnames = {}
     },
-    components = components,
-    colors = colours,
-    vi_mode_colors = vi_mode_colors,
+    vi_mode_colors = vi_mode_colors
 })
 
