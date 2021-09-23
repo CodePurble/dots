@@ -18,20 +18,20 @@ cd "$dir" || exit
 
 textype()
 {
-    command="xelatex -synctex=1"
     builddir="build"
+    command="xelatex -synctex=1 --output-directory=$builddir"
     [ -d "$builddir" ] || mkdir "$builddir"
     if grep -qiE "\\usepackage.*\{minted\}|\\end\{minted\}|\\mintinline" "$file"; then
         command+=" -shell-escape"
     fi
     if grep -qi addbibresource "$file"; then
-        $command --output-directory="$builddir" "$base" \
-        && biber --output-directory="$builddir" "$name" \
-        && $command --output-directory="$builddir" "$base" \
-        && $command --output-directory="$builddir" "$base"
+        $command "$base" \
+        && biber --output-directory=$builddir "$name" \
+        && $command "$base" \
+        && $command "$base"
     else
-        $command --output-directory="$builddir" "$base" \
-        && $command --output-directory="$builddir" "$base"
+        $command "$base" \
+        && $command "$base"
     fi
 }
 
@@ -41,10 +41,11 @@ case "$file" in
     *.pres.md) pandoc --from markdown -t beamer "$file" -o "$base".pdf --pdf-engine xelatex --citeproc ;;
     *.md) pandoc --from markdown "$file" -o "$base".pdf --pdf-engine xelatex --filter=pandoc-crossref --citeproc ;;
     *.tex) textype ;;
-    *.c) gcc -g -lm -Wall "$file" -o "$base" && "$base" ;;
+    # *.c) gcc -g -lm -Wall "$file" -o "$base" && "$base" ;;
+    *.c) gcc -g -lm -lgsl -lgslcblas -Wall "$file" -o "$base" && "$base" ;;
     *.cc) g++ -g -lm -Wall "$file" -o "$base" && "$base" ;;
     *.rs) rustc "$file" -o "$base" && "$base" ;;
-    *.v) iverilog -g2012 -Wall -o "$base" "$file" && vvp "$base" ;;
+    *.v) iverilog -g2012 -Wall -o "$base.out" "$file" && vvp "$base.out" ;;
     # *.v) iverilog -Wall -y"../hdl" -o "$base.out" "$file" && vvp "$base.out" ;;
     # *.v) iverilog -Wall -y"../hdl" -o "$base.out" "$file" && vvp "$base.out" && gtkwave "$base.vcd" ;;
     *.py) python "$file" ;;
