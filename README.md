@@ -1,3 +1,5 @@
+# ⚠️ THIS BRANCH IS DEPRECATED AND WILL NOT BE MAINTAINED FURTHER ⚠️
+
 # dots
 The dotfiles I use on my Arch+ZSH+Herbstluftwm system. Hopefully you can find
 something helpful in here. :smile:
