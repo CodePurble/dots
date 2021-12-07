@@ -1,4 +1,10 @@
 local lspconfig = require'lspconfig'
+
+-- ref: https://github.com/hrsh7th/cmp-nvim-lsp
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -47,26 +53,32 @@ lspconfig.sumneko_lua.setup {
             },
         },
     },
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = capabilities
 }
 
 lspconfig.pyright.setup{
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = capabilities
 }
 
 lspconfig.clangd.setup{
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = capabilities
 }
 
 lspconfig.rust_analyzer.setup{
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = capabilities
 }
 
 lspconfig.texlab.setup{
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = capabilities
 }
 
 -- this is systemverilog only
 -- lspconfig.svls.setup{
---     on_attach = on_attach
+--     on_attach = on_attach,
+--     capabilities = capabilities
 -- }
