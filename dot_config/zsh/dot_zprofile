@@ -29,12 +29,13 @@ export DOW="$HOME/Downloads"
 export REP="$HOME/repos"
 export NIE="$HOME/rpdata/nie"
 export NISB="$HOME/rpdata/ieee/nisb-2020-21"
-export SEM="$NIE/study-material/sem6"
+export SEM="$NIE/study-material/sem7"
 
 # Set path
 export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
 export PATH=$PATH:$SCRIPTS
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:/opt/MATLAB/R2021a/bin
 # export PATH=$PATH:$HOME/.local/asciidoctor-fopub
 export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin # for ruby-gems
 export RANGER_LOAD_DEFAULT_RC=FALSE

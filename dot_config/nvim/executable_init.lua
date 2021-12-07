@@ -17,7 +17,8 @@ require("general-conf")
 require("keys-conf")
 require("templates-conf")
 require("lsp-conf")
-require("compe-conf")
+-- require("compe-conf")
+require("cmp-conf")
 require("treesitter-conf")
 require("gitsigns-conf")
 require("asciidoctor-conf")
@@ -44,7 +45,17 @@ vim.g.indent_blankline_char = "|"
 vim.g.indent_blankline_filetype_exclude = {"help", "nerdtree", "packer", "dashboard"}
 vim.g.indent_blankline_buftype_exclude = {"terminal"}
 
-vim.g.nvim_tree_auto_open = 1
+require('nvim-tree').setup{
+    disable_netrw = true,
+    hijack_netrw = true,
+    auto_open = true
+}
+
+-- vim.g.nvim_tree_auto_open = 1
+
+-- Do not source the default filetype.vim
+-- Required for filetype.nvim
+vim.g.did_load_filetypes = 1
 
 require("colorizer").setup()
 

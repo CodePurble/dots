@@ -45,8 +45,9 @@ case "$file" in
     *.c) gcc -g -lm -lgsl -lgslcblas -Wall "$file" -o "$base" && "$base" ;;
     *.cc) g++ -g -lm -Wall "$file" -o "$base" && "$base" ;;
     *.rs) rustc "$file" -o "$base" && "$base" ;;
-    *.v) iverilog -g2012 -Wall -o "$base.out" "$file" && vvp "$base.out" ;;
-    # *.v) iverilog -Wall -y"../hdl" -o "$base.out" "$file" && vvp "$base.out" ;;
+    *.sv) iverilog -g2005-sv -Wall -o "$base.out" "$file" && vvp "$base.out" ;;
+    # *.v) iverilog -g2012 -Wall -o "$base.out" "$file" && vvp "$base.out" ;;
+    *.v) iverilog -Wall -y"../hdl" -o "$base.out" "$file" && vvp "$base.out" ;;
     # *.v) iverilog -Wall -y"../hdl" -o "$base.out" "$file" && vvp "$base.out" && gtkwave "$base.vcd" ;;
     *.py) python "$file" ;;
     *.m) octave "$file" ;;
