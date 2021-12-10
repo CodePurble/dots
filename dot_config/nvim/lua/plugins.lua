@@ -53,7 +53,8 @@ return require("packer").startup({function(use)
     }
 
     -- Navigation
-    use "justinmk/vim-sneak"
+    use 'ggandor/lightspeed.nvim'
+    -- use "justinmk/vim-sneak"
 
     use {
         "abecodes/tabout.nvim",
@@ -65,6 +66,7 @@ return require("packer").startup({function(use)
     use "tpope/vim-eunuch"
     use "tpope/vim-fugitive"
     use "tpope/vim-sleuth"
+    use "tpope/vim-repeat"
 
     -- Programming
     use 'Chiel92/vim-autoformat'
@@ -73,8 +75,12 @@ return require("packer").startup({function(use)
         "lewis6991/gitsigns.nvim",
         requires = {"nvim-lua/plenary.nvim"},
     }
-    use "b3nj5m1n/kommentary"
-
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
     -- Misc
     use "akinsho/nvim-toggleterm.lua"
