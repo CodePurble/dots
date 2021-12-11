@@ -3,6 +3,7 @@
 alias r='ranger'
 alias p='pacman'
 alias sp='sudo pacman'
+alias sa='sudo aura'
 alias pdf='zathura'
 alias dave='dosbox $HOME/dosGames/gameedge/DDAVE/DAVE.EXE'
 alias dnd='dragon-drag-and-drop'
@@ -28,6 +29,7 @@ alias zz='cd $ZDOTDIR; ls'
 alias bb='cd $HOME/.config/bspwm; ls'
 alias hh='cd $HOME/.config/herbstluftwm; ls'
 alias wl='cd $HOME/Pictures/wallpapers; ls'
+alias foo='cd $HOME/Documents/foo; ls'
 
 alias lz="cd $SEM/miniproject/libezw"
 alias mp="cd $SEM/iot/project/mpu6050-datalogger"
@@ -36,6 +38,7 @@ alias mp="cd $SEM/iot/project/mpu6050-datalogger"
 # alias l='ls -lh --group-directories-first --color'
 # alias la='ls -lAh --group-directories-first --color'
 
+alias hexc='hexdump -C'
 alias cp='cp -iv'
 alias rm='rm -Iv'
 alias mv='mv -iv'
@@ -45,15 +48,9 @@ alias l='exa -l --group-directories-first --colour always'
 alias la='exa -la --group-directories-first --colour always'
 alias ip='ip -c'
 
-alias macchina="macchina -X \
-    Host \
-    Distribution \
-    Kernel \
-    WindowManager \
-    Packages \
-    Shell \
-    -t Boron --box-title '' \
-    --custom-ascii $HOME/Documents/notes/arch_minimal.ascii --custom-ascii-color blue"
+alias hha='freshfetch'
+
+alias caps="setxkbmap -option caps:escape_shifted_capslock && setxkbmap -option numpad:mac"
 
 # alias starwars='telnet towel.blinkenlights.nl'
 alias coolboost='nbfc set -f 0 -s 100 && nbfc set -f 1 -s 100'
@@ -68,6 +65,7 @@ alias grep='grep --color'
 
 alias ard='arduino-cli'
 
+alias lg='lazygit'
 alias gss='git status'
 alias gaa='git add .'
 alias gau='git add -u'
