@@ -28,6 +28,7 @@ return require("packer").startup({function(use)
 
     -- Theme/Visual
     --
+    use "rebelot/kanagawa.nvim"
     use "monsonjeremy/onedark.nvim"
     -- use "joshdick/onedark.vim"
     use "folke/lsp-colors.nvim"
@@ -36,6 +37,7 @@ return require("packer").startup({function(use)
         requires = "kyazdani42/nvim-web-devicons",
     }
     -- use "hoob3rt/lualine.nvim"
+    -- use { "famiu/feline.nvim", tag = 'v0.3.3' }
     use "famiu/feline.nvim"
 
     use {

@@ -1,13 +1,15 @@
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
+
 local utils = require("utils")
 local onedark_colours = utils.all_colours.onedark_colours
 local nord_colours = utils.all_colours.nord_colours
 
 -- Used only for setting the global colours
-local colours = onedark_colours
-colours.bg = nord_colours.nord1
-colours.fg = "#D0D0D0"
+local theme_bg_fg = {
+    fg = "#D0D0D0",
+    bg = nord_colours.nord1,
+}
 
 --
 -- COLOURS
@@ -69,8 +71,6 @@ components.active[1] = {
                 hl = function()
                     return {
                         bg = vi_mode_utils.get_mode_color(),
-                        -- bg = colours.bg,
-                        -- bg = nord_colours.nord3,
                         style = "bold"
                     }
                 end
@@ -80,8 +80,7 @@ components.active[1] = {
                 hl = function()
                     return {
                         fg = vi_mode_utils.get_mode_color(),
-                        -- bg = colours.bg,
-                        -- bg = nord_colours.nord3,
+                        bg = theme_bg_fg.bg,
                         style = "bold"
                     }
                 end
@@ -92,25 +91,30 @@ components.active[1] = {
         provider = "git_diff_added",
         hl = {
             fg = "green",
+            bg = theme_bg_fg.bg
         },
     },
     {
         provider = "git_diff_changed",
         hl = {
             fg = "orange",
+            bg = theme_bg_fg.bg
         },
     },
     {
         provider = "git_diff_removed",
         hl = {
             fg = "red",
+            bg = theme_bg_fg.bg
         },
     }
 }
 components.inactive[1] = {
     {
-        provider = " ",
-        icon = "",
+        hl = {
+            fg = theme_bg_fg.fg,
+            bg = theme_bg_fg.bg
+        },
     }
 }
 
@@ -120,32 +124,58 @@ components.inactive[1] = {
 components.active[2] = {
     {
         provider = "file_info",
+        hl = {
+            fg = theme_bg_fg.fg,
+            bg = theme_bg_fg.bg
+        },
         icon = "",
         type = "relative",
         left_sep = {
             str = "right",
             hl = {
-                fg = colours.fg
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
+            }
+        },
+        right_sep = {
+            str = " ",
+            hl = {
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
             }
         }
     },
     {
-        provider = "@"
+        provider = "@",
+        hl = {
+            fg = theme_bg_fg.fg,
+            bg = theme_bg_fg.bg
+        }
     },
     {
         provider = "position",
-        left_sep = " ",
+        hl = {
+            fg = theme_bg_fg.fg,
+            bg = theme_bg_fg.bg
+        },
+        left_sep = {
+            str = " ",
+            hl = {
+                bg = theme_bg_fg.bg
+            }
+        },
         right_sep = {
             {
                 str = " ",
                 hl = {
-                    bg = colours.bg
+                    bg = theme_bg_fg.bg
                 }
             },
             {
                 str = "left",
                 hl = {
-                    fg = colours.fg
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
                 }
             },
         }
@@ -154,18 +184,33 @@ components.active[2] = {
 components.inactive[2] = {
     {
         provider = "file_info",
+        hl = {
+            fg = theme_bg_fg.fg,
+            bg = theme_bg_fg.bg
+        },
         icon = "",
         type = "relative",
         left_sep = {
             str = "left",
             hl = {
-                fg = colours.fg
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
             }
         },
         right_sep = {
-            str = "right",
-            hl = {
-                fg = colours.fg
+            {
+                str = " ",
+                hl = {
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
+                }
+            },
+            {
+                str = "right",
+                hl = {
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
+                }
             }
         }
     }
@@ -180,77 +225,154 @@ components.active[3] = {
         enabled = function() return lsp.diagnostics_exist("Error") end,
         icon = "✖ ",
         hl = {
-            fg = "#FF0000"
+            fg = "#FF0000",
+            bg = theme_bg_fg.bg
         },
+        right_sep = {
+            str = " ",
+            hl = {
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
+            }
+        }
     },
     {
         provider = "diagnostic_warnings",
-        enabled = function() return lsp.diagnostics_exist("Warning") end,
+        enabled = function() return lsp.diagnostics_exist("Warn") end,
         icon = " ",
         hl = {
-            fg = "#F0F722"
+            fg = "#F0F722",
+            bg = theme_bg_fg.bg
         },
-        right_sep = " "
+        right_sep = {
+            str = " ",
+            hl = {
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
+            }
+        }
     },
     {
         provider = "diagnostic_info",
-        enabled = function() return lsp.diagnostics_exist("Information") end,
+        enabled = function() return lsp.diagnostics_exist("Info") end,
         icon = " ",
         hl = {
-            fg = "#1176DB"
+            fg = "#1176DB",
+            bg = theme_bg_fg.bg
         },
-        right_sep = " "
+        right_sep = {
+            str = " ",
+            hl = {
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
+            }
+        }
     },
     {
         provider = "diagnostic_hints",
         enabled = function() return lsp.diagnostics_exist("Hint") end,
         icon = "ℍ ",
         hl = {
-            fg = "#C678DD"
+            fg = "#C678DD",
+            bg = theme_bg_fg.bg
         },
-        right_sep = " "
+        right_sep = {
+            str = " ",
+            hl = {
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
+            }
+        }
     },
     {
         provider = "file_encoding",
+        hl = {
+            fg = theme_bg_fg.fg,
+            bg = theme_bg_fg.bg
+        },
         left_sep = {
             {
                 str = "left",
                 hl = {
-                    fg = colours.fg,
-                    bg = colours.bg
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
                 }
             },
-            " "
+            {
+                str = " ",
+                hl = {
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
+                }
+            },
         },
-        right_sep = " ",
+        right_sep = {
+            str = " ",
+            hl = {
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
+            }
+        },
     },
     {
         provider = vim.bo.fileformat:upper(),
+        hl = {
+            fg = theme_bg_fg.fg,
+            bg = theme_bg_fg.bg
+        },
         left_sep = {
             {
                 str = "left",
                 hl = {
-                    fg = colours.fg,
-                    bg = colours.bg
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
                 }
             },
-            " "
+            {
+                str = " ",
+                hl = {
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
+                }
+            },
         },
-        right_sep = " ",
+        right_sep = {
+            str = " ",
+            hl = {
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
+            }
+        },
     },
     {
         provider = utils.get_buf_indentation_style,
+        hl = {
+            fg = theme_bg_fg.fg,
+            bg = theme_bg_fg.bg
+        },
         left_sep = {
             {
                 str = "left",
                 hl = {
-                    fg = colours.fg,
-                    bg = colours.bg
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
                 }
             },
-            " "
+            {
+                str = " ",
+                hl = {
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
+                }
+            },
         },
-        right_sep = " "
+        right_sep = {
+            str = " ",
+            hl = {
+                fg = theme_bg_fg.fg,
+                bg = theme_bg_fg.bg
+            }
+        },
     },
     {
         provider = utils.get_asyncrun_running,
@@ -263,7 +385,8 @@ components.active[3] = {
             {
                 str = "left_filled",
                 hl = {
-                    fg = nord_colours.nord10
+                    fg = nord_colours.nord10,
+                    bg = theme_bg_fg.bg
                 }
             },
         },
@@ -295,7 +418,7 @@ components.active[3] = {
 
 require("feline").setup({
     components = components,
-    colors = colours,
+    theme = theme_bg_fg,
     force_inactive = {
         filetypes = {
             "NvimTree",

@@ -48,6 +48,16 @@ M.all_colours = {
     }
 }
 
+-- Function that copies only SIMPLE TABLES WITHOUT ANY METATABLES. NO SUPPORT FOR RECURSIVE TABLES.
+-- Ref: https://stackoverflow.com/a/641993
+function M.table_shallow_copy(t)
+    local t2 = {}
+    for k,v in pairs(t) do
+        t2[k] = v
+    end
+    return t2
+end
+
 -- return current status of AsyncRun job
 -- requires asyncrun.vim
 local async_status_old = ""
