@@ -28,7 +28,6 @@ return require("packer").startup({function(use)
 
     -- Theme/Visual
     --
-    use "rebelot/kanagawa.nvim"
     use "monsonjeremy/onedark.nvim"
     -- use "joshdick/onedark.vim"
     use "folke/lsp-colors.nvim"

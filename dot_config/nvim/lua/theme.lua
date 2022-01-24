@@ -13,7 +13,10 @@
 -- ]])
 --
 -- monsonjeremy
-require('onedark').setup()
+require('onedark').setup({
+    functionStyle = "bold",
+})
+
 
 -- kanagawa.nvim
 -- vim.cmd("colorscheme kanagawa")

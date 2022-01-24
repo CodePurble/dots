@@ -8,7 +8,7 @@ keymap('n', '<leader>T', ':tabnew<Space>', opts)
 keymap('n', '<leader>W', ':tabclose<CR>', opts)
 keymap('n', '<leader>y', 'y$', opts)
 keymap('n', '<leader>d', 'D', opts)
-keymap('n', 'S', [[:%s//gc<Left><Left><Left>]], opts)
+keymap('n', '<leader>s', [[:%s//gc<Left><Left><Left>]], opts)
 keymap('n', '<leader><leader>', '<C-^>', opts)
 keymap('n', '<leader>R', ':e $MYVIMRC<CR>', opts)
 -- keymap('n', '<leader>s', ':split<Space>', opts)
@@ -41,6 +41,9 @@ autocmd FileType help nnoremap <buffer> S ?\|\zs\S\+\ze\|<CR>
 -- Global
 -- My compile and run script
 vim.g.asyncrun_open = 6
+vim.cmd([[
+autocmd FileType tex let g:asyncrun_open = 0
+]])
 keymap('', '<leader>r', [[:w! | AsyncRun candrun <c-r>%<CR>]], {})
 keymap('', '<leader>m', [[:wa | TermExec cmd="detectmake"<CR>]], {})
 
