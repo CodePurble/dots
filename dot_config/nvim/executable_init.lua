@@ -38,7 +38,7 @@ require("autopairs-conf")
 -- indent guides
 -- let g:indent_blankline_char = "»"
 
-vim.g.indent_blankline_char = "|"
+vim.g.indent_blankline_char = "⏐"
 vim.g.indent_blankline_filetype_exclude = {"help", "nerdtree", "packer", "dashboard"}
 vim.g.indent_blankline_buftype_exclude = {"terminal"}
 
