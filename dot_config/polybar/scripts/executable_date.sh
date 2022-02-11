@@ -3,13 +3,13 @@
 # Awesome work by @chebro
 # Ref: https://github.com/chebro/calendar-notification
 send_notification() {
-    TODAY=$(date '+%d')
+    TODAY=$(date '+%-d')
     HEAD=$(cal "$1" | head -n1)
-    BODY=$(cal "$1" | tail -n7 | sed -z "s|$TODAY|<u><b>$TODAY</b></u>|g")
+    BODY=$(cal "$1" | tail -n7 | sed -z "s|$TODAY|<u><b>$TODAY</b></u>|1")
     FOOT="\n<i>       ~ calendar</i>  "
     dunstify -h string:x-canonical-private-synchronous:calendar \
         "$HEAD" "$BODY$FOOT" -u NORMAL
-    }
+}
 
 handle_action() {
     echo "$DIFF" > "$TMP"
@@ -20,10 +20,10 @@ handle_action() {
     fi
 }
 
-TMP="/tmp/calendar_notification_month"
+TMP=${XDG_RUNTIME_DIR:-/tmp}/"$UID"_calendar_notification_month
 touch "$TMP"
 
-DIFF=$(<$TMP)
+DIFF=$(<"$TMP")
 
 case $1 in
     "curr") DIFF=0;;

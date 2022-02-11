@@ -5,6 +5,7 @@
 * nvidia
 * nvidia-prime
 * bbswitch
+* nvidia-utils
 
 # Other packages
 

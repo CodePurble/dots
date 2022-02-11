@@ -104,7 +104,7 @@ return require("packer").startup({function(use)
     }
     use {"arm9/arm-syntax-vim", ft = "arm"}
     use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install", ft = "markdown"}
-    -- use "jvirtanen/vim-octave"
+    use "jvirtanen/vim-octave"
     use "editorconfig/editorconfig-vim"
     use "sudar/vim-arduino-syntax"
 end,
