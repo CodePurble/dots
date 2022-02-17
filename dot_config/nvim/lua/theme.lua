@@ -14,9 +14,11 @@
 --
 -- monsonjeremy
 require('onedark').setup({
-    functionStyle = "bold",
+    commentStyle = "italic",
+    keywordStyle = "italic",
+    functionStyle = "italic"
 })
-
+vim.cmd([[colorscheme onedark]])
 
 -- kanagawa.nvim
 -- vim.cmd("colorscheme kanagawa")
