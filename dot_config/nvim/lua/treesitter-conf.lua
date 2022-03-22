@@ -1,19 +1,26 @@
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {
+        "bash",
+        "bibtex",
+        "cmake",
         "c",
         "cpp",
         "devicetree",
+        "make",
         "python",
+        "pioasm",
+        "perl",
         "rust",
         "bibtex",
         "verilog",
         "dockerfile",
         "lua",
         "json",
-        "toml"
+        "toml",
+        "yaml"
     },
     highlight = {
-        enable = true,
+        enable = true
     },
     incremental_selection = {
         enable = true,
