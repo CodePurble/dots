@@ -131,10 +131,18 @@ components.active[2] = {
         icon = "",
         type = "relative",
         left_sep = {
-            str = "right",
-            hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
+            {
+                str = "right",
+                hl = {
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
+                },
+            },
+            {
+                str = " ",
+                hl = {
+                    bg = theme_bg_fg.bg
+                }
             }
         },
         right_sep = {
@@ -191,10 +199,19 @@ components.inactive[2] = {
         icon = "",
         type = "relative",
         left_sep = {
-            str = "left",
-            hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
+            {
+                str = "left",
+                hl = {
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
+                }
+            },
+            {
+                str = " ",
+                hl = {
+                    fg = theme_bg_fg.fg,
+                    bg = theme_bg_fg.bg
+                }
             }
         },
         right_sep = {
