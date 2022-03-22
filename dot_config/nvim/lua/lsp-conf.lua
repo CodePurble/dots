@@ -77,8 +77,15 @@ lspconfig.texlab.setup{
     capabilities = capabilities
 }
 
+lspconfig.verible.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
 -- this is systemverilog only
 -- lspconfig.svls.setup{
 --     on_attach = on_attach,
---     capabilities = capabilities
+--     capabilities = capabilities,
+--     root_dir = lspconfig.util.root_pattern("*")
 -- }
+
