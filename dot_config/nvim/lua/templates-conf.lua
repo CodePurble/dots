@@ -14,6 +14,5 @@ if has("autocmd")
 endif
 
 autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
-autocmd BufEnter *.pio set filetype=asm " RP2040 pioasm files
 ]])
 
