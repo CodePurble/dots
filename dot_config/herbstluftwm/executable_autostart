@@ -20,7 +20,8 @@ if [[ -f $(which optimus-manager) ]]; then
 fi
 
 # Set wallpaper
-$HOME/.local/scripts/setbg $HOME/Pictures/wallpapers/900.png
+# $HOME/.local/scripts/setbg $HOME/Pictures/wallpapers/900.png
+$HOME/.local/scripts/setbg
 
 # Start conky
 # $HOME/.config/conky/launch-conky.sh 2> /dev/null
@@ -236,7 +237,7 @@ hc rule class='Display' floating=on # Font display window
 hc rule class='stacer' floating=on
 hc rule title='meet.google.com is sharing your screen.' floating=on # Google meet indicator
 hc rule title='meet.google.com is sharing a window.' floating=on # Google meet indicator
-hc rule class='Dragon-drag-and-drop' floating=on
+hc rule class='Dragon-drop' floating=on
 hc rule class='Steam' floating=on
 hc rule class='Lxpolkit' floating=on
 hc rule class='Gtkwave' floating=on
