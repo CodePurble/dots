@@ -14,7 +14,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BROWSER="brave"
 export TERMINAL="alacritty"
 export READER="zathura"
-export VIEWER="sxiv"
+export VIEWER="nsxiv"
 export CHROME_PATH="$(which $BROWSER)" # needed for marp
 
 # Needed for a few scripts
@@ -30,6 +30,7 @@ export REP="$HOME/repos"
 export NIE="$HOME/rpdata/nie"
 export NISB="$HOME/rpdata/ieee/nisb-2020-21"
 export SEM="$NIE/study-material/sem7"
+export MAJPROJ="$NIE/study-material/majproj"
 
 # Set path
 export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH

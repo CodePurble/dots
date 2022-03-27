@@ -120,5 +120,12 @@ function gh-latest-release() {
 }
 
 function pdfmerge() {
+    if [ -f "$1" ]; then
+        echo "Info on usage: pdfmerge <out> <in1> <in2> ..."
+        vared -p "The file $1 already exists, overwrite? (y/n) " -c RESP
+        if ! [ "$RESP" = "y" ]; then
+            return
+        fi
+    fi
     gs -q -sPAPERSIZE=a4 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="$1" "$@"
 }
