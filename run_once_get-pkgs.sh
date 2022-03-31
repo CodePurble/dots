@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+[ -d $HOME/Pictures ] || mkdir $HOME/Pictures
+if ! [ -d "$HOME/Pictures/wallpapers" ]; then
+    git clone git@github.com:CodePurble/wallpapers.git $HOME/Pictures/wallpapers # private sorry :P
+fi
+
+GIT_DIR="$HOME/Downloads/git"
+[ -d "$GIT_DIR" ] || mkdir -p "$GIT_DIR"
+
+{{ if eq .chezmoi.hostname "nitro" }}
+
 sudo pacman -S --needed --noconfirm \
     base-devel git git-delta ninja cmake meson exa bat \
     alacritty neovim python-pynvim \
@@ -14,14 +24,6 @@ sudo pacman -S --needed --noconfirm \
     nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
     arduino-cli github-cli
 
-[ -d $HOME/Pictures ] || mkdir $HOME/Pictures
-if ! [ -d "$HOME/Pictures/wallpapers" ]; then
-    git clone git@github.com:CodePurble/wallpapers.git $HOME/Pictures/wallpapers # private sorry :P
-fi
-
-GIT_DIR="$HOME/Downloads/git"
-[ -d "$GIT_DIR" ] || mkdir -p "$GIT_DIR"
-
 if ! which volume; then
     git clone git@github.com:CodePurble/i3-volume.git "$GIT_DIR"/i3-volume
 fi
@@ -35,7 +37,7 @@ if ! which picom; then
 fi
 
 paru_cmd() {
-    paru -S --noconfirm --needed \
+    paru -S --sudoloop --noconfirm --needed \
         optimus-manager-git \
         polybar \
         nerd-fonts-jetbrains-mono \
@@ -56,4 +58,32 @@ if ! which paru > /dev/null; then
 fi
 
 paru_cmd
+
+{{ else if eq .chezmoi.hostname "asterix" }}
+
+sudo pacman -S --needed --noconfirm \
+    base-devel git git-delta ninja cmake meson exa bat \
+    alacritty neovim python-pynvim \
+    xclip ranger \
+    arduino-cli github-cli
+
+yay_cmd() {
+    yay -S --sudoloop --noconfirm --needed \
+        nerd-fonts-jetbrains-mono \
+        nerd-fonts-ubuntu-mono \
+        zsh-theme-powerlevel10k-git \
+        zsh-fast-syntax-highlighting-git
+}
+
+if ! which yay > /dev/null; then
+    if ! [-d "$GIT_DIR/yay"]; then
+        git clone https://aur.archlinux.org/yay.git "$GIT_DIR"/yay
+        cd "$GIT_DIR"/yay
+        makepkg -si
+    fi
+fi
+
+yay_cmd
+
+{{ end }}
 
