@@ -4,12 +4,12 @@ alias r='ranger'
 alias p='pacman'
 alias py='python'
 alias sp='sudo pacman'
-alias sa='sudo aura'
 alias pdf='zathura'
 alias dave='dosbox $HOME/dosGames/gameedge/DDAVE/DAVE.EXE'
-alias dnd='dragon-drag-and-drop'
+alias dnd='dragon-drop'
 alias sx='startx'
 alias nsx='sudo /usr/bin/prime-switch && startx'
+alias update="echo 'paru -Syu --sudoloop' && paru -Syu --sudoloop"
 
 alias al='$EDITOR $ZDOTDIR/.aliases'
 alias nv='$EDITOR $HOME/.config/nvim'
@@ -33,7 +33,7 @@ alias wl='cd $HOME/Pictures/wallpapers; ls'
 alias foo='cd $HOME/Documents/foo; ls'
 
 alias lz="cd $SEM/miniproject/libezw"
-alias mp="cd $SEM/iot/project/mpu6050-datalogger"
+alias mp="cd $MAJPROJ"
 
 # alias ls='ls --group-directories-first --color'
 # alias l='ls -lh --group-directories-first --color'
