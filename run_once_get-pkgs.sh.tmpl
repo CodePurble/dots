@@ -10,10 +10,12 @@ GIT_DIR="$HOME/Downloads/git"
 
 {{ if eq .chezmoi.hostname "nitro" }}
 
+echo "Running on host: nitro"
+
 sudo pacman -S --needed --noconfirm \
     base-devel git git-delta ninja cmake meson exa bat \
     alacritty neovim python-pynvim \
-    feh sxiv zathura maim xclip \
+    feh zathura maim xclip \
     networkmanager network-manager-applet \
     xfce4-power-manager \
     ranger pcmanfm gvfs gvfs-mtp \
@@ -37,11 +39,10 @@ if ! which picom; then
 fi
 
 paru_cmd() {
-    paru -S --sudoloop --noconfirm --needed \
+    paru -S --sudoloop --needed --noconfirm \
         optimus-manager-git \
-        polybar \
+        polybar nsxiv \
         nerd-fonts-jetbrains-mono \
-        nerd-fonts-cascadia-code \
         nerd-fonts-fantasque-sans-mono \
         nerd-fonts-ubuntu-mono \
         zsh-theme-powerlevel10k-git \
@@ -60,6 +61,8 @@ fi
 paru_cmd
 
 {{ else if eq .chezmoi.hostname "asterix" }}
+
+echo "Running on host: asterix"
 
 sudo pacman -S --needed --noconfirm \
     base-devel git git-delta ninja cmake meson exa bat \
@@ -87,3 +90,4 @@ yay_cmd
 
 {{ end }}
 
+echo "All done"
