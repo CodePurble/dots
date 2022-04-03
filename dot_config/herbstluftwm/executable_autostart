@@ -54,7 +54,8 @@ hc keybind $Mod-Return spawn $myTerminal
 hc keybind $Mod-Tab spawn \
     tdrop --wm herbstluftwm \
     -m -w 50% -h 50% -x 480 -y 270 \
-    -L "herbstclient attr clients.focus.floating on" "$myTerminal-workaround" -e ranger ~
+    -L "herbstclient attr clients.focus.floating on" "$myTerminal" -e ranger ~
+    # -L "herbstclient attr clients.focus.floating on" "$myTerminal-workaround" -e ranger ~
 # tdrop -ma -w 1915 -h 50% -x 0 -y 29 $myTerminal # Top half of screen
 
 hc keybind $Mod-b spawn $myBrowser

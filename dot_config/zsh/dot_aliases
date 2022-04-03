@@ -1,85 +1,87 @@
 #!/usr/bin/env zsh
 
-alias r='ranger'
-alias p='pacman'
-alias py='python'
-alias sp='sudo pacman'
-alias pdf='zathura'
-alias dave='dosbox $HOME/dosGames/gameedge/DDAVE/DAVE.EXE'
-alias dnd='dragon-drop'
-alias sx='startx'
-alias nsx='sudo /usr/bin/prime-switch && startx'
+local CEDIT="chezmoi edit"
+
+alias r="ranger"
+alias p="pacman"
+alias py="python"
+alias sp="sudo pacman"
+alias pdf="zathura"
+alias dave="dosbox $HOME/dosGames/gameedge/DDAVE/DAVE.EXE"
+alias dnd="dragon-drop"
+alias sx="startx"
+alias nsx="sudo /usr/bin/prime-switch && startx"
 alias update="echo 'paru -Syu --sudoloop' && paru -Syu --sudoloop"
 
-alias al='$EDITOR $ZDOTDIR/.aliases'
-alias nv='$EDITOR $HOME/.config/nvim'
-alias nn='cd $HOME/.config/nvim; ls'
-alias z='$EDITOR $ZDOTDIR/.zshrc'
-alias b='$EDITOR $HOME/.config/bspwm/bspwmrc.*'
-alias hl='$EDITOR $HOME/.config/herbstluftwm/autostart'
+alias al="$CEDIT $ZDOTDIR/.aliases"
+alias nv="$CEDIT $HOME/.config/nvim"
+alias nn="cd $HOME/.config/nvim; ls"
+alias z="$CEDIT $ZDOTDIR/.zshrc"
+alias b="$CEDIT $HOME/.config/bspwm/bspwmrc.*"
+alias hl="$CEDIT $HOME/.config/herbstluftwm/autostart"
 
-alias dl='cd $DOW; ls'
-alias re='cd $REP; ls'
-alias ci='cd $NISB; ls'
-alias dt='cd $DOTS; ls'
-alias cs='cd $SEM; ls'
-alias rp='cd $HOME/rpdata; ls'
-alias c='cd $HOME/.config; ls'
-alias sc='cd $SCRIPTS; ls'
-alias zz='cd $ZDOTDIR; ls'
-alias bb='cd $HOME/.config/bspwm; ls'
-alias hh='cd $HOME/.config/herbstluftwm; ls'
-alias wl='cd $HOME/Pictures/wallpapers; ls'
-alias foo='cd $HOME/Documents/foo; ls'
+alias dl="cd $DOW; ls"
+alias re="cd $REP; ls"
+alias ci="cd $NISB; ls"
+alias dt="cd $DOTS; ls"
+alias cs="cd $SEM; ls"
+alias rp="cd $HOME/rpdata; ls"
+alias c="cd $HOME/.config; ls"
+alias sc="cd $SCRIPTS; ls"
+alias zz="cd $ZDOTDIR; ls"
+alias bb="cd $HOME/.config/bspwm; ls"
+alias hh="cd $HOME/.config/herbstluftwm; ls"
+alias wl="cd $HOME/Pictures/wallpapers; ls"
+alias foo="cd $HOME/Documents/foo; ls"
 
 alias lz="cd $SEM/miniproject/libezw"
 alias mp="cd $MAJPROJ"
 
-# alias ls='ls --group-directories-first --color'
-# alias l='ls -lh --group-directories-first --color'
-# alias la='ls -lAh --group-directories-first --color'
+# alias ls="ls --group-directories-first --color"
+# alias l="ls -lh --group-directories-first --color"
+# alias la="ls -lAh --group-directories-first --color"
 
-alias hexc='hexdump -C'
-alias cp='cp -iv'
-alias rm='rm -Iv'
-alias mv='mv -iv'
-alias tree='tree -CA'
-alias ls='exa --group-directories-first --colour always'
-alias l='exa -l --group-directories-first --colour always'
-alias la='exa -la --group-directories-first --colour always'
-alias ip='ip -c'
+alias hexc="hexdump -C"
+alias cp="cp -iv"
+alias rm="rm -Iv"
+alias mv="mv -iv"
+alias tree="tree -CA"
+alias ls="exa --group-directories-first --colour always"
+alias l="exa -l --group-directories-first --colour always"
+alias la="exa -la --group-directories-first --colour always"
+alias ip="ip -c"
 
-alias hha='freshfetch'
+alias hha="freshfetch"
 
 alias caps="setxkbmap -option caps:escape_shifted_capslock && setxkbmap -option numpad:mac"
 
-# alias starwars='telnet towel.blinkenlights.nl'
-alias coolboost='nbfc set -f 0 -s 100 && nbfc set -f 1 -s 100'
-alias normalfan='nbfc set -f 0 -a && nbfc set -f 1 -a'
-# alias aconf='cd $HOME/.config/awesome/'
-# alias vim='nvim'
+# alias starwars="telnet towel.blinkenlights.nl"
+alias coolboost="nbfc set -f 0 -s 100 && nbfc set -f 1 -s 100"
+alias normalfan="nbfc set -f 0 -a && nbfc set -f 1 -a"
+# alias aconf="cd $HOME/.config/awesome/"
+# alias vim="nvim"
 # alias nvim="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"
 
-alias upo='udisksctl power-off -b'
+alias upo="udisksctl power-off -b"
 
-alias grep='grep --color'
+alias grep="grep --color"
 
-alias ard='arduino-cli'
+alias ard="arduino-cli"
 
-alias lg='lazygit'
-alias gss='git status'
-alias gaa='git add .'
-alias gau='git add -u'
-alias gco='git checkout'
-alias gd='git diff'
-alias ga='git add'
-alias ggpg='git config commit.gpgsign true'
+alias lg="lazygit"
+alias gss="git status"
+alias gaa="git add ."
+alias gau="git add -u"
+alias gco="git checkout"
+alias gd="git diff"
+alias ga="git add"
+alias ggpg="git config commit.gpgsign true"
 
-alias cz='chezmoi'
-alias cedit='chezmoi edit'
+alias cz="chezmoi"
+alias cedit="chezmoi edit"
 
-alias om='optimus-manager'
-alias des='docker run --rm -it -v $(pwd):/opt/Ramprakash_4NI18EC019 codepurble/docker-emsys-nie'
+alias om="optimus-manager"
+alias des="docker run --rm -it -v $(pwd):/opt/Ramprakash_4NI18EC019 codepurble/docker-emsys-nie"
 alias sauth='eval $(ssh-agent) && ssh-add'
 
 function adoc()
@@ -115,13 +117,13 @@ function pgen()
 # Ref: https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
 function gh-latest-release() {
     curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
-        grep '"tag_name":' |                                            # Get tag line
+        grep "'tag_name':" |                                            # Get tag line
         sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
 }
 
 function pdfmerge() {
     if [ -f "$1" ]; then
-        echo "Info on usage: pdfmerge <out> <in1> <in2> ..."
+        echo 'Info on usage: pdfmerge <out> <in1> <in2> ...'
         vared -p "The file $1 already exists, overwrite? (y/n) " -c RESP
         if ! [ "$RESP" = "y" ]; then
             return
