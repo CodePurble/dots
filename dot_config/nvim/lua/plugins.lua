@@ -106,6 +106,7 @@ return require("packer").startup({function(use)
     use "jvirtanen/vim-octave"
     use "editorconfig/editorconfig-vim"
     use "sudar/vim-arduino-syntax"
+    use 'mboughaba/i3config.vim'
 end,
 config = {display = {open_fn = require("packer.util").float}}
 })

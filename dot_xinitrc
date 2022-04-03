@@ -40,4 +40,5 @@ xsetroot -solid '#000000'
 # Caps Lock an additional Esc, but Shift + Caps Lock is the regular Caps Lock
 setxkbmap -option caps:escape_shifted_capslock # Whew! Comfier Vim experience
 setxkbmap -option numpad:mac # Numpad is always numbers, nothing else
-exec herbstluftwm --locked > /tmp/hlwm.log 2> /tmp/hlwm_err.log
+# exec herbstluftwm --locked > /tmp/hlwm.log 2> /tmp/hlwm_err.log
+exec i3 > /tmp/i3.log 2> /tmp/i3_err.log
