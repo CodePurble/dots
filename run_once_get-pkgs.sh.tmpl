@@ -24,7 +24,8 @@ sudo pacman -S --needed --noconfirm \
     xorg xorg-xinit lxsession \
     xf86-video-intel intel-ucode \
     nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
-    arduino-cli github-cli
+    arduino-cli github-cli \
+    bluez bluez-utils bluez-libs
 
 if ! which volume; then
     git clone git@github.com:CodePurble/i3-volume.git "$GIT_DIR"/i3-volume
