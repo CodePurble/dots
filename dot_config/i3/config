@@ -1,112 +1,36 @@
 # vim: filetype=i3config
-# i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 #
 # This config file uses keycodes (bindsym) and was written for the QWERTY
 # layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-
+#    __  __
+#   / /_/ /_  ___  ____ ___  ___
+#  / __/ __ \/ _ \/ __ `__ \/ _ \
+# / /_/ / / /  __/ / / / / /  __/
+# \__/_/ /_/\___/_/ /_/ /_/\___/
 default_border normal 1
 hide_edge_borders both
 title_align center
 font pango:JetBrainsMono Nerd Font Mono Regular 8
 
+#                    _       __    __
+#  _   ______ ______(_)___ _/ /_  / /__  _____
+# | | / / __ `/ ___/ / __ `/ __ \/ / _ \/ ___/
+# | |/ / /_/ / /  / / /_/ / /_/ / /  __(__  )
+# |___/\__,_/_/  /_/\__,_/_.___/_/\___/____/
 set $mod Mod4
 set $alt Mod1
 set $term alacritty
 set $browser brave
 set $scripts $HOME/.local/scripts
 
-exec --no-startup-id nm-applet &
-exec --no-startup-id picom --experimental-backends &
-exec --no-startup-id lxpolkit &
-exec --no-startup-id xfce4-power-manager &
-exec --no-startup-id $scripts/launch-optimus-indicator
-exec_always --no-startup-id $scripts/setbg &
-exec_always --no-startup-id ~/.config/i3/launch-polybar.sh &
-exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpapers &
-
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
 set $left h
 set $down j
 set $up k
 set $right l
 
-# use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-bindsym $mod+Control+r reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Control+q exit
-bindsym $mod+q kill
-bindsym $alt+space exec polybar-msg cmd restart
-
-# start a terminal
-bindsym $mod+Return exec $term
-
-# scratchpad
-# move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-
-# 1. search for window with given class
-# 2. if found, it will be in the scratchpad, so toggle visibility
-# 3. If not found, create it (this case takes up one invocation of this shortcut)
-# So, if no window with that class exists, pressing once will JUST CREATE the window, not show it
-# From then on, this shortcut will toggle the scratchpad
-bindsym $mod+Tab exec \
-    "xdotool search --class ranger_scratch && i3-msg scratchpad show || $term --class ranger_scratch,ranger_scratch -e ranger"
-
-
-bindsym $mod+b exec $browser
-bindsym $mod+n exec "$term -e ranger"
-bindsym $mod+minus exec "$term --class btctl,btctl -e bluetoothctl"
-
-# rofi
-bindsym $mod+space exec rofi -modi drun -show drun -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term
-bindsym $mod+Shift+space exec rofi -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term -modi window -show
-
-# change focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-
-# move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-
-# split in horizontal orientation
-bindsym $mod+i split h
-
-# split in vertical orientation
-bindsym $mod+o split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout
-# toggle b/w tabbed and split layouts
-bindsym $mod+t layout toggle tabbed split
-# toggle b/w splitv/splith
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+s floating toggle
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
 set $ws1 "(1) DEV"
 set $ws2 "(2) WWW"
 set $ws3 "(3) FILE"
@@ -122,7 +46,54 @@ set $ws7 "(7) PDF"
 # set $ws5 "5:ﴯ"
 # set $ws6 "6:"
 
-# switch to workspace
+#                __             __             __
+#   ____ ___  __/ /_____  _____/ /_____ ______/ /_
+#  / __ `/ / / / __/ __ \/ ___/ __/ __ `/ ___/ __/
+# / /_/ / /_/ / /_/ /_/ (__  ) /_/ /_/ / /  / /_
+# \__,_/\__,_/\__/\____/____/\__/\__,_/_/   \__/
+exec --no-startup-id nm-applet &
+exec --no-startup-id picom --experimental-backends &
+exec --no-startup-id lxpolkit &
+exec --no-startup-id xfce4-power-manager &
+exec_always --no-startup-id ~/.config/i3/launch-polybar.sh &
+exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpapers &
+# custom scripts in $PATH
+exec --no-startup-id launch-optimus-indicator
+exec_always --no-startup-id setbg &
+
+#     __              __    _           __
+#    / /_____  __  __/ /_  (_)___  ____/ /____
+#   / //_/ _ \/ / / / __ \/ / __ \/ __  / ___/
+#  / ,< /  __/ /_/ / /_/ / / / / / /_/ (__  )
+# /_/|_|\___/\__, /_.___/_/_/ /_/\__,_/____/
+#           /____/
+
+# i3 controls
+bindsym $mod+Control+r reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Control+q exit
+floating_modifier $mod
+
+# window management
+bindsym $mod+q kill
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+i split h
+bindsym $mod+o split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+t layout toggle tabbed split
+bindsym $mod+e layout toggle split
+bindsym $mod+s floating toggle
+
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -131,7 +102,6 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 
-# move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -142,25 +112,59 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 
 bindsym $mod+Escape workspace back_and_forth
 
+bindsym $mod+bracketright workspace next
+bindsym $mod+bracketleft  workspace prev
+
+# applications (also incluedes custom scripts in $PATH)
+bindsym $mod+Return exec $term
+bindsym $mod+b exec $browser
+bindsym $mod+n exec "$term -e ranger"
+
+bindsym $mod+space exec rofi -modi drun -show drun -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term
+bindsym $mod+Shift+space exec rofi -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term -modi window -show
+
+# move the currently focused window to the scratchpad
+# bindsym $mod+Shift+minus move scratchpad
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+
+# 1. search for window with given class
+# 2. if found, it will be in the scratchpad, so toggle visibility
+# 3. If not found, create it (this case takes up one invocation of this shortcut)
+# So, if no window with that class exists, pressing once will JUST CREATE the window, not show it
+# From then on, this shortcut will toggle the scratchpad
+bindsym $mod+Tab exec \
+    "xdotool search --class ranger_scratch && i3-msg scratchpad show || $term --class ranger_scratch,ranger_scratch -e ranger"
+
+# bluetoothctl window
+bindsym $mod+minus exec "$term --class btctl,btctl -e bluetoothctl"
+
+
 bindsym Control+Print exec screenkey
-bindsym Menu exec $scripts/powermenu
+bindsym Menu exec powermenu
 
 bindsym $mod+BackSpace exec betterlockscreen -l dim
 bindsym $mod+Shift+BackSpace exec betterlockscreen -s dim
 
-bindsym Print exec $scripts/maimscreen
-bindsym $mod+Print exec $scripts/maimpick-rofi
+bindsym Print exec maimscreen
+bindsym $mod+Print exec maimpick-rofi
 
-bindsym $mod+Menu exec $scripts/displayselect
-bindsym $mod+Shift+Menu exec $scripts/gputoggle
+bindsym $mod+Menu exec displayselect
+bindsym $mod+Shift+Menu exec gputoggle
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id $scripts/volume -n up 5
-bindsym XF86AudioLowerVolume exec --no-startup-id $scripts/volume -n down 5
-bindsym XF86AudioMute exec --no-startup-id $scripts/volume -n mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume -n up 5
+bindsym XF86AudioLowerVolume exec --no-startup-id volume -n down 5
+bindsym XF86AudioMute exec --no-startup-id volume -n mute
 
-bindsym $mod+bracketright workspace next
-bindsym $mod+bracketleft  workspace prev
+# polybar
+bindsym $alt+space exec polybar-msg cmd restart
+bindsym $mod+r mode "resize"
 
+#                         __
+#    ____ ___  ____  ____/ /__  _____
+#   / __ `__ \/ __ \/ __  / _ \/ ___/
+#  / / / / / / /_/ / /_/ /  __(__  )
+# /_/ /_/ /_/\____/\__,_/\___/____/
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -186,11 +190,14 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
 
+#                __
+#    _______  __/ /__  _____
+#   / ___/ / / / / _ \/ ___/
+#  / /  / /_/ / /  __(__  )
+# /_/   \__,_/_/\___/____/
 # my ranger scratchpad
 for_window [class="ranger_scratch"] move window to scratchpad
-
 for_window [class="btctl"] floating enable
 
 # all popups are floating
