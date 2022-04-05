@@ -158,6 +158,12 @@ bindsym XF86AudioMute exec --no-startup-id volume -n mute
 
 # polybar
 bindsym $alt+space exec polybar-msg cmd restart
+# HACK:
+# show polybar only when the key combination is held down,
+# hide it if released. I have a feeling this command spams
+# polybar with 'show' calls, but has to do for now
+bindsym $mod+grave exec polybar-msg cmd show
+bindsym --release $mod+grave exec polybar-msg cmd hide
 bindsym $mod+r mode "resize"
 
 #                         __
