@@ -31,13 +31,13 @@ set $down j
 set $up k
 set $right l
 
-set $ws1 "(1) DEV"
-set $ws2 "(2) WWW"
-set $ws3 "(3) FILE"
-set $ws4 "(4) CHAT"
-set $ws5 "(5) VIRT"
-set $ws6 "(6) MISC"
-set $ws7 "(7) PDF"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
 
 # set $ws1 "1:"
 # set $ws2 "2:"
@@ -81,6 +81,9 @@ bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
+# convenient in tabbed mode
+bindsym $alt+Tab focus right
+bindsym $alt+Shift+Tab focus left
 
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
@@ -157,13 +160,15 @@ bindsym XF86AudioLowerVolume exec --no-startup-id volume -n down 5
 bindsym XF86AudioMute exec --no-startup-id volume -n mute
 
 # polybar
-bindsym $alt+space exec polybar-msg cmd restart
+bindsym $alt+space exec polybar-msg cmd show
+bindsym Control+$alt+space exec polybar-msg cmd restart
 # HACK:
 # show polybar only when the key combination is held down,
 # hide it if released. I have a feeling this command spams
 # polybar with 'show' calls, but has to do for now
 bindsym $mod+grave exec polybar-msg cmd show
 bindsym --release $mod+grave exec polybar-msg cmd hide
+
 bindsym $mod+r mode "resize"
 
 #                         __
