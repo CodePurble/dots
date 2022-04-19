@@ -1,34 +1,34 @@
-local opts = {noremap = true}
-local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true }
+local keymapset = vim.keymap.set
 -- Normal mode
-keymap('n', '<leader>l', '$', opts)
-keymap('n', '<leader>h', '^', opts)
-keymap('n', '<leader>n', ':nohlsearch<CR>', opts)
-keymap('n', '<leader>T', ':tabnew<Space>', opts)
-keymap('n', '<leader>W', ':tabclose<CR>', opts)
-keymap('n', '<leader>y', 'y$', opts)
-keymap('n', '<leader>d', 'D', opts)
-keymap('n', '<leader>s', [[:%s//gc<Left><Left><Left>]], opts)
-keymap('n', '<leader><leader>', '<C-^>', opts)
-keymap('n', '<leader>R', ':e $MYVIMRC<CR>', opts)
--- keymap('n', '<leader>s', ':split<Space>', opts)
--- keymap('n', '<leader>v', ':vsplit<Space>', opts)
-keymap('n', '<C-Left>', ':vertical resize +3<CR>', {noremap = true, silent = true})
-keymap('n', '<C-Right>', ':vertical resize -3<CR>', {noremap = true, silent = true})
-keymap('n', '<S-C-Up>', ':resize +3<CR>', {noremap = true, silent = true})
-keymap('n', '<S-C-Down>', ':resize -3<CR>', {noremap = true, silent = true})
-keymap('n', '<C-h>', '<C-w>h', opts)
-keymap('n', '<C-j>', '<C-w>j', opts)
-keymap('n', '<C-k>', '<C-w>k', opts)
-keymap('n', '<C-l>', '<C-w>l', opts)
+keymapset('n', '<leader>l', '$', opts)
+keymapset('n', '<leader>h', '^', opts)
+keymapset('n', '<leader>n', ':nohlsearch<CR>', opts)
+keymapset('n', '<leader>T', ':tabnew<Space>', opts)
+keymapset('n', '<leader>W', ':tabclose<CR>', opts)
+keymapset('n', '<leader>y', 'y$', opts)
+keymapset('n', '<leader>d', 'D', opts)
+keymapset('n', '<leader>s', [[:%s//gc<Left><Left><Left>]], opts)
+keymapset('n', '<leader><leader>', '<C-^>', opts)
+keymapset('n', '<leader>R', ':e $MYVIMRC<CR>', opts)
+-- keymapset('n', '<leader>s', ':split<Space>', opts)
+-- keymapset('n', '<leader>v', ':vsplit<Space>', opts)
+keymapset('n', '<C-Left>', ':vertical resize +3<CR>', {noremap = true, silent = true})
+keymapset('n', '<C-Right>', ':vertical resize -3<CR>', {noremap = true, silent = true})
+keymapset('n', '<S-C-Up>', ':resize +3<CR>', {noremap = true, silent = true})
+keymapset('n', '<S-C-Down>', ':resize -3<CR>', {noremap = true, silent = true})
+keymapset('n', '<C-h>', '<C-w>h', opts)
+keymapset('n', '<C-j>', '<C-w>j', opts)
+keymapset('n', '<C-k>', '<C-w>k', opts)
+keymapset('n', '<C-l>', '<C-w>l', opts)
 
 -- Visual mode
 -- https://vim.fandom.com/wiki/Shifting_blocks_visually
-keymap('v', '<leader>y', [[<Esc>'<0v'>g_y]], opts)
-keymap('v', '>', '>gv', opts)
-keymap('v', '<', '<gv', opts)
+keymapset('v', '<leader>y', [[<Esc>'<0v'>g_y]], opts)
+keymapset('v', '>', '>gv', opts)
+keymapset('v', '<', '<gv', opts)
 
--- Better help navigation
+-- Better help
 vim.cmd([[
 autocmd FileType help nnoremap <buffer> <CR> <C-]>
 autocmd FileType help nnoremap <buffer> <BS> <C-T>
@@ -44,8 +44,9 @@ vim.g.asyncrun_open = 6
 vim.cmd([[
 autocmd FileType tex let g:asyncrun_open = 0
 ]])
-keymap('', '<leader>r', [[:w! | AsyncRun candrun <c-r>%<CR>]], {})
-keymap('', '<leader>m', [[:wa | TermExec cmd="detectmake"<CR>]], {})
+vim.keymap.set('', '<leader>r', [[:w! | AsyncRun candrun <c-r>%<CR>]], {})
+vim.keymap.set('', '<leader>m', [[:wa | TermExec cmd="detectmake"<CR>]], {})
 
-keymap('n', [[<leader>\]], ':NvimTreeToggle<CR>', {})
+vim.keymap.set('n', [[<leader>\]], ':NvimTreeToggle<CR>', {})
+vim.api.nvim_create_user_command('ReloadConfig', require('utils').conf_reload, { force = true })
 

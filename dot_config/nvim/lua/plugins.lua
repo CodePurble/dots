@@ -1,20 +1,19 @@
 return require("packer").startup({function(use)
     use "wbthomason/packer.nvim"
-    -- overall better file "source" management
-    use "tjdevries/astronauta.nvim"
 
     -- fast filetype detection
     use "nathom/filetype.nvim"
 
     -- LSP/Completion
     use "neovim/nvim-lspconfig"
+    use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
-    -- use "ray-x/cmp-treesitter"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
-    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-emoji"
     use "onsails/lspkind-nvim"
+    -- use "ray-x/cmp-treesitter"
 
     use {
         "nvim-telescope/telescope.nvim",
@@ -27,7 +26,8 @@ return require("packer").startup({function(use)
     use "kyazdani42/nvim-tree.lua"
 
     -- Theme/Visual
-    use "monsonjeremy/onedark.nvim"
+    use 'olimorris/onedarkpro.nvim'
+    -- use "monsonjeremy/onedark.nvim"
     -- use "joshdick/onedark.vim"
     use "folke/lsp-colors.nvim"
     use {

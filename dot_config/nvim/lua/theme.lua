@@ -13,20 +13,32 @@
 -- ]])
 --
 -- monsonjeremy
-require('onedark').setup({
-    commentStyle = "italic",
-    keywordStyle = "italic",
-    functionStyle = "italic"
-})
-vim.cmd([[colorscheme onedark]])
+-- require('onedark').setup({
+--     commentStyle = "italic",
+--     keywordStyle = "italic",
+--     functionStyle = "italic"
+-- })
+-- vim.cmd([[colorscheme onedark]])
 
--- kanagawa.nvim
--- vim.cmd("colorscheme kanagawa")
+-- OneDarkPro.nvim
+require('onedarkpro').setup({
+    -- hlgroups = {
+    --     MatchParen = { bg="#2E7D32", fg="#ECEFF4" },
+    --     IndentBlanklineChar = { bg="#323944", fg="#272B30", gui="nocombine" }
+    -- },
+    plugins = {
+        all = true
+    },
+    options = {
+        bold = true,
+        italic = true,
+        cursorline = true,
+        window_unfocused_color = true
+    }
+})
+require('onedarkpro').load()
 
 -- HACK: Custom highlights don't work if theme is set. Use autocommands till then
--- vim.highlight.create('MatchParen', {guibg="#2E7D32", guifg="#ECEFF4"}, false)
--- vim.highlight.create('IndentBlanklineChar', {guibg="#323944", guifg="#272B30", gui="nocombine"}, false)
-vim.cmd([[
-au VimEnter * highlight MatchParen guibg=#2E7D32 guifg=#ECEFF4
-au VimEnter * highlight IndentBlanklineChar guibg=#323944 guifg=#272B30 gui=nocombine
-]])
+-- local hlgrp = vim.api.nvim_create_augroup("HighligtsGroup", { clear = false })
+-- vim.api.nvim_create_autocmd("VimEnter", { command = "highlight MatchParen guibg=#2E7D32 guifg=#ECEFF4", group = hlgrp })
+-- vim.api.nvim_create_autocmd("VimEnter", { command = "highlight IndentBlanklineChar guibg=#323944 guifg=#272B30 gui=nocombine", group = hlgrp })

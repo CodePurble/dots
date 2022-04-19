@@ -111,4 +111,15 @@ function M.get_python_venv()
     return ""
 end
 
+-- https://github.com/creativenull/nvim-config/blob/87fd4cd0ddd4767ebd520f6c2d496a2def33fb91/lua/cnull/core/reload.lua
+function M.conf_reload()
+    for name,_ in pairs(package.loaded) do
+        if name:match('^ramprakash') then
+            package.loaded[name] = nil
+        end
+    end
+
+    dofile(vim.env.MYVIMRC)
+end
+
 return M
