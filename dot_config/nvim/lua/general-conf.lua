@@ -14,6 +14,7 @@ vim.opt.showmatch = true
 vim.opt.hlsearch = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
+vim.opt.laststatus = 3 -- Single global satusline
 
 -- listchars
 vim.opt.list = true

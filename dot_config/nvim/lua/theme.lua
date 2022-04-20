@@ -22,10 +22,10 @@
 
 -- OneDarkPro.nvim
 require('onedarkpro').setup({
-    -- hlgroups = {
-    --     MatchParen = { bg="#2E7D32", fg="#ECEFF4" },
-    --     IndentBlanklineChar = { bg="#323944", fg="#272B30", gui="nocombine" }
-    -- },
+    hlgroups = {
+        MatchParen = { bg="#2E7D32", fg="#ECEFF4" },
+        IndentBlanklineChar = { bg="#323944", fg="#272B30", gui="nocombine" }
+    },
     plugins = {
         all = true
     },
