@@ -22,6 +22,7 @@
 
 -- OneDarkPro.nvim
 require('onedarkpro').setup({
+    theme = "onedark",
     hlgroups = {
         MatchParen = { bg="#2E7D32", fg="#ECEFF4" },
         IndentBlanklineChar = { bg="#323944", fg="#272B30", gui="nocombine" }

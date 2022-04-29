@@ -82,6 +82,13 @@ lspconfig.verible.setup{
     capabilities = capabilities
 }
 
+require("clangd_extensions").setup {
+    server = {
+        on_attach = on_attach,
+        capabilities = capabilities
+    }
+}
+
 -- this is systemverilog only
 -- lspconfig.svls.setup{
 --     on_attach = on_attach,
