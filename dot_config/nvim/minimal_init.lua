@@ -16,7 +16,7 @@ local function load_plugins()
 
     use 'wbthomason/packer.nvim'
     use {
-        'famiu/feline.nvim',
+        'feline-nvim/feline.nvim',
         requires = {
             {
                 'lewis6991/gitsigns.nvim',

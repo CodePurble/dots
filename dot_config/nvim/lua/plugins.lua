@@ -13,6 +13,7 @@ return require("packer").startup({function(use)
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-emoji"
     use "onsails/lspkind-nvim"
+    use "p00f/clangd_extensions.nvim"
     -- use "ray-x/cmp-treesitter"
 
     use {
@@ -36,7 +37,7 @@ return require("packer").startup({function(use)
     }
     -- use "hoob3rt/lualine.nvim"
     -- use { "famiu/feline.nvim", tag = 'v0.3.3' }
-    use "famiu/feline.nvim"
+    use "feline-nvim/feline.nvim"
 
     use {
         "norcalli/nvim-colorizer.lua",
