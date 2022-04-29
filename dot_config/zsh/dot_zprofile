@@ -18,7 +18,8 @@ export VIEWER="nsxiv"
 export CHROME_PATH="$(which $BROWSER)" # needed for marp
 
 # Needed for a few scripts
-export MYWM="herbstluftwm"
+# export MYWM="herbstluftwm"
+export MYWM="i3wm"
 
 # export QT_QPA_PLATFORMTHEME="qt5ct"
 
