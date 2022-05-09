@@ -13,6 +13,7 @@ Some of the programs I use:
 * [ranger](https://github.com/ranger/ranger)
 * [zathura](https://pwmt.org/projects/zathura/) / [sioyek](https://github.com/ahrm/sioyek)
 * [starship](https://starship.rs) / [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+* [optimus-manager](https://github.com/Askannz/optimus-manager)
 
 Fonts:
 * JetBrainsMono Nerd Font
