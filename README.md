@@ -1,6 +1,10 @@
-# ⚠️ THIS BRANCH IS DEPRECATED AND WILL NOT BE MAINTAINED FURTHER ⚠️
-
 # dots
+
+| :warning: |                **This branch is deprecated and will not be maintained further!**               | :warning: |
+|:---------:|:----------------------------------------------------------------------------------------------:|-----------|
+| :warning: | **Follow [this branch](https://github.com/CodePurble/dots/tree/nvim-lua) for up-to-date configs** | :warning: |
+
+
 The dotfiles I use on my Arch+ZSH+Herbstluftwm system. Hopefully you can find
 something helpful in here. :smile:
 
