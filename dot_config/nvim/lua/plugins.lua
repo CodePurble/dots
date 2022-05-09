@@ -15,6 +15,7 @@ return require("packer").startup({function(use)
     use "hrsh7th/cmp-emoji"
     use "onsails/lspkind-nvim"
     use "p00f/clangd_extensions.nvim"
+    use "j-hui/fidget.nvim"
     -- use "ray-x/cmp-treesitter"
 
     use {

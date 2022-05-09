@@ -1,3 +1,4 @@
+vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h9"
 vim.g.mapleader = " "
 vim.opt.encoding = "utf-8"
 vim.opt.background = "dark"
@@ -30,13 +31,13 @@ vim.opt.shiftwidth = 4
 
 -- tabs
 -- vim.opt.expandtab = false
--- set listchars=space:·,tab:»· " DON'T SET EXPANDTAB IF YOU WANT TO SET THE tab LISTCHAR
+-- vim.opt.listchars = { tab = "»·", space = "·" } DON'T SET EXPANDTAB IF YOU WANT TO SET THE tab LISTCHAR
 
 -- spaces
 vim.opt.expandtab = true
-vim.opt.listchars = {space = "·"}
+vim.opt.listchars = { space = "·" }
 vim.opt.clipboard = "unnamedplus"-- Make nvim use the system clipboard
-vim.opt.nrformats = "alpha"-- Make nvim use the system clipboard
+vim.opt.nrformats = "alpha"
 vim.opt.mouse = "a" -- enable mouse
 vim.opt.splitright = true
 vim.opt.splitbelow = true

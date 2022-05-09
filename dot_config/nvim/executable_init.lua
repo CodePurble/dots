@@ -45,7 +45,7 @@ vim.g.indent_blankline_buftype_exclude = {"terminal"}
 require('nvim-tree').setup{
     disable_netrw = true,
     hijack_netrw = true,
-    auto_open = true
+    hijack_unnamed_buffer_when_opening = true
 }
 
 -- vim.g.nvim_tree_auto_open = 1
@@ -55,6 +55,17 @@ require('nvim-tree').setup{
 vim.g.did_load_filetypes = 1
 
 require("colorizer").setup()
+require("fidget").setup{
+    text = {
+        spinner = {
+            "∙∙∙",
+            "∙∙",
+            "∙∙",
+            "∙∙",
+            "∙∙∙",
+        },
+    }
+}
 -- require("presence"):setup({
 --     log_level = "debug"
 -- })
