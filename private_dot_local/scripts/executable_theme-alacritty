@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import yaml
+import os
+import sys
+
+conf_dir = os.getenv("XDG_CONFIG_HOME")
+alacritty_conf = conf_dir + "/alacritty/alacritty.yml"
+themes = []
+
+with open(alacritty_conf, 'r') as f:
+    conf_yaml = yaml.safe_load(f)
+    themes = list(conf_yaml["schemes"].keys())
+
+if(len(sys.argv) == 2):
+    if(sys.argv[1] == "list"):
+        print(themes)
+    elif(sys.argv[1] in themes):
+        print("Setting theme " + sys.argv[1])
+        os.system("sed -E 's/^colors: .*/colors: *{}/' -i {}".format(sys.argv[1], alacritty_conf))
+    else:
+        print("Invalid argument! Usage: alacritty-theme list/theme_name")
+        print("See available thmes with 'alacritty-theme list'")
+else:
+    print("Needs exactly one argument. Usage: alacritty-theme list/theme_name")
