@@ -25,7 +25,11 @@ require('onedarkpro').setup({
     theme = "onedark",
     hlgroups = {
         MatchParen = { bg="#2E7D32", fg="#ECEFF4" },
-        IndentBlanklineChar = { bg="#323944", fg="#272B30", gui="nocombine" }
+        IndentBlanklineChar = { bg="#323944", fg="#272B30", gui="nocombine" },
+        -- use a darker bg for non-current/active buffers
+        NormalNC = { bg="#22252c" },
+        Whitespace = { fg = "#535965" }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+        Conceal = { fg = "#535965" } -- placeholder characters substituted for concealed text (see 'conceallevel')
     },
     plugins = {
         all = true
@@ -38,6 +42,15 @@ require('onedarkpro').setup({
     }
 })
 require('onedarkpro').load()
+
+-- vim.api.nvim_set_hl(0, "ActiveWindow", { ctermbg = string.format() })
+-- vim.opt.winhighlight = "Normal:ActiveWindow,NormalNC:InactiveWindow"
+--
+-- vim.cmd[[
+-- hi ActiveWindow guibg=#282c34
+-- hi InactiveWindow guibg=#22252c
+-- set winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+-- ]]
 
 -- HACK: Custom highlights don't work if theme is set. Use autocommands till then
 -- local hlgrp = vim.api.nvim_create_augroup("HighligtsGroup", { clear = false })

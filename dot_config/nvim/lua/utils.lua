@@ -13,6 +13,7 @@ M.all_colours = {
     },
     onedark_colours = {
         black = "#282C34",
+        grey = "#5c6370",
         skyblue = "#61AFEF",
         cyan = "#56B6C2",
         green = "#98C379",
@@ -23,6 +24,7 @@ M.all_colours = {
         violet = "#9E93E8",
         white = "#ABB2BF",
         yellow = "#E5C07B",
+        highlight = "#e2be7d",
     },
     nord_colours = {
         -- Polar Night

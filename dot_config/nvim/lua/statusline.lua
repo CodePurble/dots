@@ -6,7 +6,7 @@ local onedark_colours = utils.all_colours.onedark_colours
 local nord_colours = utils.all_colours.nord_colours
 
 -- Used only for setting the global colours
-local theme_bg_fg = {
+local line_fg_bg = {
     fg = "#D0D0D0",
     bg = nord_colours.nord1,
 }
@@ -44,9 +44,9 @@ table.insert(components.active, {})
 table.insert(components.active, {})
 table.insert(components.active, {})
 
--- left -> active[1]
--- mid -> active[2]
--- right -> active[3]
+-- left -> inactive[1]
+-- mid -> inactive[2]
+-- right -> inactive[3]
 table.insert(components.inactive, {})
 table.insert(components.inactive, {})
 table.insert(components.inactive, {})
@@ -80,7 +80,7 @@ components.active[1] = {
                 hl = function()
                     return {
                         fg = vi_mode_utils.get_mode_color(),
-                        bg = theme_bg_fg.bg,
+                        bg = line_fg_bg.bg,
                         style = "bold"
                     }
                 end
@@ -90,30 +90,71 @@ components.active[1] = {
     {
         provider = "git_diff_added",
         hl = {
-            fg = "green",
-            bg = theme_bg_fg.bg
+            fg = onedark_colours.green,
+            bg = line_fg_bg.bg,
+            style = "bold"
         },
     },
     {
         provider = "git_diff_changed",
         hl = {
-            fg = "orange",
-            bg = theme_bg_fg.bg
+            fg = onedark_colours.orange,
+            bg = line_fg_bg.bg,
+            style = "bold"
         },
     },
     {
         provider = "git_diff_removed",
         hl = {
-            fg = "red",
-            bg = theme_bg_fg.bg
+            fg = onedark_colours.red,
+            bg = line_fg_bg.bg,
+            style = "bold"
         },
+    },
+    {
+        provider = "",
+        hl = {
+            fg = line_fg_bg.bg,
+            bg = onedark_colours.grey
+        }
+    },
+    {
+        provider = "lsp_client_names",
+        hl = {
+            fg = line_fg_bg.fg,
+            bg = onedark_colours.grey,
+            style = "bold"
+        },
+        left_sep = {
+            {
+                str = " ",
+                hl = {
+                    bg = onedark_colours.grey,
+                },
+            }
+        },
+        right_sep = {
+            {
+                str = " ",
+                hl = {
+                    bg = onedark_colours.grey,
+                },
+            }
+        }
+    },
+    {
+        provider = "",
+        hl = {
+            fg = onedark_colours.grey,
+            bg = line_fg_bg.bg
+        }
     }
 }
 components.inactive[1] = {
     {
         hl = {
-            fg = theme_bg_fg.fg,
-            bg = theme_bg_fg.bg
+            fg = line_fg_bg.fg,
+            bg = line_fg_bg.bg
         },
     }
 }
@@ -125,65 +166,75 @@ components.active[2] = {
     {
         provider = "file_info",
         hl = {
-            fg = theme_bg_fg.fg,
-            bg = theme_bg_fg.bg
+            fg = line_fg_bg.fg,
+            bg = onedark_colours.oceanblue,
+            style = "bold"
         },
         icon = "",
+        file_readonly_icon = "",
         type = "relative",
         left_sep = {
             {
-                str = "right",
+                str = "left_filled",
                 hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
+                    fg = onedark_colours.oceanblue,
+                    bg = line_fg_bg.bg,
                 },
             },
             {
                 str = " ",
                 hl = {
-                    bg = theme_bg_fg.bg
+                    bg = onedark_colours.oceanblue
                 }
             }
         },
         right_sep = {
             str = " ",
             hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
+                fg = line_fg_bg.fg,
+                bg = onedark_colours.oceanblue
             }
         }
     },
     {
         provider = "@",
         hl = {
-            fg = theme_bg_fg.fg,
-            bg = theme_bg_fg.bg
+            fg = line_fg_bg.fg,
+            bg = onedark_colours.oceanblue,
+            style = "bold"
         }
     },
     {
         provider = "position",
         hl = {
-            fg = theme_bg_fg.fg,
-            bg = theme_bg_fg.bg
+            fg = line_fg_bg.fg,
+            bg = onedark_colours.oceanblue,
+            style = "bold"
         },
         left_sep = {
             str = " ",
             hl = {
-                bg = theme_bg_fg.bg
+                bg = onedark_colours.oceanblue
             }
         },
         right_sep = {
             {
                 str = " ",
                 hl = {
-                    bg = theme_bg_fg.bg
+                    bg = onedark_colours.oceanblue
                 }
             },
             {
-                str = "left",
+                str = "right_filled",
                 hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
+                    fg = onedark_colours.oceanblue,
+                    bg = line_fg_bg.bg,
+                }
+            },
+            {
+                str = " ",
+                hl = {
+                    bg = line_fg_bg.bg
                 }
             },
         }
@@ -193,24 +244,25 @@ components.inactive[2] = {
     {
         provider = "file_info",
         hl = {
-            fg = theme_bg_fg.fg,
-            bg = theme_bg_fg.bg
+            fg = line_fg_bg.fg,
+            bg = onedark_colours.oceanblue
         },
         icon = "",
+        file_readonly_icon = "",
         type = "relative",
         left_sep = {
             {
                 str = "left",
                 hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
+                    fg = line_fg_bg.fg,
+                    bg = onedark_colours.oceanblue
                 }
             },
             {
                 str = " ",
                 hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
+                    fg = line_fg_bg.fg,
+                    bg = onedark_colours.oceanblue
                 }
             }
         },
@@ -218,15 +270,15 @@ components.inactive[2] = {
             {
                 str = " ",
                 hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
+                    fg = line_fg_bg.fg,
+                    bg = onedark_colours.oceanblue
                 }
             },
             {
                 str = "right",
                 hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
+                    fg = line_fg_bg.fg,
+                    bg = onedark_colours.oceanblue
                 }
             }
         }
@@ -238,18 +290,26 @@ components.inactive[2] = {
 --
 components.active[3] = {
     {
+        provider = "",
+        hl = {
+            fg = onedark_colours.grey,
+            bg = line_fg_bg.bg
+        }
+    },
+    {
         provider = "diagnostic_errors",
         enabled = function() return lsp.diagnostics_exist("Error") end,
         icon = "✖ ",
         hl = {
-            fg = "#FF0000",
-            bg = theme_bg_fg.bg
+            fg = onedark_colours.red,
+            bg = onedark_colours.grey,
+            style = "bold"
         },
         right_sep = {
             str = " ",
             hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
+                fg = line_fg_bg.fg,
+                bg = onedark_colours.grey
             }
         }
     },
@@ -258,14 +318,15 @@ components.active[3] = {
         enabled = function() return lsp.diagnostics_exist("Warn") end,
         icon = " ",
         hl = {
-            fg = "#F0F722",
-            bg = theme_bg_fg.bg
+            fg = onedark_colours.yellow,
+            bg = onedark_colours.grey,
+            style = "bold"
         },
         right_sep = {
             str = " ",
             hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
+                fg = line_fg_bg.fg,
+                bg = onedark_colours.grey
             }
         }
     },
@@ -274,14 +335,15 @@ components.active[3] = {
         enabled = function() return lsp.diagnostics_exist("Info") end,
         icon = " ",
         hl = {
-            fg = "#1176DB",
-            bg = theme_bg_fg.bg
+            fg = onedark_colours.oceanblue,
+            bg = onedark_colours.grey,
+            style = "bold"
         },
         right_sep = {
             str = " ",
             hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
+                fg = line_fg_bg.fg,
+                bg = onedark_colours.grey
             }
         }
     },
@@ -290,134 +352,115 @@ components.active[3] = {
         enabled = function() return lsp.diagnostics_exist("Hint") end,
         icon = "ℍ ",
         hl = {
-            fg = "#C678DD",
-            bg = theme_bg_fg.bg
+            fg = onedark_colours.magenta,
+            bg = onedark_colours.grey,
+            style = "bold"
         },
         right_sep = {
             str = " ",
             hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
+                fg = line_fg_bg.fg,
+                bg = onedark_colours.grey
             }
         }
     },
+    -- {
+    --     provider = " ",
+    --     hl = {
+    --         bg = onedark_colours.grey
+    --     }
+    -- },
     {
         provider = "file_encoding",
         hl = {
-            fg = theme_bg_fg.fg,
-            bg = theme_bg_fg.bg
-        },
-        left_sep = {
-            {
-                str = "left",
-                hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
-                }
-            },
-            {
-                str = " ",
-                hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
-                }
-            },
-        },
-        right_sep = {
-            str = " ",
-            hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
-            }
-        },
-    },
-    {
-        provider = vim.bo.fileformat:upper(),
-        hl = {
-            fg = theme_bg_fg.fg,
-            bg = theme_bg_fg.bg
-        },
-        left_sep = {
-            {
-                str = "left",
-                hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
-                }
-            },
-            {
-                str = " ",
-                hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
-                }
-            },
-        },
-        right_sep = {
-            str = " ",
-            hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
-            }
-        },
-    },
-    {
-        provider = utils.get_buf_indentation_style,
-        hl = {
-            fg = theme_bg_fg.fg,
-            bg = theme_bg_fg.bg
-        },
-        left_sep = {
-            {
-                str = "left",
-                hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
-                }
-            },
-            {
-                str = " ",
-                hl = {
-                    fg = theme_bg_fg.fg,
-                    bg = theme_bg_fg.bg
-                }
-            },
-        },
-        right_sep = {
-            str = " ",
-            hl = {
-                fg = theme_bg_fg.fg,
-                bg = theme_bg_fg.bg
-            }
-        },
-    },
-    {
-        provider = utils.get_asyncrun_running,
-        hl = {
-            fg = nord_colours.nord5,
-            bg = nord_colours.nord10,
+            fg = onedark_colours.black,
+            bg = onedark_colours.cyan,
             style = "bold"
         },
         left_sep = {
             {
                 str = "left_filled",
                 hl = {
-                    fg = nord_colours.nord10,
-                    bg = theme_bg_fg.bg
+                    fg = onedark_colours.cyan,
+                    bg = onedark_colours.grey,
+                }
+            },
+            {
+                str = " ",
+                hl = {
+                    bg = onedark_colours.cyan,
                 }
             },
         },
-        -- right_sep = {
-        --     str = " ",
-        --     hl = {
-        --         bg = nord_colours.nord3
-        --     }
-        -- }
+        right_sep = {
+            str = " ",
+            hl = {
+                bg = onedark_colours.cyan,
+            }
+        },
+    },
+    {
+        provider = vim.bo.fileformat:upper(),
+        hl = {
+            fg = onedark_colours.black,
+            bg = onedark_colours.yellow,
+            style = "bold"
+        },
+        left_sep = {
+            {
+                str = "left_filled",
+                hl = {
+                    fg = onedark_colours.yellow,
+                    bg = onedark_colours.cyan
+                }
+            },
+            {
+                str = " ",
+                hl = {
+                    bg = onedark_colours.yellow
+                }
+            },
+        },
+        right_sep = {
+            str = " ",
+            hl = {
+                bg = onedark_colours.yellow
+            }
+        },
+    },
+    {
+        provider = utils.get_buf_indentation_style,
+        hl = {
+            fg = onedark_colours.black,
+            bg = onedark_colours.orange,
+            style = "bold"
+        },
+        left_sep = {
+            {
+                str = "left_filled",
+                hl = {
+                    fg = onedark_colours.orange,
+                    bg = onedark_colours.yellow
+                }
+            },
+            {
+                str = " ",
+                hl = {
+                    bg = onedark_colours.orange
+                }
+            },
+        },
+        right_sep = {
+            str = " ",
+            hl = {
+                bg = onedark_colours.orange
+            }
+        },
     },
     {
         provider = utils.get_python_venv,
         hl = {
-            fg = nord_colours.nord3,
+            fg = onedark_colours.black,
             bg = nord_colours.nord9,
             style = "bold"
         },
@@ -431,11 +474,34 @@ components.active[3] = {
             },
         },
     },
+    {
+        provider = utils.get_asyncrun_running,
+        hl = {
+            fg = onedark_colours.black,
+            bg = onedark_colours.skyblue,
+            style = "bold"
+        },
+        left_sep = {
+            {
+                str = "vertical_bar",
+                hl = {
+                    fg = onedark_colours.black,
+                    bg = onedark_colours.skyblue,
+                }
+            },
+        },
+        -- right_sep = {
+        --     str = " ",
+        --     hl = {
+        --         bg = nord_colours.nord3
+        --     }
+        -- }
+    },
 }
 
 require("feline").setup({
     components = components,
-    theme = theme_bg_fg,
+    theme = line_fg_bg,
     force_inactive = {
         filetypes = {
             "NvimTree",
