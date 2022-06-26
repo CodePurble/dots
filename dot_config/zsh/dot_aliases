@@ -15,27 +15,28 @@ alias update="echo 'paru -Syu --sudoloop' && paru -Syu --sudoloop"
 
 alias al="$EDITOR $ZDOTDIR/.aliases"
 alias nv="$EDITOR $HOME/.config/nvim"
-alias nn="cd $HOME/.config/nvim; ls"
+alias nn="cd $HOME/.config/nvim"
 alias z="$EDITOR $ZDOTDIR/.zshrc"
 alias b="$EDITOR $HOME/.config/bspwm/bspwmrc.*"
 alias hl="$EDITOR $HOME/.config/herbstluftwm/autostart"
 
-alias dl="cd $DOW; ls"
-alias re="cd $REP; ls"
-alias ci="cd $NISB; ls"
-alias dt="cd $DOTS; ls"
-alias cs="cd $SEM; ls"
-alias rp="cd $HOME/rpdata; ls"
-alias c="cd $HOME/.config; ls"
-alias sc="cd $SCRIPTS; ls"
-alias zz="cd $ZDOTDIR; ls"
-alias bb="cd $HOME/.config/bspwm; ls"
-alias hh="cd $HOME/.config/herbstluftwm; ls"
-alias wl="cd $HOME/Pictures/wallpapers; ls"
-alias foo="cd $HOME/Documents/foo; ls"
+alias dl="cd $DOW"
+alias re="cd $REP"
+alias ci="cd $NISB"
+alias dt="cd $DOTS"
+alias cs="cd $SEM"
+alias rp="cd $HOME/rpdata"
+alias c="cd $HOME/.config"
+alias sc="cd $SCRIPTS"
+alias zz="cd $ZDOTDIR"
+alias bb="cd $HOME/.config/bspwm"
+alias hh="cd $HOME/.config/herbstluftwm"
+alias wl="cd $HOME/Pictures/wallpapers"
+alias foo="cd $HOME/Documents/foo"
 
 alias lz="cd $SEM/miniproject/libezw"
 alias mp="cd $MAJPROJ"
+alias dwt="cd $MAJPROJ/repos/dwt-arch"
 
 # alias ls="ls --group-directories-first --color"
 # alias l="ls -lh --group-directories-first --color"
@@ -83,6 +84,12 @@ alias cedit="chezmoi edit"
 alias om="optimus-manager"
 alias des="docker run --rm -it -v $(pwd):/opt/Ramprakash_4NI18EC019 codepurble/docker-emsys-nie"
 alias sauth='eval $(ssh-agent) && ssh-add'
+
+function cd()
+{
+    builtin cd "$@"
+    ls -a
+}
 
 function adoc()
 {

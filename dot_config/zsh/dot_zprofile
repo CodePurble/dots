@@ -16,6 +16,10 @@ export TERMINAL="alacritty"
 export READER="zathura"
 export VIEWER="nsxiv"
 export CHROME_PATH="$(which $BROWSER)" # needed for marp
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# nvim synctex (requires neovim-remote)
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 # Needed for a few scripts
 # export MYWM="herbstluftwm"
@@ -30,7 +34,7 @@ export DOW="$HOME/Downloads"
 export REP="$HOME/repos"
 export NIE="$HOME/rpdata/nie"
 export NISB="$HOME/rpdata/ieee/nisb-2020-21"
-export SEM="$NIE/study-material/sem7"
+export SEM="$NIE/study-material/sem8"
 export MAJPROJ="$NIE/study-material/majproj"
 
 # Set path
