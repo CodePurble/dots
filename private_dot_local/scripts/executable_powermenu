@@ -34,6 +34,7 @@ case $chosen in
         ;;
     $logout)
         [[ "$MYWM" == "herbstluftwm" ]] && herbstclient quit
-        bspc quit
+        [[ "$MYWM" == "i3wm" ]] && i3-msg exit
+        [[ "$MYWM" == "bspwm" ]] && bspc quit
         ;;
 esac
