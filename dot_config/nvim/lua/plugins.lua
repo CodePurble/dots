@@ -34,7 +34,7 @@ return require("packer").startup({function(use)
     -- use "joshdick/onedark.vim"
     use "folke/lsp-colors.nvim"
     use {
-        "akinsho/nvim-bufferline.lua",
+        "akinsho/bufferline.nvim",
         requires = "kyazdani42/nvim-web-devicons",
     }
     -- use "hoob3rt/lualine.nvim"
@@ -86,7 +86,7 @@ return require("packer").startup({function(use)
     }
 
     -- Misc
-    use "akinsho/nvim-toggleterm.lua"
+    use "akinsho/toggleterm.nvim"
 
     -- Ahh the bliss of being in Vim
     use "majutsushi/tagbar"

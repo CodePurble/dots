@@ -42,6 +42,10 @@ vim.g.indent_blankline_char = "|"
 vim.g.indent_blankline_filetype_exclude = {"help", "nerdtree", "packer", "dashboard"}
 vim.g.indent_blankline_buftype_exclude = {"terminal"}
 
+vim.g.vimtex_view_method = "zathura"
+vim.g.latex_view_general_viewer = "zathura"
+vim.g.vimtex_compiler_progname = "nvr"
+
 require('nvim-tree').setup{
     disable_netrw = true,
     hijack_netrw = true,
@@ -79,3 +83,4 @@ vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, higroup="Visual"}]]) -- show yanked region with a flash
 -- vim.cmd([[autocmd ColorScheme * lua require'lightspeed'.init_highlight(true)]]) -- enforce default highlighting for lightspeed
 vim.api.nvim_create_user_command('ReloadConfig', "lua require('plenary.reload').reload_module('conf')", { force = true })
+vim.api.nvim_create_user_command('Bd', "bp|bd #", {})
