@@ -13,7 +13,7 @@
 default_border normal 1
 hide_edge_borders both
 title_align center
-font pango:JetBrainsMono Nerd Font Mono Regular 8
+font pango:JetBrainsMono Nerd Font Mono Bold 8
 
 #                    _       __    __
 #  _   ______ ______(_)___ _/ /_  / /__  _____
@@ -25,6 +25,8 @@ set $alt Mod1
 set $term alacritty
 set $browser brave
 set $scripts $HOME/.local/scripts
+set $volumepath /usr/bin/i3-volume
+set $volumestep 5
 
 set $left h
 set $down j
@@ -54,12 +56,12 @@ set $ws7 "7"
 exec --no-startup-id nm-applet &
 exec --no-startup-id picom --experimental-backends &
 exec --no-startup-id lxpolkit &
-exec --no-startup-id xfce4-power-manager &
 exec_always --no-startup-id ~/.config/i3/launch-polybar.sh &
 exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpapers &
 # custom scripts in $PATH
 exec --no-startup-id launch-optimus-indicator
 exec_always --no-startup-id setbg &
+exec --no-startup-id emacs --daemon
 
 #     __              __    _           __
 #    / /_____  __  __/ /_  (_)___  ____/ /____
@@ -155,13 +157,16 @@ bindsym $mod+Print exec maimpick-rofi
 bindsym $mod+Menu exec displayselect
 bindsym $mod+Shift+Menu exec gputoggle
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id volume -n up 5
-bindsym XF86AudioLowerVolume exec --no-startup-id volume -n down 5
-bindsym XF86AudioMute exec --no-startup-id volume -n mute
+bindsym XF86AudioRaiseVolume exec $volumepath -n up $volumestep
+bindsym XF86AudioLowerVolume exec $volumepath -n down $volumestep
+bindsym XF86AudioMute exec $volumepath -n mute
+
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 && $scripts/notif_brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 && $scripts/notif_brightness
 
 # polybar
-bindsym $alt+space exec polybar-msg cmd show
-bindsym Control+$alt+space exec polybar-msg cmd restart
+bindsym $alt+space exec --no-startup-id polybar-msg cmd show
+bindsym Control+$alt+space exec --no-startup-id polybar-msg cmd restart
 # HACK:
 # show polybar only when the key combination is held down,
 # hide it if released. I have a feeling this command spams

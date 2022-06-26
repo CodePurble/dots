@@ -13,4 +13,6 @@ for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     MONITOR=$m polybar -c $HOME/.config/polybar/config.ini --reload $bar_name &
 done
 
+polybar-msg cmd restart
+
 echo 'Bar(s) launched...'
