@@ -41,10 +41,7 @@ return require("packer").startup({function(use)
     -- use { "famiu/feline.nvim", tag = 'v0.3.3' }
     use "feline-nvim/feline.nvim"
 
-    use {
-        "norcalli/nvim-colorizer.lua",
-        config = function() require("colorizer").setup() end
-    }
+    use "norcalli/nvim-colorizer.lua"
     use "psliwka/vim-smoothie"
     use "andweeb/presence.nvim"
     use "folke/zen-mode.nvim"

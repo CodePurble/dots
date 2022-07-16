@@ -46,3 +46,37 @@ vim.opt.formatoptions = vim.opt.formatoptions - "o" + "r" + "c" + "q"
 
 -- https://github.com/lukas-reineke/indent-blankline.nvim/issues/59#issuecomment-806398054
 vim.wo.colorcolumn = "99999"
+
+local default_plugins = {
+   "2html_plugin",
+   "getscript",
+   "getscriptPlugin",
+   "gzip",
+   "logipat",
+   "netrw",
+   "netrwPlugin",
+   "netrwSettings",
+   "netrwFileHandlers",
+   "matchit",
+   "tar",
+   "tarPlugin",
+   "rrhelper",
+   "spellfile_plugin",
+   "vimball",
+   "vimballPlugin",
+   "zip",
+   "zipPlugin",
+   "tutor",
+   "rplugin",
+   "syntax",
+   "synmenu",
+   "optwin",
+   "compiler",
+   "bugreport",
+   "ftplugin",
+}
+
+for _, plugin in pairs(default_plugins) do
+   vim.g["loaded_" .. plugin] = 1
+end
+

@@ -66,25 +66,27 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 end
 
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
+-- local runtime_path = vim.split(package.path, ';')
+-- table.insert(runtime_path, "lua/?.lua")
+-- table.insert(runtime_path, "lua/?/init.lua")
 lspconfig.sumneko_lua.setup {
     settings = {
         Lua = {
             runtime = {
                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = 'LuaJIT',
-                -- Setup your lua path
-                path = runtime_path,
             },
             diagnostics = {
                 -- Get the language server to recognize the `vim` global
                 globals = {'vim'},
             },
             workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
+                library = {
+                    [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                    [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+                },
+                maxPreload = 100000,
+                preloadFileSize = 10000,
             },
             -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = {
@@ -120,19 +122,19 @@ lspconfig.texlab.setup{
 -- A generic Linux binary for is not provided, so nvim-lsp-installer cannot get
 -- it from anywhere yet
 -- lspconfig.verible.setup{
---     on_attach = on_attach,
---     capabilities = capabilities
--- }
+    --     on_attach = on_attach,
+    --     capabilities = capabilities
+    -- }
 
-require("clangd_extensions").setup {
-    server = {
-        on_attach = on_attach,
-        capabilities = capabilities
+    require("clangd_extensions").setup {
+        server = {
+            on_attach = on_attach,
+            capabilities = capabilities
+        }
     }
-}
 
-lspconfig.svls.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
+    lspconfig.svls.setup{
+        on_attach = on_attach,
+        capabilities = capabilities,
+    }
 

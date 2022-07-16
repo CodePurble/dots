@@ -12,28 +12,28 @@ require("plugins")
 --  coc-clangd
 --  coc-rust-analyzer
 
-require("dashboard-conf")
-require("general-conf")
-require("keys-conf")
-require("templates-conf")
-require("lsp-conf")
-require("cmp-conf")
-require("treesitter-conf")
-require("gitsigns-conf")
-require("asciidoctor-conf")
-require("autoformat-conf")
--- require("tablemode-conf")
-require("toggleterm-conf")
-require("telescope-conf")
+require("configs.dashboard")
+require("general")
+require("configs.keys")
+require("templates")
+require("configs.lsp")
+require("configs.cmp")
+require("configs.treesitter")
+require("configs.gitsigns")
+require("configs.asciidoctor")
+require("configs.autoformat")
+-- require("configs.tablemode")
+require("configs.toggleterm")
+require("configs.telescope")
 require("theme")
-require("bufferline-conf")
-require("statusline")
-require("tabout-conf")
-require("autopairs-conf")
+require("configs.bufferline")
+require("configs.statusline")
+require("configs.tabout")
+require("configs.autopairs")
 
 -- Source init.vim whenever it is written to
 -- au! BufWritePost $MYVIMRC source $MYVIMRC
--- au! BufWritePost plugins.lua source $MYVIMRC
+-- au! BufWritePost configs.lua source $MYVIMRC
 
 -- indent guides
 -- let g:indent_blankline_char = "»"
