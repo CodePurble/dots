@@ -54,14 +54,16 @@ set $ws7 "7"
 # / /_/ / /_/ / /_/ /_/ (__  ) /_/ /_/ / /  / /_
 # \__,_/\__,_/\__/\____/____/\__/\__,_/_/   \__/
 exec --no-startup-id nm-applet &
+exec --no-startup-id mate-power-manager &
 exec --no-startup-id picom --experimental-backends &
 exec --no-startup-id lxpolkit &
 exec_always --no-startup-id ~/.config/i3/launch-polybar.sh &
 exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpapers &
 # custom scripts in $PATH
-exec --no-startup-id launch-optimus-indicator
+# exec --no-startup-id launch-optimus-indicator
+exec --no-startup-id optimus-manager-qt
 exec_always --no-startup-id setbg &
-exec --no-startup-id emacs --daemon
+# exec --no-startup-id emacs --daemon
 
 #     __              __    _           __
 #    / /_____  __  __/ /_  (_)___  ____/ /____
@@ -231,9 +233,10 @@ assign [class="Pamac-manager"] $ws5
 assign [class="Pcmanfm"] $ws3
 assign [class="VSCodium"] $ws1
 assign [class="Ferdi"] $ws4
+assign [class="rambox"] $ws4
 assign [class="Signal"] $ws4
 assign [class="discord"] $ws4
-assign [class="Thunderbird"] $ws4
+assign [class="thunderbird"] $ws4
 assign [class="Virt-manager"] $ws5
 assign [class="Zathura"] $ws7
 for_window [class="stacer"] floating enable
