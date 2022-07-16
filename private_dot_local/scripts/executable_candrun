@@ -19,7 +19,7 @@ cd "$dir" || exit
 textype()
 {
     builddir="build"
-    command="xelatex -synctex=1 --output-directory=$builddir"
+    command="$1 -synctex=1 --output-directory=$builddir"
     [ -d "$builddir" ] || mkdir "$builddir"
     if grep -qiE "\\usepackage.*\{minted\}|\\end\{minted\}|\\mintinline" "$file"; then
         command+=" -shell-escape"
@@ -40,7 +40,8 @@ case "$file" in
     *.marp.md) marp --pdf "$file";;
     *.pres.md) pandoc --from markdown -t beamer "$file" -o "$base".pdf --pdf-engine xelatex --citeproc ;;
     *.md) pandoc --from markdown "$file" -o "$base".pdf --pdf-engine xelatex --filter=pandoc-crossref --citeproc ;;
-    *.tex) textype ;;
+    *ieeecls.tex) textype pdflatex;;
+    *.tex) textype xelatex;;
     # *.c) gcc -g -lm -Wall "$file" -o "$base" && "$base" ;;
     *.c) gcc -g -lm -lgsl -lgslcblas -Wall "$file" -o "$base" && "$base" ;;
     *.cc) g++ -g -lm -Wall "$file" -o "$base" && "$base" ;;
