@@ -130,21 +130,10 @@ bindsym $mod+n exec "$term -e ranger"
 bindsym $mod+space exec rofi -modi drun -show drun -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term
 bindsym $mod+Shift+space exec rofi -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term -modi window -show
 
-# move the currently focused window to the scratchpad
-# bindsym $mod+Shift+minus move scratchpad
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+Tab exec i3-scratchpad -t -d960x900 $term -e ranger
 
-# 1. search for window with given class
-# 2. if found, it will be in the scratchpad, so toggle visibility
-# 3. If not found, create it (this case takes up one invocation of this shortcut)
-# So, if no window with that class exists, pressing once will JUST CREATE the window, not show it
-# From then on, this shortcut will toggle the scratchpad
-bindsym $mod+Tab exec \
-    "xdotool search --class ranger_scratch && i3-msg scratchpad show || $term --class ranger_scratch,ranger_scratch -e ranger"
-
-# bluetoothctl window
-bindsym $mod+minus exec "$term --class btctl,btctl -e bluetoothctl"
+# spotify-tui window
+bindsym $mod+minus exec "i3-scratchpad -t -p0,-180 -d100%x60% spotify"
 
 
 bindsym Control+Print exec screenkey
@@ -157,7 +146,9 @@ bindsym Print exec maimscreen
 bindsym $mod+Print exec maimpick-rofi
 
 bindsym $mod+Menu exec displayselect
-bindsym $mod+Shift+Menu exec gputoggle
+
+# bluetoothctl window
+bindsym $mod+Shift+Menu exec i3-scratchpad -t -d960x900 $term -e bluetoothctl
 
 bindsym XF86AudioRaiseVolume exec $volumepath -n up $volumestep
 bindsym XF86AudioLowerVolume exec $volumepath -n down $volumestep
@@ -217,6 +208,7 @@ mode "resize" {
 # my ranger scratchpad
 for_window [class="ranger_scratch"] move window to scratchpad
 for_window [class="btctl"] floating enable
+for_window [class="spotify-tui"] floating enable
 
 # all popups are floating
 for_window [window_role="pop-up"] floating enable
