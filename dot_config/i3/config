@@ -10,10 +10,12 @@
 #  / __/ __ \/ _ \/ __ `__ \/ _ \
 # / /_/ / / /  __/ / / / / /  __/
 # \__/_/ /_/\___/_/ /_/ /_/\___/
-default_border normal 1
-hide_edge_borders both
+default_border none
+default_floating_border none
+gaps inner 2
+smart_gaps on
 title_align center
-font pango:JetBrainsMono Nerd Font Mono Bold 8
+font pango:JetBrainsMono Nerd Font Mono Bold 7
 
 #                    _       __    __
 #  _   ______ ______(_)___ _/ /_  / /__  _____
@@ -53,16 +55,16 @@ set $ws7 "7"
 #  / __ `/ / / / __/ __ \/ ___/ __/ __ `/ ___/ __/
 # / /_/ / /_/ / /_/ /_/ (__  ) /_/ /_/ / /  / /_
 # \__,_/\__,_/\__/\____/____/\__/\__,_/_/   \__/
-exec --no-startup-id nm-applet &
-exec --no-startup-id mate-power-manager &
-exec --no-startup-id picom --experimental-backends &
-exec --no-startup-id lxpolkit &
-exec_always --no-startup-id ~/.config/i3/launch-polybar.sh &
-exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpapers &
+exec --no-startup-id nm-applet
+exec --no-startup-id mate-power-manager
+exec_always --no-startup-id picom --experimental-backends 2> /tmp/picom.log
+exec --no-startup-id lxpolkit
+exec_always --no-startup-id ~/.config/i3/launch-polybar.sh
+exec_always --no-startup-id betterlockscreen -u $HOME/Pictures/wallpapers
 # custom scripts in $PATH
 # exec --no-startup-id launch-optimus-indicator
 exec --no-startup-id optimus-manager-qt
-exec_always --no-startup-id setbg &
+exec_always --no-startup-id setbg
 # exec --no-startup-id emacs --daemon
 
 #     __              __    _           __
@@ -139,8 +141,8 @@ bindsym $mod+minus exec "i3-scratchpad -t -p0,-180 -d100%x60% spotify"
 bindsym Control+Print exec screenkey
 bindsym Menu exec powermenu
 
-bindsym $mod+BackSpace exec betterlockscreen -l dim
-bindsym $mod+Shift+BackSpace exec betterlockscreen -s dim
+bindsym $mod+BackSpace exec betterlockscreen -l dimblur
+bindsym $mod+Shift+BackSpace exec betterlockscreen -s dimblur
 
 bindsym Print exec maimscreen
 bindsym $mod+Print exec maimpick-rofi
@@ -206,9 +208,9 @@ mode "resize" {
 #  / /  / /_/ / /  __(__  )
 # /_/   \__,_/_/\___/____/
 # my ranger scratchpad
-for_window [class="ranger_scratch"] move window to scratchpad
-for_window [class="btctl"] floating enable
-for_window [class="spotify-tui"] floating enable
+# for_window [class="ranger_scratch"] move window to scratchpad
+# for_window [class="btctl"] floating enable
+# for_window [class="spotify-tui"] floating enable
 
 # all popups are floating
 for_window [window_role="pop-up"] floating enable
@@ -235,3 +237,4 @@ for_window [class="stacer"] floating enable
 for_window [class="Dragon-drop"] floating enable
 for_window [class="Gtkwave"] floating enable
 for_window [class="Zathura"] layout tabbed
+for_window [class="zoom"] floating enable
