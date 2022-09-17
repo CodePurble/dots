@@ -12,7 +12,6 @@ require("plugins")
 --  coc-clangd
 --  coc-rust-analyzer
 
-require("configs.dashboard")
 require("general")
 require("configs.keys")
 require("templates")
@@ -38,13 +37,24 @@ require("configs.autopairs")
 -- indent guides
 -- let g:indent_blankline_char = "»"
 
-vim.g.indent_blankline_char = "|"
-vim.g.indent_blankline_filetype_exclude = {"help", "nerdtree", "packer", "dashboard"}
-vim.g.indent_blankline_buftype_exclude = {"terminal"}
+require("indent_blankline").setup{
+    -- char = "|",
+    show_current_context = true,
+    show_current_context_start = true,
+    filetype_exclude = {"help", "nerdtree", "packer", "dashboard"},
+    buftype_exclude = {"terminal"}
+}
 
+-- vim.g.indent_blankline_char = "|"
+-- vim.g.indent_blankline_filetype_exclude = {"help", "nerdtree", "packer", "dashboard"}
+-- vim.g.indent_blankline_buftype_exclude = {"terminal"}
+
+-- VimTeX settings
 vim.g.vimtex_view_method = "zathura"
 vim.g.latex_view_general_viewer = "zathura"
 vim.g.vimtex_compiler_progname = "nvr"
+-- vim.g.vimtex_view_method = "sioyek"
+
 
 require('nvim-tree').setup{
     disable_netrw = true,
