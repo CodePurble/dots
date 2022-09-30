@@ -245,17 +245,18 @@ components.inactive[2] = {
         provider = "file_info",
         hl = {
             fg = line_fg_bg.fg,
-            bg = onedark_colours.oceanblue
+            bg = onedark_colours.oceanblue,
+            style = "bold"
         },
         icon = "",
         file_readonly_icon = "",
         type = "relative",
         left_sep = {
             {
-                str = "left",
+                str = "left_filled",
                 hl = {
-                    fg = line_fg_bg.fg,
-                    bg = onedark_colours.oceanblue
+                    fg = onedark_colours.oceanblue,
+                    bg = line_fg_bg.bg,
                 }
             },
             {
@@ -275,12 +276,19 @@ components.inactive[2] = {
                 }
             },
             {
-                str = "right",
+                str = "right_filled",
                 hl = {
-                    fg = line_fg_bg.fg,
-                    bg = onedark_colours.oceanblue
+                    fg = onedark_colours.oceanblue,
+                    bg = line_fg_bg.bg,
                 }
             }
+        }
+    },
+    {
+        provider = " ",
+        hl = {
+            fg = line_fg_bg.fg,
+            bg = line_fg_bg.bg
         }
     }
 }
@@ -502,20 +510,20 @@ components.active[3] = {
 require("feline").setup({
     components = components,
     theme = line_fg_bg,
-    force_inactive = {
-        filetypes = {
-            "NvimTree",
-            "packer",
-            "startify",
-            "fugitive",
-            "fugitiveblame",
-            "dashboard"
-        },
-        buftypes = {
-            "terminal"
-        },
-        bufnames = {}
-    },
+    -- force_inactive = {
+    --     filetypes = {
+    --         "NvimTree",
+    --         "packer",
+    --         "startify",
+    --         "fugitive",
+    --         "fugitiveblame",
+    --         "dashboard"
+    --     },
+    --     buftypes = {
+    --         "terminal"
+    --     },
+    --     bufnames = {}
+    -- },
     vi_mode_colors = vi_mode_colors
 })
 

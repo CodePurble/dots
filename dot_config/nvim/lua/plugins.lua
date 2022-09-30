@@ -5,7 +5,8 @@ return require("packer").startup({function(use)
     use "nathom/filetype.nvim"
 
     -- LSP/Completion
-    use "williamboman/nvim-lsp-installer"
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-nvim-lsp"
@@ -53,8 +54,8 @@ return require("packer").startup({function(use)
     }
 
     -- Navigation
-    use 'ggandor/lightspeed.nvim'
-    -- use "justinmk/vim-sneak"
+    -- use 'ggandor/lightspeed.nvim'
+    use 'ggandor/leap.nvim'
 
     use {
         "abecodes/tabout.nvim",

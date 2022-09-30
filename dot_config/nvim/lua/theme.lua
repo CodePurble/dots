@@ -23,12 +23,14 @@
 -- OneDarkPro.nvim
 require('onedarkpro').setup({
     theme = "onedark",
-    hlgroups = {
+    highlights = {
         MatchParen = { bg="#2E7D32", fg="#ECEFF4" },
-        IndentBlanklineChar = { bg="#323944", fg="#272B30", gui="nocombine" },
+        IndentBlanklineContextChar = { fg="#818387" },
+        IndentBlanklineContextSpaceChar = { fg="#373a43" },
+        IndentBlanklineContextStart = { bg="#43474e" },
         -- use a darker bg for non-current/active buffers
         NormalNC = { bg="#22252c" },
-        Whitespace = { fg = "#535965" }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+        Whitespace = { fg = "#373a43" }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
         Conceal = { fg = "#535965" } -- placeholder characters substituted for concealed text (see 'conceallevel')
     },
     plugins = {

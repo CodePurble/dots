@@ -80,6 +80,13 @@ require("fidget").setup{
         },
     }
 }
+
+require("mason-lspconfig").setup({
+    ensure_installed = { "sumneko_lua", "rust_analyzer" }
+})
+
+require('leap').set_default_keymaps()
+
 -- require("presence"):setup({
 --     log_level = "debug"
 -- })
@@ -91,6 +98,5 @@ require("fidget").setup{
 -- Remove trailing whitespaces on save
 vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, higroup="Visual"}]]) -- show yanked region with a flash
--- vim.cmd([[autocmd ColorScheme * lua require'lightspeed'.init_highlight(true)]]) -- enforce default highlighting for lightspeed
 vim.api.nvim_create_user_command('ReloadConfig', "lua require('plenary.reload').reload_module('conf')", { force = true })
 vim.api.nvim_create_user_command('Bd', "bp|bd #", {})
