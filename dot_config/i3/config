@@ -10,12 +10,11 @@
 #  / __/ __ \/ _ \/ __ `__ \/ _ \
 # / /_/ / / /  __/ / / / / /  __/
 # \__/_/ /_/\___/_/ /_/ /_/\___/
-default_border none
-default_floating_border none
 gaps inner 2
 smart_gaps on
 title_align center
-font pango:JetBrainsMono Nerd Font Mono Bold 7
+font pango:JetBrainsMono Nerd Font Mono Bold 0
+for_window [class=".*"] border none
 
 #                    _       __    __
 #  _   ______ ______(_)___ _/ /_  / /__  _____
