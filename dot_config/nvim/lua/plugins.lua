@@ -1,9 +1,6 @@
 return require("packer").startup({function(use)
     use "wbthomason/packer.nvim"
 
-    -- fast filetype detection
-    use "nathom/filetype.nvim"
-
     -- LSP/Completion
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
@@ -17,33 +14,56 @@ return require("packer").startup({function(use)
     use "onsails/lspkind-nvim"
     use "p00f/clangd_extensions.nvim"
     use "j-hui/fidget.nvim"
-    -- use "ray-x/cmp-treesitter"
 
+    -- Telescope and friends
     use {
         "nvim-telescope/telescope.nvim",
         requires = {{"nvim-lua/popup.nvim"}, {'nvim-lua/plenary.nvim'}},
     }
     use {
+        "nvim-telescope/telescope-symbols.nvim",
+        requires = {
+            {'nvim-telescope/telescope.nvim'},
+        },
+    }
+    use { "nvim-telescope/telescope-bibtex.nvim",
+        requires = {
+            {'nvim-telescope/telescope.nvim'},
+        },
+        config = function ()
+            require("telescope").load_extension("bibtex")
+        end,
+    }
+
+    use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
+
     use "kyazdani42/nvim-tree.lua"
 
     -- Theme/Visual
     use 'olimorris/onedarkpro.nvim'
-    -- use "monsonjeremy/onedark.nvim"
-    -- use "joshdick/onedark.vim"
     use "folke/lsp-colors.nvim"
     use {
         "akinsho/bufferline.nvim",
         requires = "kyazdani42/nvim-web-devicons",
     }
-    -- use "hoob3rt/lualine.nvim"
-    -- use { "famiu/feline.nvim", tag = 'v0.3.3' }
     use "feline-nvim/feline.nvim"
-
+    use {
+        "gbprod/yanky.nvim",
+        config = function()
+            require("yanky").setup({
+                highlight = {
+                    on_put = true,
+                    on_yank = true,
+                    timer = 200,
+                },
+            })
+        end
+    }
     use "norcalli/nvim-colorizer.lua"
-    use "psliwka/vim-smoothie"
+    use 'karb94/neoscroll.nvim'
     use "andweeb/presence.nvim"
     use "folke/zen-mode.nvim"
     use "lukas-reineke/indent-blankline.nvim"
@@ -54,13 +74,7 @@ return require("packer").startup({function(use)
     }
 
     -- Navigation
-    -- use 'ggandor/lightspeed.nvim'
     use 'ggandor/leap.nvim'
-
-    use {
-        "abecodes/tabout.nvim",
-        wants = {'nvim-treesitter'}, -- or require if not used so far
-    }
 
     -- Tim Pope
     use "tpope/vim-surround"
@@ -71,7 +85,6 @@ return require("packer").startup({function(use)
 
     -- Programming
     use 'Chiel92/vim-autoformat'
-
     use {
         "lewis6991/gitsigns.nvim",
         requires = {"nvim-lua/plenary.nvim"},
@@ -108,6 +121,10 @@ return require("packer").startup({function(use)
     use "editorconfig/editorconfig-vim"
     use "sudar/vim-arduino-syntax"
     use 'mboughaba/i3config.vim'
+    use {
+        "abecodes/tabout.nvim",
+        wants = { 'nvim-treesitter' }, -- or require if not used so far
+    }
 end,
 config = {display = {open_fn = require("packer.util").float}}
 })

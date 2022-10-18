@@ -1,11 +1,17 @@
 local fn = vim.fn
+local path = require("plenary.path")
 require("bufferline").setup{
     options = {
         name_formatter = function(buf)
-            return fn.pathshorten(buf.path)
+            -- Hack to get the filepath relative to cwd
+            return fn.pathshorten(path:new(buf.path):make_relative(vim.fn.getcwd()))
+            -- return path:new(buf.path):make_relative(vim.fn.getcwd())
         end,
         sort_by = "id",
-        separator_style = "slant"
+        separator_style = "slant",
+        numbers = function(opts)
+            return string.format('%s', opts.raise(opts.id))
+        end
     }
 }
 
