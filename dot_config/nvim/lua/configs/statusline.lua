@@ -15,26 +15,26 @@ local line_fg_bg = {
 -- COLOURS
 --
 local vi_mode_colors = {
-    ['NORMAL'] = onedark_colours.green,
-    ['OP'] = onedark_colours.green,
-    ['INSERT'] = onedark_colours.red,
-    ['VISUAL'] = onedark_colours.skyblue,
-    ['LINES'] = onedark_colours.skyblue,
-    ['BLOCK'] = onedark_colours.skyblue,
-    ['REPLACE'] = onedark_colours.violet,
-    ['V-REPLACE'] = onedark_colours.violet,
-    ['ENTER'] = onedark_colours.cyan,
-    ['MORE'] = onedark_colours.cyan,
-    ['SELECT'] = onedark_colours.orange,
-    ['COMMAND'] = onedark_colours.green,
-    ['SHELL'] = onedark_colours.green,
-    ['TERM'] = onedark_colours.green,
-    ['NONE'] = onedark_colours.yellow
+    ["NORMAL"] = onedark_colours.green,
+    ["OP"] = onedark_colours.green,
+    ["INSERT"] = onedark_colours.red,
+    ["VISUAL"] = onedark_colours.skyblue,
+    ["LINES"] = onedark_colours.skyblue,
+    ["BLOCK"] = onedark_colours.skyblue,
+    ["REPLACE"] = onedark_colours.violet,
+    ["V-REPLACE"] = onedark_colours.violet,
+    ["ENTER"] = onedark_colours.cyan,
+    ["MORE"] = onedark_colours.cyan,
+    ["SELECT"] = onedark_colours.orange,
+    ["COMMAND"] = onedark_colours.green,
+    ["SHELL"] = onedark_colours.green,
+    ["TERM"] = onedark_colours.green,
+    ["NONE"] = onedark_colours.yellow,
 }
 
 local components = {
     active = {},
-    inactive = {}
+    inactive = {},
 }
 
 -- left -> active[1]
@@ -62,7 +62,7 @@ components.active[1] = {
             return {
                 fg = "black",
                 bg = vi_mode_utils.get_mode_color(),
-                style = "bold"
+                style = "bold",
             }
         end,
         right_sep = {
@@ -71,9 +71,9 @@ components.active[1] = {
                 hl = function()
                     return {
                         bg = vi_mode_utils.get_mode_color(),
-                        style = "bold"
+                        style = "bold",
                     }
-                end
+                end,
             },
             {
                 str = "right_filled",
@@ -81,18 +81,18 @@ components.active[1] = {
                     return {
                         fg = vi_mode_utils.get_mode_color(),
                         bg = line_fg_bg.bg,
-                        style = "bold"
+                        style = "bold",
                     }
-                end
-            }
-        }
+                end,
+            },
+        },
     },
     {
         provider = "git_diff_added",
         hl = {
             fg = onedark_colours.green,
             bg = line_fg_bg.bg,
-            style = "bold"
+            style = "bold",
         },
     },
     {
@@ -100,7 +100,7 @@ components.active[1] = {
         hl = {
             fg = onedark_colours.orange,
             bg = line_fg_bg.bg,
-            style = "bold"
+            style = "bold",
         },
     },
     {
@@ -108,22 +108,22 @@ components.active[1] = {
         hl = {
             fg = onedark_colours.red,
             bg = line_fg_bg.bg,
-            style = "bold"
+            style = "bold",
         },
     },
     {
         provider = "",
         hl = {
             fg = line_fg_bg.bg,
-            bg = onedark_colours.grey
-        }
+            bg = onedark_colours.grey,
+        },
     },
     {
         provider = "lsp_client_names",
         hl = {
             fg = line_fg_bg.fg,
             bg = onedark_colours.grey,
-            style = "bold"
+            style = "bold",
         },
         left_sep = {
             {
@@ -131,7 +131,7 @@ components.active[1] = {
                 hl = {
                     bg = onedark_colours.grey,
                 },
-            }
+            },
         },
         right_sep = {
             {
@@ -139,24 +139,24 @@ components.active[1] = {
                 hl = {
                     bg = onedark_colours.grey,
                 },
-            }
-        }
+            },
+        },
     },
     {
         provider = "",
         hl = {
             fg = onedark_colours.grey,
-            bg = line_fg_bg.bg
-        }
-    }
+            bg = line_fg_bg.bg,
+        },
+    },
 }
 components.inactive[1] = {
     {
         hl = {
             fg = line_fg_bg.fg,
-            bg = line_fg_bg.bg
+            bg = line_fg_bg.bg,
         },
-    }
+    },
 }
 
 --
@@ -168,7 +168,7 @@ components.active[2] = {
         hl = {
             fg = line_fg_bg.fg,
             bg = onedark_colours.oceanblue,
-            style = "bold"
+            style = "bold",
         },
         icon = "",
         file_readonly_icon = "",
@@ -184,60 +184,60 @@ components.active[2] = {
             {
                 str = " ",
                 hl = {
-                    bg = onedark_colours.oceanblue
-                }
-            }
+                    bg = onedark_colours.oceanblue,
+                },
+            },
         },
         right_sep = {
             str = " ",
             hl = {
                 fg = line_fg_bg.fg,
-                bg = onedark_colours.oceanblue
-            }
-        }
+                bg = onedark_colours.oceanblue,
+            },
+        },
     },
     {
         provider = "@",
         hl = {
             fg = line_fg_bg.fg,
             bg = onedark_colours.oceanblue,
-            style = "bold"
-        }
+            style = "bold",
+        },
     },
     {
         provider = "position",
         hl = {
             fg = line_fg_bg.fg,
             bg = onedark_colours.oceanblue,
-            style = "bold"
+            style = "bold",
         },
         left_sep = {
             str = " ",
             hl = {
-                bg = onedark_colours.oceanblue
-            }
+                bg = onedark_colours.oceanblue,
+            },
         },
         right_sep = {
             {
                 str = " ",
                 hl = {
-                    bg = onedark_colours.oceanblue
-                }
+                    bg = onedark_colours.oceanblue,
+                },
             },
             {
                 str = "right_filled",
                 hl = {
                     fg = onedark_colours.oceanblue,
                     bg = line_fg_bg.bg,
-                }
+                },
             },
             {
                 str = " ",
                 hl = {
-                    bg = line_fg_bg.bg
-                }
+                    bg = line_fg_bg.bg,
+                },
             },
-        }
+        },
     },
 }
 components.inactive[2] = {
@@ -246,7 +246,7 @@ components.inactive[2] = {
         hl = {
             fg = line_fg_bg.fg,
             bg = onedark_colours.oceanblue,
-            style = "bold"
+            style = "bold",
         },
         icon = "",
         file_readonly_icon = "",
@@ -257,40 +257,40 @@ components.inactive[2] = {
                 hl = {
                     fg = onedark_colours.oceanblue,
                     bg = line_fg_bg.bg,
-                }
+                },
             },
             {
                 str = " ",
                 hl = {
                     fg = line_fg_bg.fg,
-                    bg = onedark_colours.oceanblue
-                }
-            }
+                    bg = onedark_colours.oceanblue,
+                },
+            },
         },
         right_sep = {
             {
                 str = " ",
                 hl = {
                     fg = line_fg_bg.fg,
-                    bg = onedark_colours.oceanblue
-                }
+                    bg = onedark_colours.oceanblue,
+                },
             },
             {
                 str = "right_filled",
                 hl = {
                     fg = onedark_colours.oceanblue,
                     bg = line_fg_bg.bg,
-                }
-            }
-        }
+                },
+            },
+        },
     },
     {
         provider = " ",
         hl = {
             fg = line_fg_bg.fg,
-            bg = line_fg_bg.bg
-        }
-    }
+            bg = line_fg_bg.bg,
+        },
+    },
 }
 
 --
@@ -301,76 +301,84 @@ components.active[3] = {
         provider = "",
         hl = {
             fg = onedark_colours.grey,
-            bg = line_fg_bg.bg
-        }
+            bg = line_fg_bg.bg,
+        },
     },
     {
         provider = "diagnostic_errors",
-        enabled = function() return lsp.diagnostics_exist("Error") end,
+        enabled = function()
+            return lsp.diagnostics_exist("Error")
+        end,
         icon = "✖ ",
         hl = {
             fg = onedark_colours.red,
             bg = onedark_colours.grey,
-            style = "bold"
+            style = "bold",
         },
         right_sep = {
             str = " ",
             hl = {
                 fg = line_fg_bg.fg,
-                bg = onedark_colours.grey
-            }
-        }
+                bg = onedark_colours.grey,
+            },
+        },
     },
     {
         provider = "diagnostic_warnings",
-        enabled = function() return lsp.diagnostics_exist("Warn") end,
+        enabled = function()
+            return lsp.diagnostics_exist("Warn")
+        end,
         icon = " ",
         hl = {
             fg = onedark_colours.yellow,
             bg = onedark_colours.grey,
-            style = "bold"
+            style = "bold",
         },
         right_sep = {
             str = " ",
             hl = {
                 fg = line_fg_bg.fg,
-                bg = onedark_colours.grey
-            }
-        }
+                bg = onedark_colours.grey,
+            },
+        },
     },
     {
         provider = "diagnostic_info",
-        enabled = function() return lsp.diagnostics_exist("Info") end,
+        enabled = function()
+            return lsp.diagnostics_exist("Info")
+        end,
         icon = " ",
         hl = {
             fg = onedark_colours.oceanblue,
             bg = onedark_colours.grey,
-            style = "bold"
+            style = "bold",
         },
         right_sep = {
             str = " ",
             hl = {
                 fg = line_fg_bg.fg,
-                bg = onedark_colours.grey
-            }
-        }
+                bg = onedark_colours.grey,
+            },
+        },
     },
     {
         provider = "diagnostic_hints",
-        enabled = function() return lsp.diagnostics_exist("Hint") end,
+        enabled = function()
+            return lsp.diagnostics_exist("Hint")
+        end,
         icon = "ℍ ",
         hl = {
             fg = onedark_colours.magenta,
             bg = onedark_colours.grey,
-            style = "bold"
+            style = "bold",
         },
         right_sep = {
             str = " ",
             hl = {
                 fg = line_fg_bg.fg,
-                bg = onedark_colours.grey
-            }
-        }
+                bg = onedark_colours.grey,
+            },
+        },
     },
     -- {
     --     provider = " ",
@@ -383,7 +391,7 @@ components.active[3] = {
         hl = {
             fg = onedark_colours.black,
             bg = onedark_colours.cyan,
-            style = "bold"
+            style = "bold",
         },
         left_sep = {
             {
@@ -391,20 +399,20 @@ components.active[3] = {
                 hl = {
                     fg = onedark_colours.cyan,
                     bg = onedark_colours.grey,
-                }
+                },
             },
             {
                 str = " ",
                 hl = {
                     bg = onedark_colours.cyan,
-                }
+                },
             },
         },
         right_sep = {
             str = " ",
             hl = {
                 bg = onedark_colours.cyan,
-            }
+            },
         },
     },
     {
@@ -412,28 +420,28 @@ components.active[3] = {
         hl = {
             fg = onedark_colours.black,
             bg = onedark_colours.yellow,
-            style = "bold"
+            style = "bold",
         },
         left_sep = {
             {
                 str = "left_filled",
                 hl = {
                     fg = onedark_colours.yellow,
-                    bg = onedark_colours.cyan
-                }
+                    bg = onedark_colours.cyan,
+                },
             },
             {
                 str = " ",
                 hl = {
-                    bg = onedark_colours.yellow
-                }
+                    bg = onedark_colours.yellow,
+                },
             },
         },
         right_sep = {
             str = " ",
             hl = {
-                bg = onedark_colours.yellow
-            }
+                bg = onedark_colours.yellow,
+            },
         },
     },
     {
@@ -441,28 +449,28 @@ components.active[3] = {
         hl = {
             fg = onedark_colours.black,
             bg = onedark_colours.orange,
-            style = "bold"
+            style = "bold",
         },
         left_sep = {
             {
                 str = "left_filled",
                 hl = {
                     fg = onedark_colours.orange,
-                    bg = onedark_colours.yellow
-                }
+                    bg = onedark_colours.yellow,
+                },
             },
             {
                 str = " ",
                 hl = {
-                    bg = onedark_colours.orange
-                }
+                    bg = onedark_colours.orange,
+                },
             },
         },
         right_sep = {
             str = " ",
             hl = {
-                bg = onedark_colours.orange
-            }
+                bg = onedark_colours.orange,
+            },
         },
     },
     {
@@ -470,7 +478,7 @@ components.active[3] = {
         hl = {
             fg = onedark_colours.black,
             bg = nord_colours.nord9,
-            style = "bold"
+            style = "bold",
         },
         left_sep = {
             {
@@ -478,7 +486,7 @@ components.active[3] = {
                 hl = {
                     fg = nord_colours.nord1,
                     bg = nord_colours.nord9,
-                }
+                },
             },
         },
     },
@@ -487,7 +495,7 @@ components.active[3] = {
         hl = {
             fg = onedark_colours.black,
             bg = onedark_colours.skyblue,
-            style = "bold"
+            style = "bold",
         },
         left_sep = {
             {
@@ -495,7 +503,7 @@ components.active[3] = {
                 hl = {
                     fg = onedark_colours.black,
                     bg = onedark_colours.skyblue,
-                }
+                },
             },
         },
         -- right_sep = {
@@ -524,6 +532,5 @@ require("feline").setup({
     --     },
     --     bufnames = {}
     -- },
-    vi_mode_colors = vi_mode_colors
+    vi_mode_colors = vi_mode_colors,
 })
-

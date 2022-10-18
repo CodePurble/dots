@@ -37,7 +37,7 @@ vim.opt.shiftwidth = 4
 -- spaces
 vim.opt.expandtab = true
 vim.opt.listchars = { space = "·" }
-vim.opt.clipboard = "unnamedplus"-- Make nvim use the system clipboard
+vim.opt.clipboard = "unnamedplus" -- Make nvim use the system clipboard
 vim.opt.nrformats = "alpha"
 vim.opt.mouse = "a" -- enable mouse
 vim.opt.splitright = true
@@ -49,30 +49,30 @@ vim.opt.formatoptions = vim.opt.formatoptions - "o" + "r" + "c" + "q"
 vim.wo.colorcolumn = "99999"
 
 local default_plugins = {
-   "2html_plugin",
-   "gzip",
-   "netrw",
-   "netrwPlugin",
-   "netrwSettings",
-   "netrwFileHandlers",
-   "matchit",
-   "tar",
-   "tarPlugin",
-   "rrhelper",
-   "spellfile_plugin",
-   "vimball",
-   "vimballPlugin",
-   "zip",
-   "zipPlugin",
-   "tutor",
-   "rplugin",
-   "syntax",
-   "synmenu",
-   "optwin",
-   "compiler",
-   "bugreport",
+    "2html_plugin",
+    "gzip",
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+    "matchit",
+    "tar",
+    "tarPlugin",
+    "rrhelper",
+    "spellfile_plugin",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+    "tutor",
+    "rplugin",
+    "syntax",
+    "synmenu",
+    "optwin",
+    "compiler",
+    "bugreport",
 }
 
 for _, plugin in pairs(default_plugins) do
-   vim.g["loaded_" .. plugin] = 1
+    vim.g["loaded_" .. plugin] = 1
 end

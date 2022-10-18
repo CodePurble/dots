@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
     ensure_installed = {
         "bash",
         "bibtex",
@@ -17,10 +17,10 @@ require'nvim-treesitter.configs'.setup {
         "lua",
         "json",
         "toml",
-        "yaml"
+        "yaml",
     },
     highlight = {
-        enable = true
+        enable = true,
     },
     incremental_selection = {
         enable = true,
@@ -31,4 +31,4 @@ require'nvim-treesitter.configs'.setup {
             node_decremental = "gnd",
         },
     },
-}
+})

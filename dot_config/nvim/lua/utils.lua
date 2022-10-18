@@ -47,14 +47,14 @@ M.all_colours = {
         nord13 = "#EBCB8B",
         nord14 = "#A3BE8C",
         nord15 = "#B48EAD",
-    }
+    },
 }
 
 -- Function that copies only SIMPLE TABLES WITHOUT ANY METATABLES. NO SUPPORT FOR RECURSIVE TABLES.
 -- Ref: https://stackoverflow.com/a/641993
 function M.table_shallow_copy(t)
     local t2 = {}
-    for k,v in pairs(t) do
+    for k, v in pairs(t) do
         t2[k] = v
     end
     return t2
@@ -65,9 +65,9 @@ end
 local async_status_old = ""
 function M.get_asyncrun_running()
     local async_status = ""
-    if(vim.api.nvim_eval('exists("g:asyncrun_status")') == 1) then
-        async_status = vim.api.nvim_get_var('asyncrun_status')
-        if(async_status ~= async_status_old) then
+    if vim.api.nvim_eval('exists("g:asyncrun_status")') == 1 then
+        async_status = vim.api.nvim_get_var("asyncrun_status")
+        if async_status ~= async_status_old then
             async_status_old = async_status
         end
     end
@@ -78,12 +78,12 @@ end
 -- Used best with vim-sleuth
 function M.get_buf_indentation_style()
     local res = ""
-    if(vim.api.nvim_buf_get_option(0, 'expandtab')) then
+    if vim.api.nvim_buf_get_option(0, "expandtab") then
         res = "SP:"
     else
         res = "TB:"
     end
-    return res .. vim.api.nvim_buf_get_option(0, 'tabstop')
+    return res .. vim.api.nvim_buf_get_option(0, "tabstop")
 end
 
 -- ref:
@@ -92,7 +92,7 @@ function M.get_python_venv()
     local function env_cleanup(venv)
         if string.find(venv, "/") then
             local final_venv = venv
-            for w in venv:gmatch "([^/]+)" do
+            for w in venv:gmatch("([^/]+)") do
                 final_venv = w
             end
             venv = final_venv
@@ -100,11 +100,11 @@ function M.get_python_venv()
         return venv
     end
     if vim.bo.filetype == "python" then
-        local venv = os.getenv "CONDA_DEFAULT_ENV"
+        local venv = os.getenv("CONDA_DEFAULT_ENV")
         if venv ~= nil then
             return " :" .. env_cleanup(venv) .. " "
         end
-        venv = os.getenv "VIRTUAL_ENV"
+        venv = os.getenv("VIRTUAL_ENV")
         if venv ~= nil then
             return " :" .. env_cleanup(venv) .. " "
         end
@@ -115,8 +115,8 @@ end
 
 -- https://github.com/creativenull/nvim-config/blob/87fd4cd0ddd4767ebd520f6c2d496a2def33fb91/lua/cnull/core/reload.lua
 function M.conf_reload()
-    for name,_ in pairs(package.loaded) do
-        if name:match('^ramprakash') then
+    for name, _ in pairs(package.loaded) do
+        if name:match("^ramprakash") then
             package.loaded[name] = nil
         end
     end

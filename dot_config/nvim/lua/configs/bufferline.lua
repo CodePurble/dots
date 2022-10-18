@@ -1,6 +1,6 @@
 local fn = vim.fn
 local path = require("plenary.path")
-require("bufferline").setup{
+require("bufferline").setup({
     options = {
         name_formatter = function(buf)
             -- Hack to get the filepath relative to cwd
@@ -10,12 +10,12 @@ require("bufferline").setup{
         sort_by = "id",
         separator_style = "slant",
         numbers = function(opts)
-            return string.format('%s', opts.raise(opts.id))
-        end
-    }
-}
+            return string.format("%s", opts.raise(opts.id))
+        end,
+    },
+})
 
-local opts = {noremap = true, silent = true}
-vim.api.nvim_set_keymap('n', '<S-l>', ':BufferLineCycleNext<CR>', opts)
-vim.api.nvim_set_keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gp', ':BufferLinePick<CR>', opts)
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+vim.api.nvim_set_keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+vim.api.nvim_set_keymap("n", "gp", ":BufferLinePick<CR>", opts)

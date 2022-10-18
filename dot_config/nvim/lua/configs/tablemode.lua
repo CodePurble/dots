@@ -10,4 +10,3 @@ inoreabbrev <expr> <bar><bar>
             \ <SID>isAtStartOfLine('\|\|') ?
             \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
 ]])
-
