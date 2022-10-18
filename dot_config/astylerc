@@ -1,0 +1,4 @@
+--style=stroustrup
+--indent=spaces=4
+--attach-closing-while
+--add-braces
