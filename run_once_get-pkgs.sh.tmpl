@@ -25,7 +25,8 @@ sudo pacman -S --needed --noconfirm \
     xf86-video-intel intel-ucode \
     nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
     arduino-cli github-cli \
-    bluez bluez-utils bluez-libs
+    bluez bluez-utils bluez-libs \
+    python-black stylua astyle prettier
 
 if ! which volume; then
     git clone git@github.com:CodePurble/i3-volume.git "$GIT_DIR"/i3-volume
