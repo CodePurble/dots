@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+files=$(find $SCRIPTS -maxdepth 1 -type f)
+rofi_cmd="rofi -theme ~/.config/rofi-themes/dt-dmenu.rasi -dmenu"
+
+chosen=$(echo $files | sed -E 's/\s/\n/g'| grep -Po '[^/]*$' | $rofi_cmd)
+
+sh -c $chosen

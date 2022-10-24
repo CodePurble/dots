@@ -123,13 +123,14 @@ bindsym $mod+Escape workspace back_and_forth
 bindsym $mod+bracketright workspace next
 bindsym $mod+bracketleft  workspace prev
 
-# applications (also incluedes custom scripts in $PATH)
+# applications (also includes custom scripts in $PATH)
 bindsym $mod+Return exec $term
 bindsym $mod+b exec $browser
 bindsym $mod+n exec "$term -e ranger"
 
 bindsym $mod+space exec rofi -modi drun -show drun -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term
 bindsym $mod+Shift+space exec rofi -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term -modi window -show
+bindsym $mod+Control+space exec script-picker
 
 bindsym $mod+Tab exec i3-scratchpad -t -d960x900 $term -e ranger
 
