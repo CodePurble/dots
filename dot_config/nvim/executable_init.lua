@@ -6,7 +6,6 @@ require("core.general")
 require("core.keys")
 require("core.templates")
 require("configs.neoscroll")
-require("configs.lsp")
 require("configs.lspconfig")
 require("configs.mason")
 require("configs.cmp")
@@ -77,5 +76,6 @@ vim.g.vimtex_compiler_progname = "nvr"
 -- Remove trailing whitespaces on save
 vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 -- vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, higroup="Visual"}]]) -- show yanked region with a flash
-vim.api.nvim_create_user_command("Reload", "update $MYVIMRC | source $MYVIMRC", { force = true })
+-- vim.api.nvim_create_user_command("Reload", "update $MYVIMRC | source $MYVIMRC", { force = true })
+vim.api.nvim_create_user_command("Reload", require("utils").conf_reload, { force = true })
 vim.api.nvim_create_user_command("Bd", "bp|bd #", {})

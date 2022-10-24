@@ -114,14 +114,19 @@ function M.get_python_venv()
 end
 
 -- https://github.com/creativenull/nvim-config/blob/87fd4cd0ddd4767ebd520f6c2d496a2def33fb91/lua/cnull/core/reload.lua
+-- https://github.com/AstroNvim/AstroNvim/blob/5288bad46858f15f2290aeb3d09c8bd8e58b7882/lua/core/utils/updater.lua#L77
 function M.conf_reload()
+    if vim.fn.exists(":LspStop") ~= 0 then
+        vim.cmd("LspStop")
+    end
     for name, _ in pairs(package.loaded) do
-        if name:match("^ramprakash") then
+        if name:match("^core") or name:match("^configs") or name:match("^plugins") or name:match("^utils") then
             package.loaded[name] = nil
         end
     end
 
     dofile(vim.env.MYVIMRC)
+    vim.notify("Nvim configuration reloaded!", vim.log.levels.INFO)
 end
 
 return M

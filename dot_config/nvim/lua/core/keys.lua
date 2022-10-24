@@ -1,5 +1,6 @@
 local opts = { noremap = true }
 local keymapset = vim.keymap.set
+
 -- Normal mode
 keymapset({ "n", "v" }, "<leader>l", "$", opts)
 keymapset({ "n", "v" }, "<leader>h", "^", opts)
@@ -20,14 +21,6 @@ keymapset("n", "<C-h>", "<C-w>h", opts)
 keymapset("n", "<C-j>", "<C-w>j", opts)
 keymapset("n", "<C-k>", "<C-w>k", opts)
 keymapset("n", "<C-l>", "<C-w>l", opts)
-
-keymapset("n", "<leader>R", function()
-    vim.cmd([[
-        update $MYVIMRC
-        source $MYVIMRC
-        ]])
-end, { noremap = true, silent = true })
-
 keymapset("n", "/", [[/\v]]) -- always use very-magic mode when searching (extended regex)
 
 -- Visual mode
