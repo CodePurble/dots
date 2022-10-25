@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+allposs=$(xrandr -q | grep "connected")
+OUTPUT=${1:-HDMI-0}
+
+xrandr --output $OUTPUT --auto --scale 1.0x1.0 $(echo "$allposs" | grep -v "$OUTPUT" | awk '{print "--output", $1, "--off"}' | paste -sd ' ')""
+{ killall dunst ; setsid -f dunst ;} >/dev/null 2>&1 # Restart dunst to ensure proper location on screen
