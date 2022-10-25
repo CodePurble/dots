@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+setxkbmap -option caps:escape_shifted_capslock # Whew! Comfier Vim experience
+setxkbmap -option numpad:mac # Numpad is always numbers, nothing else
