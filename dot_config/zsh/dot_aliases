@@ -17,7 +17,7 @@ alias al="$EDITOR $ZDOTDIR/.aliases"
 alias nv="$EDITOR $HOME/.config/nvim"
 alias nn="cd $HOME/.config/nvim"
 alias z="$EDITOR $ZDOTDIR/.zshrc"
-alias b="$EDITOR $HOME/.config/bspwm/bspwmrc.*"
+# alias b="$EDITOR $HOME/.config/bspwm/bspwmrc.*"
 alias hl="$EDITOR $HOME/.config/herbstluftwm/autostart"
 
 alias dl="cd $DOW"
@@ -29,10 +29,13 @@ alias rp="cd $HOME/rpdata"
 alias c="cd $HOME/.config"
 alias sc="cd $SCRIPTS"
 alias zz="cd $ZDOTDIR"
-alias bb="cd $HOME/.config/bspwm"
+# alias bb="cd $HOME/.config/bspwm"
 alias hh="cd $HOME/.config/herbstluftwm"
 alias wl="cd $HOME/Pictures/wallpapers"
 alias foo="cd $HOME/Documents/foo"
+alias b="cd $STUFF/blog"
+
+alias ssir="cd $HOME/rpdata/work/ssir"
 
 alias lz="cd $SEM/miniproject/libezw"
 alias mp="cd $MAJPROJ"
@@ -53,6 +56,7 @@ alias la="exa -la --group-directories-first --colour always"
 alias ip="ip -c"
 
 alias hha="freshfetch"
+alias n="nvim"
 
 alias caps="setxkbmap -option caps:escape_shifted_capslock && setxkbmap -option numpad:mac"
 
@@ -84,6 +88,8 @@ alias cedit="chezmoi edit"
 alias om="optimus-manager"
 alias des="docker run --rm -it -v $(pwd):/opt/Ramprakash_4NI18EC019 codepurble/docker-emsys-nie"
 alias sauth='eval $(ssh-agent) && ssh-add'
+
+alias pp='realpath -e'
 
 function cd()
 {

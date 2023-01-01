@@ -40,16 +40,17 @@ case "$file" in
     *.marp.md) marp --pdf "$file";;
     *.pres.md) pandoc --from markdown -t beamer "$file" -o "$base".pdf --pdf-engine xelatex --citeproc ;;
     *.md) pandoc --from markdown "$file" -o "$base".pdf --pdf-engine xelatex --filter=pandoc-crossref --citeproc ;;
+    *546.tex) textype pdflatex;;
     *ieeecls.tex) textype pdflatex;;
     *.tex) textype xelatex;;
     # *.c) gcc -g -lm -Wall "$file" -o "$base" && "$base" ;;
     *.c) gcc -g -lm -lgsl -lgslcblas -Wall "$file" -o "$base" && "$base" ;;
-    *.cc) g++ -g -lm -Wall "$file" -o "$base" && "$base" ;;
+    *.cc) g++ -g -lm -lfmt -Wall "$file" -o "$base" && "$base" ;;
     *.rs) rustc "$file" -o "$base" && "$base" ;;
     *.sv) iverilog -g2005-sv -Wall -o "$base.out" "$file" && vvp "$base.out" ;;
-    # *.v) iverilog -g2012 -Wall -o "$base.out" "$file" && vvp "$base.out" ;;
+    *.v) iverilog -g2012 -Wall -o "$base.out" "$file" && vvp "$base.out" ;;
     # *.v) iverilog -Wall -y"../hdl" -o "$base.out" "$file" && vvp "$base.out" ;;
-    *.v) iverilog -Wall -c"../cmdfile" -o "$base.out" "$file" && vvp "$base.out" ;;
+    # *.v) iverilog -Wall -c"../cmdfile" -o "$base.out" "$file" && vvp "$base.out" ;;
     # *.v) iverilog -Wall -y"../hdl" -o "$base.out" "$file" && vvp "$base.out" && gtkwave "$base.vcd" ;;
     *.py) python "$file" ;;
     *.m) octave "$file" ;;
@@ -58,5 +59,6 @@ case "$file" in
         arduino-cli compile --fqbn arduino:avr:uno . && \
         arduino-cli upload -v -p /dev/ttyACM0 --fqbn arduino:avr:uno .
         ;;
+    *.adoc) asciidoctor "$file" ;;
     *) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
 esac

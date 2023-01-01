@@ -24,6 +24,11 @@ fpath=( $ZDOTDIR/zfuncs "${fpath[@]}" )
 
 autoload -Uz compinit && compinit -i
 
+# Enable and load bashcompinit
+autoload -Uz bashcompinit && bashcompinit
+# Argcomplete explicit registration for pubs
+eval "$(register-python-argcomplete pubs)"
+
 # set variables
 HISTSIZE=1000
 SAVEHIST=1000

@@ -10,4 +10,5 @@ autocmd("BufNewFile", { pattern = "*.adoc", command = "0r ~/.config/templates/te
 autocmd("BufNewFile", { pattern = "*.c", command = "0r ~/.config/templates/template.c", group = templates })
 autocmd("BufNewFile", { pattern = "*.cc", command = "0r ~/.config/templates/template.cc", group = templates })
 autocmd("BufNewFile", { pattern = "*.tex", command = "0r ~/.config/templates/template.tex", group = templates })
+autocmd("BufNewFile", { pattern = "*.sv", command = "0r ~/.config/templates/template.sv", group = templates })
 autocmd("FileType", { pattern = "tex,latex,markdown", command = "setlocal spell spelllang=en_gb" })

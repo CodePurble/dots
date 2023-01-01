@@ -221,6 +221,9 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [window_type="_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)"] floating enable
 
+# Don't focus nvim markdown preview window automatically
+no_focus [title="^Peek preview$"]
+
 assign [class="Brave-browser"] $ws2
 assign [class="Citra"] $ws4
 assign [class="Pamac-manager"] $ws5

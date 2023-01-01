@@ -17,7 +17,8 @@ $character
 
 [directory]
 read_only = " "
-fish_style_pwd_dir_length = 1
+truncate_to_repo = false
+truncation_length = 0
 
 [character]
 success_symbol = "[](bold green)"
@@ -49,3 +50,4 @@ detect_extensions = []
 [status]
 disabled = false
 symbol = ""
+
