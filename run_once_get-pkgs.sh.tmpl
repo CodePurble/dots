@@ -26,7 +26,8 @@ sudo pacman -S --needed --noconfirm \
     nvidia nvidia-prime nvidia-utils nvidia-settings bbswitch \
     arduino-cli github-cli \
     bluez bluez-utils bluez-libs \
-    python-black stylua astyle prettier
+    python-black stylua astyle prettier \
+    i3-gaps
 
 if ! which volume; then
     git clone git@github.com:CodePurble/i3-volume.git "$GIT_DIR"/i3-volume
