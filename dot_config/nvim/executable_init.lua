@@ -13,6 +13,7 @@ require("configs.treesitter")
 require("configs.gitsigns")
 require("configs.asciidoctor")
 require("configs.autoformat")
+require("configs.yanky")
 -- require("configs.peek")
 -- require("configs.tablemode")
 require("configs.toggleterm")
@@ -48,9 +49,10 @@ require("fidget").setup({
     },
 })
 require("mason-lspconfig").setup({
-    ensure_installed = { "sumneko_lua" },
+    ensure_installed = { "lua-language-server" },
 })
 require("leap").set_default_keymaps()
+require("Comment").setup()
 
 -- require("presence"):setup({
 --     log_level = "debug"

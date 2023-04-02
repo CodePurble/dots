@@ -52,18 +52,7 @@ return require("packer").startup({
             requires = "kyazdani42/nvim-web-devicons",
         })
         use("feline-nvim/feline.nvim")
-        use({
-            "gbprod/yanky.nvim",
-            config = function()
-                require("yanky").setup({
-                    highlight = {
-                        on_put = true,
-                        on_yank = true,
-                        timer = 200,
-                    },
-                })
-            end,
-        })
+        use("gbprod/yanky.nvim")
         use("norcalli/nvim-colorizer.lua")
         use("karb94/neoscroll.nvim")
         use("andweeb/presence.nvim")
@@ -93,12 +82,7 @@ return require("packer").startup({
             "lewis6991/gitsigns.nvim",
             requires = { "nvim-lua/plenary.nvim" },
         })
-        use({
-            "numToStr/Comment.nvim",
-            config = function()
-                require("Comment").setup()
-            end,
-        })
+        use("numToStr/Comment.nvim")
 
         -- Misc
         use("akinsho/toggleterm.nvim")
@@ -121,7 +105,7 @@ return require("packer").startup({
         })
         use({ "arm9/arm-syntax-vim", ft = "arm" })
         use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install" }) --, ft = "markdown"}
-        use({ "toppair/peek.nvim", run = "deno task --quiet build:fast", branch = "separate-process" }) --, ft = "markdown"}
+        -- use({ "toppair/peek.nvim", run = "deno task --quiet build:fast", branch = "separate-process" }) --, ft = "markdown"}
         use("jvirtanen/vim-octave")
         use("editorconfig/editorconfig-vim")
         use("sudar/vim-arduino-syntax")

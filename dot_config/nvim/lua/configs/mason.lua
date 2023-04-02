@@ -35,7 +35,7 @@ require("mason").setup({
 require("mason-lspconfig").setup({
     ensure_installed = {
         "clangd",
-        "sumneko_lua",
+        "lua-language-server",
         "pyright",
         "texlab",
         "marksman",
