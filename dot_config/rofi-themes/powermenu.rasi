@@ -8,7 +8,7 @@
  */
 
 configuration {
-font:                           "FantasqueSansMono Nerd Font Mono Regular 12";
+font:                           "FantasqueSansM Nerd Font Mono Regular 12";
                                 show-icons:                     false;
                                 icon-theme:                     "Papirus";
                                 display-drun:                   ":";

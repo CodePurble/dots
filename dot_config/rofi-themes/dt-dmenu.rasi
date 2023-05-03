@@ -16,8 +16,8 @@ configuration {
 	border-color:               #282c34;
 	text-color:                 #bbc2cf;
 	height:                     28px;
-	font:                       "FantasqueSansMono Nerd Font Mono 12";
-	prompt-font:                "FantasqueSansMono Nerd Font Mono bold 12";
+	font:                       "FantasqueSansM Nerd Font Mono 12";
+	prompt-font:                "FantasqueSansM Nerd Font Mono bold 12";
 	prompt-background:          #51afef;
 	prompt-foreground:          #282c34;
 	prompt-padding:             2px;

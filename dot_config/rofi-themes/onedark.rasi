@@ -31,7 +31,7 @@ configuration {
   spacing: 0;
   background-color: transparent;
 
-  font: "FantasqueSansMono Nerd Font Mono Regular 14";
+  font: "FantasqueSansM Nerd Font Mono Regular 14";
   text-color: @text;
 }
 

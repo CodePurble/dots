@@ -6,7 +6,7 @@
  *******************************************************************************/
 
 configuration {
-    font            : "FantasqueSansMono Nerd Font Mono 12";
+    font            : "FantasqueSansM Nerd Font Mono 12";
     display-ssh     : "";
     display-run     : "";
     display-drun    : "";
