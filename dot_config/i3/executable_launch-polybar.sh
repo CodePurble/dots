@@ -11,7 +11,7 @@ for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     bar_name="main-i3"
     echo "BARNAME:$bar_name"
     MONITOR=$m polybar -c $HOME/.config/polybar/config.ini --reload $bar_name &
-    [[ $m == "HDMI-0" ]] && break
+    # [[ $m == "HDMI-0" ]] && break
 done
 
 polybar-msg cmd restart
