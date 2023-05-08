@@ -47,6 +47,9 @@ style = "bold bright-green"
 symbol = " "
 detect_extensions = []
 
+[lua]
+symbol = " "
+
 [status]
 disabled = false
 symbol = ""
