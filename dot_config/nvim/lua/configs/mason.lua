@@ -35,10 +35,11 @@ require("mason").setup({
 require("mason-lspconfig").setup({
     ensure_installed = {
         "clangd",
-        "lua-language-server",
+        "lua_ls",
         "pyright",
         "texlab",
         "marksman",
+        "verible"
     },
     automatic_installation = false,
 })

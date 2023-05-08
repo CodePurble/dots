@@ -82,6 +82,8 @@ local options = {
         { name = "nvim_lua" },
         { name = "path" },
         { name = "emoji" },
+        { name = "emoji" },
+        { name = 'nvim_lsp_signature_help' },
     },
 }
 

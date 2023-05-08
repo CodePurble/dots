@@ -48,9 +48,6 @@ require("fidget").setup({
         },
     },
 })
-require("mason-lspconfig").setup({
-    ensure_installed = { "lua-language-server" },
-})
 require("leap").set_default_keymaps()
 require("Comment").setup()
 

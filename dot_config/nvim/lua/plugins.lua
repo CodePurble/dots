@@ -12,6 +12,7 @@ return require("packer").startup({
         use("hrsh7th/cmp-buffer")
         use("hrsh7th/cmp-path")
         use("hrsh7th/cmp-emoji")
+        use("hrsh7th/cmp-nvim-lsp-signature-help")
         use("onsails/lspkind-nvim")
         use("p00f/clangd_extensions.nvim")
         use("j-hui/fidget.nvim")
