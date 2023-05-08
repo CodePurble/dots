@@ -42,14 +42,15 @@ return require("packer").startup({
             run = ":TSUpdate",
         })
 
-        use("kyazdani42/nvim-tree.lua")
+        use("nvim-tree/nvim-tree.lua")
+        use("nvim-tree/nvim-web-devicons")
 
         -- Theme/Visual
         use("olimorris/onedarkpro.nvim")
         use("folke/lsp-colors.nvim")
         use({
             "akinsho/bufferline.nvim",
-            requires = "kyazdani42/nvim-web-devicons",
+            requires = "nvim-tree/nvim-web-devicons",
         })
         use("feline-nvim/feline.nvim")
         use("gbprod/yanky.nvim")
