@@ -53,7 +53,8 @@ return require("packer").startup({
             "akinsho/bufferline.nvim",
             requires = "nvim-tree/nvim-web-devicons",
         })
-        use("feline-nvim/feline.nvim")
+        -- use("feline-nvim/feline.nvim")
+        use('nvim-lualine/lualine.nvim')
         use("gbprod/yanky.nvim")
         use("norcalli/nvim-colorizer.lua")
         use("karb94/neoscroll.nvim")

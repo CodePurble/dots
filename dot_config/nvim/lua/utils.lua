@@ -1,5 +1,20 @@
 local M = {}
 
+M.nerdfont_symbols = {
+    right = "",
+    left = "",
+    right_filled = "",
+    left_filled = "",
+    circle = "",
+    lock = "",
+    cross = "✖ ",
+    excl = " ",
+    info = " ",
+    square = " ",
+    python = "󰌠",
+    code_file = "󰈮",
+
+}
 M.all_colours = {
     my_colours = {
         greshade1 = "#212121",
@@ -102,11 +117,11 @@ function M.get_python_venv()
     if vim.bo.filetype == "python" then
         local venv = os.getenv("CONDA_DEFAULT_ENV")
         if venv ~= nil then
-            return " :" .. env_cleanup(venv) .. " "
+            return env_cleanup(venv)
         end
         venv = os.getenv("VIRTUAL_ENV")
         if venv ~= nil then
-            return " :" .. env_cleanup(venv) .. " "
+            return env_cleanup(venv)
         end
         return ""
     end
@@ -129,4 +144,22 @@ function M.conf_reload()
     vim.notify("Nvim configuration reloaded!", vim.log.levels.INFO)
 end
 
+function M.get_active_lsp_clients()
+    local clientNames = ""
+    for _, v in ipairs(vim.lsp.buf_get_clients()) do
+        clientNames = clientNames .. v['config']['name']
+    end
+    return clientNames
+end
+
+function M.gitdiff_source()
+  local gitsigns = vim.b.gitsigns_status_dict
+  if gitsigns then
+    return {
+      added = gitsigns.added,
+      modified = gitsigns.changed,
+      removed = gitsigns.removed
+    }
+  end
+end
 return M
