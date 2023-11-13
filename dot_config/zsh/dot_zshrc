@@ -27,7 +27,7 @@ autoload -Uz compinit && compinit -i
 # Enable and load bashcompinit
 autoload -Uz bashcompinit && bashcompinit
 # Argcomplete explicit registration for pubs
-eval "$(register-python-argcomplete pubs)"
+# eval "$(register-python-argcomplete pubs)"
 
 # set variables
 HISTSIZE=1000
@@ -90,7 +90,7 @@ bindkey '^E' edit-command-line
 # fi
 
 # zsh completion for pip
-eval "$(pip completion --zsh)"
+# eval "$(pip completion --zsh)"
 
 # Enable reverse search
 bindkey '^R' history-incremental-search-backward
