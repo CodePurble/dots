@@ -7,3 +7,4 @@ dot_config/nvim/bundle
 dot_config/nvim/dot_netrwhist
 dot_config/nvim/plugin
 dot_config/nvim/sessions/
+dot_config/nvim/lua/dot_luarc.json
