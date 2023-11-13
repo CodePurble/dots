@@ -1,13 +1,20 @@
 require("gitsigns").setup({
-    keymaps = {
-        noremap = true,
-        ["n <leader>us"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-        ["v <leader>us"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-        ["n <leader>uu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-        ["n <leader>ur"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-        ["v <leader>ur"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-        ["n <leader>uR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-        ["n <leader>up"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-        ["n <leader>ub"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-    },
+    on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+        end
+        local opts = {noremap = true}
+        map('n', '<leader>us', gs.stage_hunk(), opts)
+        map('v', '<leader>us', gs.stage_hunk({vim.fn.line("."), vim.fn.line("v")}), opts)
+        map('n', '<leader>uu', gs.undo_stage_hunk(), opts)
+        map('n', '<leader>ur', gs.reset_hunk(), opts)
+        map('v', '<leader>ur', gs.reset_hunk({vim.fn.line("."), vim.fn.line("v")}), opts)
+        map('n', '<leader>uR', gs.reset_buffer(), opts)
+        map('n', '<leader>up', gs.preview_hunk(), opts)
+        map('n', '<leader>ub', gs.blame_line(true), opts)
+    end,
 })

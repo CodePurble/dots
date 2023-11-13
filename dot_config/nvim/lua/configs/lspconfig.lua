@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
         vim.keymap.set("n", "<leader>Rn", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-        vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
+        vim.keymap.set("n", "<leader>w", vim.diagnostic.setloclist, opts)
         vim.keymap.set("n", "<leader>D", "<cmd>lua require('telescope.builtin').lsp_type_definitions()<CR>", opts)
     end,
 })
