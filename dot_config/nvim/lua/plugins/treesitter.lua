@@ -1,0 +1,28 @@
+return {
+  "nvim-treesitter/nvim-treesitter",
+  opts = {
+    ensure_installed = {
+      "bash",
+      "bibtex",
+      "cmake",
+      "c",
+      "cpp",
+      "devicetree",
+      "make",
+      "python",
+      "pioasm",
+      "perl",
+      "rust",
+      "bibtex",
+      "verilog",
+      "dockerfile",
+      "lua",
+      "json",
+      "toml",
+      "yaml",
+      "markdown",
+      "markdown_inline",
+      "regex",
+    },
+  },
+}

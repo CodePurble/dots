@@ -1,24 +1,27 @@
 # dots
+
 The dotfiles I use on my [Arch](https://archlinux.org) +
 [ZSH](https://wiki.archlinux.org/title/Zsh) +
 ([Herbstluftwm](https://herbstluftwm.org/) / [i3](https://i3wm.org/)) system.
 Hopefully you can find something helpful in here. :smile:
 
 Some of the programs I use:
-* [Herbstluftwm](https://herbstluftwm.org/) / [i3](https://i3wm.org/)
-* [Neovim](https://neovim.io/) (Configured in [lua](https://github.com/nanotee/nvim-lua-guide))
-* [Alacritty](https://alacritty.org/)
-* [Polybar](https://polybar.github.io/)
-* [rofi](https://github.com/davatorium/rofi)
-* [ranger](https://github.com/ranger/ranger)
-* [zathura](https://pwmt.org/projects/zathura/) / [sioyek](https://github.com/ahrm/sioyek)
-* [starship](https://starship.rs) / [powerlevel10k](https://github.com/romkatv/powerlevel10k)
-* [optimus-manager](https://github.com/Askannz/optimus-manager)
+
+- [Herbstluftwm](https://herbstluftwm.org/) / [i3](https://i3wm.org/)
+- [Neovim](https://neovim.io/) (Configured in [lua](https://github.com/nanotee/nvim-lua-guide) using [LazyVim](https://github.com/LazyVim/LazyVim))
+- [Alacritty](https://alacritty.org/)
+- [Polybar](https://polybar.github.io/)
+- [rofi](https://github.com/davatorium/rofi)
+- [ranger](https://github.com/ranger/ranger)
+- [zathura](https://pwmt.org/projects/zathura/) / [sioyek](https://github.com/ahrm/sioyek)
+- [starship](https://starship.rs) / [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [optimus-manager](https://github.com/Askannz/optimus-manager)
 
 Fonts:
-* JetBrainsMono Nerd Font
-* FantasqueSansMono Nerd Font
-* UbuntuMono Nerd Font
+
+- JetBrainsMono Nerd Font
+- FantasqueSansMono Nerd Font
+- UbuntuMono Nerd Font
 
 Get them [here](https://www.nerdfonts.com/font-downloads)
 
