@@ -43,22 +43,38 @@ vi_mode_style = "Block"
 TERM = "alacritty"
 
 [font]
-size = 9.5
+size = 9
+
+# [font.bold]
+# family = "FantasqueSansM Nerd Font Mono"
+# style = "Bold"
+#
+# [font.bold_italic]
+# family = "FantasqueSansM Nerd Font Mono"
+# style = "Bold Italic"
+#
+# [font.italic]
+# family = "FantasqueSansM Nerd Font Mono"
+# style = "Italic"
+#
+# [font.normal]
+# family = "FantasqueSansM Nerd Font Mono"
+# style = "Regular"
 
 [font.bold]
-family = "FantasqueSansM Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "FantasqueSansM Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "FantasqueSansM Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "FantasqueSansM Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Regular"
 
 [[keyboard.bindings]]
