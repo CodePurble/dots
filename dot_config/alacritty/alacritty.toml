@@ -1,0 +1,505 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[[colors.indexed_colors]]
+color = "0xd19a66"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xf65866"
+index = 17
+
+[colors.bright]
+black = "#21252b"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c379"
+magenta = "#c678dd"
+red = "#e86671"
+white = "#abb2bf"
+yellow = "#e0af68"
+
+[colors.normal]
+black = "#20232A"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c379"
+magenta = "#c678dd"
+red = "#e86671"
+white = "#798294"
+yellow = "#e0af68"
+
+[colors.primary]
+background = "#282c34"
+foreground = "#abb2bf"
+
+[cursor]
+unfocused_hollow = true
+vi_mode_style = "Block"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 9.5
+
+[font.bold]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "Space"
+mode = "Vi"
+mods = "Shift|Control"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Space"
+mods = "Shift|Control"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Escape"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "I"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "I"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "C"
+mode = "Vi"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollLineUp"
+key = "Y"
+mode = "Vi"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollLineDown"
+key = "E"
+mode = "Vi"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "G"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "G"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "B"
+mode = "Vi"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "F"
+mode = "Vi"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageUp"
+key = "U"
+mode = "Vi"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageDown"
+key = "D"
+mode = "Vi"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Y"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Y"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Copy"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ToggleNormalSelection"
+key = "V"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ToggleLineSelection"
+key = "V"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ToggleBlockSelection"
+key = "V"
+mode = "Vi"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleSemanticSelection"
+key = "V"
+mode = "Vi"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Open"
+key = "Return"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Up"
+key = "K"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Down"
+key = "J"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Left"
+key = "H"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Right"
+key = "L"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Up"
+key = "Up"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Down"
+key = "Down"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Left"
+key = "Left"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Right"
+key = "Right"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "First"
+key = "Key0"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Last"
+key = "Key4"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "FirstOccupied"
+key = "Key6"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "High"
+key = "H"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Middle"
+key = "M"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Low"
+key = "L"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "SemanticLeft"
+key = "B"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "SemanticRight"
+key = "W"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "SemanticRightEnd"
+key = "E"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "WordLeft"
+key = "B"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "WordRight"
+key = "W"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "WordRightEnd"
+key = "E"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Bracket"
+key = "Key5"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "SearchForward"
+key = "Slash"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "SearchBackward"
+key = "Slash"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "SearchNext"
+key = "N"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "SearchPrevious"
+key = "N"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Numpad0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "NumpadAdd"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "NumpadSubtract"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "Up"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "Down"
+mods = "Control"
+
+[mouse]
+hide_when_typing = true
+
+# [schemes.material.bright]
+# black = "#4e4e4e"
+# blue = "#82aaff"
+# cyan = "#89ddff"
+# green = "#c3e88d"
+# magenta = "#f07178"
+# red = "#ff5370"
+# white = "#ffffff"
+# yellow = "#ffcb6b"
+#
+# [schemes.material.normal]
+# black = "#000000"
+# blue = "#6182b8"
+# cyan = "#39adb5"
+# green = "#91b859"
+# magenta = "#ff5370"
+# red = "#e53935"
+# white = "#a0a0a0"
+# yellow = "#ffb62c"
+#
+# [schemes.material.primary]
+# background = "#263238"
+# foreground = "#eeffff"
+#
+# [[schemes.one-dark.indexed_colors]]
+# color = "0xd19a66"
+# index = 16
+#
+# [[schemes.one-dark.indexed_colors]]
+# color = "0xf65866"
+# index = 17
+#
+# [schemes.one-dark.bright]
+# black = "#21252b"
+# blue = "#61afef"
+# cyan = "#56b6c2"
+# green = "#98c379"
+# magenta = "#c678dd"
+# red = "#e86671"
+# white = "#abb2bf"
+# yellow = "#e0af68"
+#
+# [schemes.one-dark.normal]
+# black = "#20232A"
+# blue = "#61afef"
+# cyan = "#56b6c2"
+# green = "#98c379"
+# magenta = "#c678dd"
+# red = "#e86671"
+# white = "#798294"
+# yellow = "#e0af68"
+#
+# [schemes.one-dark.primary]
+# background = "#282c34"
+# foreground = "#abb2bf"
+#
+# [schemes.pop-os.bright]
+# black = "#88807C"
+# blue = "#48B9C7"
+# cyan = "#34E2E2"
+# green = "#73C48F"
+# magenta = "#AD7FA8"
+# red = "#F15D22"
+# white = "#EEEEEC"
+# yellow = "#FFCE51"
+#
+# [schemes.pop-os.normal]
+# black = "#333333"
+# blue = "#3465A4"
+# cyan = "#06989A"
+# green = "#4E9A06"
+# magenta = "#75507B"
+# red = "#CC0000"
+# white = "#D3D7CF"
+# yellow = "#C4A000"
+#
+# [schemes.pop-os.primary]
+# background = "#333333"
+# foreground = "#F2F2F2"
+#
+# [schemes.rp-zsh.bright]
+# black = "#657b83"
+# blue = "#268bd2"
+# cyan = "#5c8cae"
+# green = "#0da135"
+# magenta = "#6c71c4"
+# red = "#dc322f"
+# white = "#fdf6e3"
+# yellow = "#D09E00"
+#
+# [schemes.rp-zsh.normal]
+# black = "#002b36"
+# blue = "#2179b7"
+# cyan = "#496b84"
+# green = "#0DAB15"
+# magenta = "#6064ae"
+# red = "#cc2e2c"
+# white = "#93a1a1"
+# yellow = "#b48800"
+#
+# [schemes.rp-zsh.primary]
+# background = "#001627"
+# foreground = "#888a85"
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+decorations = "none"
+dynamic_padding = true
+opacity = 1.0
+title = "Alacritty"
+dynamic_title = true
+
+[scrolling]
+history = 5000
+multiplier = 1
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 4
+y = 4
