@@ -14,7 +14,10 @@ gaps inner 2
 smart_gaps on
 title_align center
 font pango:JetBrainsMono Nerd Font Mono Bold 0
-for_window [class=".*"] border none
+for_window [class=".*"] border normal 1
+# default_border normal 0
+# default_floating_border normal 0
+
 
 #                    _       __    __
 #  _   ______ ______(_)___ _/ /_  / /__  _____
