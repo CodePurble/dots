@@ -248,3 +248,4 @@ for_window [class="Gtkwave"] floating enable
 # for_window [class="RP Scrabble"] floating enable
 for_window [class="Zathura"] layout tabbed
 for_window [class="zoom"] floating enable
+for_window [title="Steam Settings"] floating enable
