@@ -8,6 +8,7 @@ local keymapset = vim.keymap.set
 keymapset({ "n", "v" }, "<leader>l", "$", opts)
 keymapset({ "n", "v" }, "<leader>h", "^", opts)
 keymapset("n", "<leader><leader>", "<C-^>", opts)
+keymapset("", "<C-\\>", ":Neotree toggle<CR>", opts)
 
 -- The "jk" at the end is to "jiggle" the cursor so that the statusline reappears
 -- after the cmdline output appears
