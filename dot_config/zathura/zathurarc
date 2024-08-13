@@ -7,7 +7,7 @@
 
 set adjust-open "best-fit"
 set selection-clipboard clipboard
-set font "FantasqueSansMono Nerd Font Mono Regular 14"
+set font "JetBrainsMono Nerd Font Mono Regular 9"
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set scroll-page-aware "true"
