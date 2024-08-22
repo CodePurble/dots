@@ -138,10 +138,10 @@ bindsym $mod+space exec rofi -modi drun -show drun -theme ~/.config/rofi-themes/
 bindsym $mod+Shift+space exec rofi -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term -modi window -show
 bindsym $mod+Control+space exec script-picker
 
-bindsym $mod+Tab exec i3-scratchpad -t -d960x900 $term -e ranger
+bindsym $mod+Tab exec "i3-scratchpad -t -p480,135 -mt $term -e ranger"
 
 # spotify-tui window
-bindsym $mod+minus exec "i3-scratchpad -t -p0,-180 -d100%x60% spotify"
+bindsym $mod+minus exec "i3-scratchpad -t -p0,-180 -mt -d100%x60% spotify"
 
 
 bindsym Control+Print exec screenkey
@@ -156,7 +156,7 @@ bindsym $mod+Print exec maimpick-rofi
 bindsym $mod+Menu exec displayselect
 
 # bluetoothctl window
-bindsym $mod+Shift+Menu exec i3-scratchpad -t -d960x900 $term -e bluetoothctl
+bindsym $mod+Shift+Menu exec "i3-scratchpad -t -d50%x60% -p480,135 -mb $term -e bluetoothctl"
 
 bindsym XF86AudioRaiseVolume exec $volumepath -n up $volumestep
 bindsym XF86AudioLowerVolume exec $volumepath -n down $volumestep
@@ -172,8 +172,10 @@ bindsym Control+$alt+space exec --no-startup-id polybar-msg cmd restart
 # show polybar only when the key combination is held down,
 # hide it if released. I have a feeling this command spams
 # polybar with 'show' calls, but has to do for now
-bindsym $mod+grave exec polybar-msg cmd show
-bindsym --release $mod+grave exec polybar-msg cmd hide
+# bindsym $mod+grave exec polybar-msg cmd show
+# bindsym --release $mod+grave exec polybar-msg cmd hide
+
+bindsym $mod+grave exec "i3-scratchpad -t -atl -p0,30 -d1920x432 -mt $term"
 
 bindsym $mod+r mode "resize"
 
@@ -232,6 +234,8 @@ no_focus [title="^Peek preview$"]
 
 assign [class="Brave-browser"] $ws2
 assign [class="Citra"] $ws4
+assign [class="Mandarine"] $ws4
+assign [class="mgba-qt"] $ws4
 assign [class="Pamac-manager"] $ws5
 assign [class="Pcmanfm"] $ws3
 assign [class="VSCodium"] $ws1
