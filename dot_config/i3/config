@@ -64,7 +64,7 @@ exec --no-startup-id powerkit
 exec_always --no-startup-id picom 2> /tmp/picom.log
 exec --no-startup-id /usr/bin/lxpolkit
 exec_always --no-startup-id ~/.config/i3/launch-polybar.sh
-exec_always --no-startup-id betterlockscreen -u $HOME/Pictures/wallpapers
+exec_always --no-startup-id betterlockscreen -u /home/ramprakash/Pictures/wallpapers/art/8bit3.png
 # custom scripts in $PATH
 # exec --no-startup-id launch-optimus-indicator
 exec --no-startup-id optimus-manager-qt
@@ -147,8 +147,8 @@ bindsym $mod+minus exec "i3-scratchpad -t -p0,-180 -mt -d100%x60% spotify"
 bindsym Control+Print exec screenkey
 bindsym Menu exec powermenu
 
-bindsym $mod+BackSpace exec betterlockscreen -l dimblur
-bindsym $mod+Shift+BackSpace exec betterlockscreen -s dimblur
+bindsym $mod+BackSpace exec betterlockscreen -l dim --off 10
+bindsym $mod+Shift+BackSpace exec betterlockscreen -s dim
 
 bindsym Print exec maimscreen
 bindsym $mod+Print exec maimpick-rofi
