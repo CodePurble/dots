@@ -10,7 +10,7 @@
 # Applications
 export EDITOR="nvim"
 export VISUAL="nvim"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BROWSER="brave"
 export TERMINAL="alacritty"
 export READER="zathura"
