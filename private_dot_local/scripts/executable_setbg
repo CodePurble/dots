@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 WALL_DIR="$HOME/Pictures/wallpapers"
 
-function printHelp()
-{
-cat << EOF
+function printHelp() {
+    cat <<EOF
 Usage:
     ${0##*/} [-h] [IMAGE]
     -h    Show this help and exit
@@ -16,25 +15,38 @@ EOF
 
 while getopts ":h" option; do
     case $option in
-        h) printHelp; exit 0;;
-        \?)
-            echo "Invalid option"
-            printHelp
-            exit 1
-            ;;
-    esac
-done
-# Get all possible displays
-screens_count=$(xrandr -q | grep "connected" | wc -l)
-screens_count=$((screens_count-1))
-
-nitrogen_command="nitrogen --set-scaled"
-for head in $(seq 0 $screens_count); do
-    case "$#" in
-        0) $nitrogen_command --random --head=$head "$WALL_DIR";;
-        1) $nitrogen_command --head=$head $1;;
-        *) printHelp; exit 1;;
+    h)
+        printHelp
+        exit 0
+        ;;
+    \?)
+        echo "Invalid option"
+        printHelp
+        exit 1
+        ;;
     esac
 done
 
-echo "Set wallpaper(s)"
+case "$#" in
+0) nitrogen_command="nitrogen --set-auto --random $WALL_DIR" ;;
+1) nitrogen_command="nitrogen --set-auto $1" ;;
+*)
+    printHelp
+    exit 1
+    ;;
+esac
+
+# for line in $(xrandr -q | grep " connected"); do
+xrandr -q | grep " connected" | while read -r line; do
+    name=$(echo $line | cut -d' ' -f1)
+    head_idx=$(xrandr --listmonitors | grep $name | cut -d':' -f1 | grep -Eo "[0-9]")
+
+    orientation=$(echo $line | cut -d' ' -f4)
+    if [[ "$orientation" == "left" || "$orientation" == "right" ]]; then
+        nitrogen --set-zoom-fill --head=$head_idx "$WALL_DIR/art/calvin-and-hobbes-8.jpg"
+    else
+        eval "$nitrogen_command --head=$head_idx"
+    fi
+done
+
+# echo "Set wallpaper(s)"
