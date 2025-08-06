@@ -28,8 +28,8 @@ while getopts ":h" option; do
 done
 
 case "$#" in
-0) nitrogen_command="nitrogen --set-auto --random $WALL_DIR" ;;
-1) nitrogen_command="nitrogen --set-auto $1" ;;
+0) nitrogen_command="nitrogen --set-zoom --random $WALL_DIR" ;;
+1) nitrogen_command="nitrogen --set-zoom $1" ;;
 *)
     printHelp
     exit 1
