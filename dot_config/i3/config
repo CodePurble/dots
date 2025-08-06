@@ -67,7 +67,8 @@ exec_always --no-startup-id ~/.config/i3/launch-polybar.sh
 exec_always --no-startup-id betterlockscreen -u /home/ramprakash/Pictures/wallpapers/art/8bit3.png
 # custom scripts in $PATH
 # exec --no-startup-id launch-optimus-indicator
-exec --no-startup-id optimus-manager-qt
+# exec --no-startup-id optimus-manager-qt
+exec_always --no-startup-id ~/.screenlayout/leftportrait_rightland.sh
 exec_always --no-startup-id setbg
 exec_always --no-startup-id capswap
 # exec --no-startup-id emacs --daemon
@@ -126,8 +127,8 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 
 bindsym $mod+Escape workspace back_and_forth
 
-bindsym $mod+bracketright workspace next
-bindsym $mod+bracketleft  workspace prev
+bindsym $mod+bracketright move workspace to output right
+bindsym $mod+bracketleft  move workspace to output left
 
 # applications (also includes custom scripts in $PATH)
 bindsym $mod+Return exec $term
