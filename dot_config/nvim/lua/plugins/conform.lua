@@ -4,7 +4,7 @@ return {
     formatters_by_ft = {
       c = { "astyle" },
       cpp = { "astyle" },
-      python = { "black" },
+      python = { "ruff_format" },
       rust = { "rustfmt" },
       markdown = { "prettier" },
     },

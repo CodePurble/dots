@@ -7,5 +7,7 @@ return {
   { "ahmedkhalf/project.nvim", enabled = false },
   { "catppuccin/nvim", enabled = false },
   { "folke/which-key.nvim", enabled = false },
+  { "garymjr/nvim-snippets", enabled = false },
+  { "rafamadriz/friendly-snippets", enabled = false },
   -- { "L3MON4D3/LuaSnip", enabled = false },
 }

@@ -1,5 +1,6 @@
 -- Below not required when using LazyVim
 local rp_utils = require("rp_utils")
+local noice = require("noice")
 
 -- local onedark_colours = rp_utils.all_colours.onedark_colours
 -- local nord_colours = rp_utils.all_colours.nord_colours
@@ -13,6 +14,14 @@ local nerdfont_symbols = rp_utils.nerdfont_symbols
 
 local active_sections = {
   lualine_a = {
+    {
+      noice.api.statusline.mode.get,
+      cond = noice.api.statusline.mode.has,
+      separator = {
+        left = "",
+        right = nerdfont_symbols.right_filled,
+      },
+    },
     {
       "branch",
       icon = "",
