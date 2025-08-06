@@ -13,10 +13,10 @@ alias sx="startx"
 alias nsx="sudo /usr/bin/prime-switch && startx"
 alias update="echo 'paru -Syu --sudoloop' && paru -Syu --sudoloop"
 
-alias al="cedit --apply $ZDOTDIR/.aliases"
-alias nv="cedit --apply $HOME/.config/nvim"
+alias al="cedit $ZDOTDIR/.aliases"
+alias nv="cedit $HOME/.config/nvim"
 alias nn="cd $HOME/.config/nvim"
-alias z="cedit --apply $ZDOTDIR/.zshrc"
+alias z="cedit $ZDOTDIR/.zshrc"
 # alias b="$EDITOR $HOME/.config/bspwm/bspwmrc.*"
 alias hl="$EDITOR $HOME/.config/herbstluftwm/autostart"
 
