@@ -68,7 +68,7 @@ exec_always --no-startup-id betterlockscreen -u /home/ramprakash/Pictures/wallpa
 # custom scripts in $PATH
 # exec --no-startup-id launch-optimus-indicator
 # exec --no-startup-id optimus-manager-qt
-exec_always --no-startup-id ~/.screenlayout/leftportrait_rightland.sh
+exec_always --no-startup-id ~/.screenlayout/leftland_rightland.sh
 exec_always --no-startup-id setbg
 exec_always --no-startup-id capswap
 # exec --no-startup-id emacs --daemon
@@ -139,7 +139,7 @@ bindsym $mod+space exec rofi -modi drun -show drun -theme ~/.config/rofi-themes/
 bindsym $mod+Shift+space exec rofi -theme ~/.config/rofi-themes/dt-dmenu.rasi -terminal $term -modi window -show
 bindsym $mod+Control+space exec script-picker
 
-bindsym $mod+Tab exec "i3-scratchpad -t -p480,135 -mt $term -e ranger"
+bindsym $mod+Tab exec "i3-scratchpad -t -p0,30 -mt $term -e ranger"
 
 # spotify-tui window
 bindsym $mod+minus exec "i3-scratchpad -t -p0,-180 -mt -d100%x60% spotify"
